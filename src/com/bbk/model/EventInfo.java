@@ -1,6 +1,7 @@
 package com.bbk.model;
 
 import java.util.Date;
+<<<<<<< HEAD
 /**
  * 
 * @ClassName: EventInfo  
@@ -21,6 +22,20 @@ public TermInfo term;                      //所在学期
 public SubjectInfo subject;                //科目
 public Date examTime;                      //考试时间
 
+=======
+
+public class EventInfo {
+public static final int MODE_SINGLE=1;
+public static final int MODE_EXAM=2;
+public static final int MODE_LONGSUBJECT=3;
+public int Mode;
+public String name;
+public String mark;
+public Date remindTime;
+public TermInfo term;
+public SubjectInfo subject;
+public Date examTime;
+>>>>>>> 53890ecb3c13a9c152b319036411c826a7a31cba
 public String getName() {
 	return name;
 }
