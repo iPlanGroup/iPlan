@@ -1,0 +1,73 @@
+﻿Merge branch 'master' of github.com:iPlanGroup/iPlan
+
+Conflicts:
+	.classpath
+	src/com/bbk/model/EventInfo.java
+	src/com/bbk/model/PlanNotify.java
+	src/com/bbk/model/TermInfo.java
+	src/com/bbk/model/VacationManager.java
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#	modified:   .classpath
+#	new file:   .settings/org.eclipse.jdt.core.prefs
+#	new file:   bin/AndroidManifest.xml
+#	new file:   bin/classes.dex
+#	new file:   bin/classes/com/bbk/model/AbstractCount.class
+#	new file:   bin/classes/com/bbk/model/AbstractDayPlan.class
+#	new file:   bin/classes/com/bbk/model/AbstractFacadePlan.class
+#	new file:   bin/classes/com/bbk/model/AbstractSystemManager.class
+#	new file:   bin/classes/com/bbk/model/AbstractWeekPlan.class
+#	new file:   bin/classes/com/bbk/model/BuildConfig.class
+#	new file:   bin/classes/com/bbk/model/EventInfo.class
+#	new file:   bin/classes/com/bbk/model/EventManager.class
+#	new file:   bin/classes/com/bbk/model/FacadePlan.class
+#	new file:   bin/classes/com/bbk/model/HomeworkInfo.class
+#	new file:   bin/classes/com/bbk/model/HomeworkManager.class
+#	new file:   bin/classes/com/bbk/model/MainActivity.class
+#	new file:   bin/classes/com/bbk/model/PlanNotify.class
+#	new file:   bin/classes/com/bbk/model/R$attr.class
+#	new file:   bin/classes/com/bbk/model/R$dimen.class
+#	new file:   bin/classes/com/bbk/model/R$drawable.class
+#	new file:   bin/classes/com/bbk/model/R$id.class
+#	new file:   bin/classes/com/bbk/model/R$layout.class
+#	new file:   bin/classes/com/bbk/model/R$menu.class
+#	new file:   bin/classes/com/bbk/model/R$string.class
+#	new file:   bin/classes/com/bbk/model/R$style.class
+#	new file:   bin/classes/com/bbk/model/R.class
+#	new file:   bin/classes/com/bbk/model/SubjectInfo.class
+#	new file:   bin/classes/com/bbk/model/SubjectManager.class
+#	new file:   bin/classes/com/bbk/model/SystemManager.class
+#	new file:   bin/classes/com/bbk/model/TermInfo.class
+#	new file:   bin/classes/com/bbk/model/VacationManager.class
+#	new file:   bin/dexedLibs/android-support-v4-9d53c81c0a831a847fc48281e693ca5a.jar
+#	new file:   bin/dexedLibs/annotations-9009f755869825ca7138e60a290be836.jar
+#	new file:   bin/iPlan.apk
+#	new file:   bin/jarlist.cache
+#	new file:   bin/res/drawable-hdpi/ic_launcher.png
+#	new file:   bin/res/drawable-mdpi/ic_launcher.png
+#	new file:   bin/res/drawable-xhdpi/ic_launcher.png
+#	new file:   bin/res/drawable-xxhdpi/ic_launcher.png
+#	new file:   bin/resources.ap_
+#	modified:   src/com/bbk/model/EventInfo.java
+#	modified:   src/com/bbk/model/PlanNotify.java
+#	modified:   src/com/bbk/model/TermInfo.java
+#	modified:   src/com/bbk/model/VacationManager.java
+#
+

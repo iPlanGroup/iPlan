@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class TermInfo {
+	private List<SubjectInfo> subjectInfos;  //学科基本信息
 	private List<SubjectInfo> subjectInfos;
 	private Date StartTime;
 	private Date EndTime;
