@@ -1,8 +1,8 @@
-package cn.eebbk.calendar;
+package com.bbk.UI;
 
 import java.util.HashMap;
 
-import com.example.calader.R;
+import com.bbk.model.SystemManager;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
@@ -23,7 +24,7 @@ import android.widget.GridView;
 
 public class MainActivity extends ActivityGroup {
 	private SystemManager manager;
-	private LinearLayout container = null;
+	private RelativeLayout container = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,8 @@ public class MainActivity extends ActivityGroup {
 		getSystemService(WINDOW_SERVICE);
 		manager = SystemManager.getInstance();
 		manager.getSystemManager(SystemManager.MODE_EVENT);
-		
-		container = (LinearLayout) findViewById(R.id.dayplanLayout);
+
+		container = (RelativeLayout) findViewById(R.id.dayplanLayout);
 		Button dayplanButton = (Button) findViewById(R.id.dayplanbtn);
 		Button weekplanButton = (Button) findViewById(R.id.weekplanbtn);
 

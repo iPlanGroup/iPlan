@@ -4,35 +4,25 @@ import java.util.Date;
 /**
  * 
 * @ClassName: EventInfo  
-* @Description: TODO(事件基本信息)  
+* @Description: TODO(浜嬩欢鍩烘湰淇℃伅)  
 * @author Lee
-* @date 2013-8-26 下午8:17:19  
+* @date 2013-8-26 涓嬪崍8:17:19  
 *
  */
 public class EventInfo {
-public static final int MODE_SINGLE=1;     //事件类型:单次课
-public static final int MODE_EXAM=2;       //事件类型:考试
-public static final int MODE_LONGSUBJECT=3;//事件类型:长期课
-public int Mode;                           //事件类型
-public String name;                        //事件名称
-public String mark;                        //备注
-public Date remindTime;                    //提醒时间
-public TermInfo term;                      //所在学期
-public SubjectInfo subject;                //科目
-public Date examTime;                      //考试时间
+public static final int MODE_SINGLE=1;     //浜嬩欢绫诲瀷:鍗曟璇�
+public static final int MODE_EXAM=2;       //浜嬩欢绫诲瀷:鑰冭瘯
+public static final int MODE_LONGSUBJECT=3;//浜嬩欢绫诲瀷:闀挎湡璇�
+public int Mode;                           //浜嬩欢绫诲瀷
+public String name;                        //浜嬩欢鍚嶇О
+public String mark;                        //澶囨敞
+public Date remindTime;                    //鎻愰啋鏃堕棿
+public TermInfo term;                      //鎵�湪瀛︽湡
+public SubjectInfo subject;                //绉戠洰
+public Date examTime;                      //鑰冭瘯鏃堕棿
 
 
-public class EventInfo {
-public static final int MODE_SINGLE=1;
-public static final int MODE_EXAM=2;
-public static final int MODE_LONGSUBJECT=3;
-public int Mode;
-public String name;
-public String mark;
-public Date remindTime;
-public TermInfo term;
-public SubjectInfo subject;
-public Date examTime;
+
 public String getName() {
 	return name;
 }

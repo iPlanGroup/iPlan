@@ -1,6 +1,5 @@
-package cn.eebbk.calendar;
+package com.bbk.UI ;
 
-import com.example.calader.R;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -29,7 +28,7 @@ public class WeekPlanActivity extends Activity {
 
 	}
 
-	// µ±AdapterView±»µ¥»÷(´¥ÃþÆÁ»òÕß¼üÅÌ)£¬Ôò·µ»ØµÄItemµ¥»÷ÊÂ¼þ
+	// ï¿½ï¿½AdapterViewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ò·µ»Øµï¿½Itemï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 	class ItemClickListener implements OnItemClickListener {
 		public void onItemClick(AdapterView<?> arg0, View view, int id,
 				long arg3) {
@@ -38,7 +37,7 @@ public class WeekPlanActivity extends Activity {
 
 	}
 
-	// ½ûÖ¹gridview¹ö¶¯
+	// ï¿½ï¿½Ö¹gridviewï¿½ï¿½ï¿½ï¿½
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub

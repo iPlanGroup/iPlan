@@ -1,6 +1,5 @@
-package cn.eebbk.calendar;
+package com.bbk.UI;
 
-import com.example.calader.R;
 
 import android.app.Activity;
 import android.os.Bundle;

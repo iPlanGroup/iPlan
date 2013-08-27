@@ -1,4 +1,4 @@
-package cn.eebbk.calendar;
+package com.bbk.UI;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -21,13 +21,13 @@ public class TitleView extends TextView {
 	}
 
 	protected void onDraw(Canvas canvas) {
-		// ´´½¨»­±Ê
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Paint paint = new Paint();
-		// ÉèÖÃÑÕÉ«
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 		paint.setColor(0xffDCDCDC);
-		// ÉèÖÃ´ÖÏ¸
+		// ï¿½ï¿½ï¿½Ã´ï¿½Ï¸
 		paint.setStrokeWidth(3f);
-		// ÉèÖÃ¾â³İ
+		// ï¿½ï¿½ï¿½Ã¾ï¿½ï¿½
 		paint.setAntiAlias(false);
 
 		int viewWidth = this.getWidth();
