@@ -34,10 +34,6 @@ public class GridViewAdapter extends BaseAdapter {
 		return position;
 	}
 
-<<<<<<< HEAD
-=======
-	@SuppressLint("ResourceAsColor")
->>>>>>> 4221d81fcc69414f94e65a289ef334b10f921941
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		TitleView result = new TitleView(context);
@@ -50,10 +46,7 @@ public class GridViewAdapter extends BaseAdapter {
 				new LayoutParams(LayoutParams.FILL_PARENT,
 						LayoutParams.WRAP_CONTENT)));
 		result.setGravity(Gravity.CENTER);
-<<<<<<< HEAD
-=======
-		result.setBackgroundColor(R.color.white);
->>>>>>> 4221d81fcc69414f94e65a289ef334b10f921941
+//		result.setBackgroundColor(R.color.white);
 		
 		return result;
 	
