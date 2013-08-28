@@ -1,7 +1,6 @@
 package com.bbk.UI;
 
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.Gravity;
@@ -10,8 +9,6 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 public class GridViewAdapter extends BaseAdapter {
 	private Context context;
