@@ -11,10 +11,10 @@ public class HomeworkManager {
 	{
 		return null;
 	}
-	public HomeworkInfo CreateNewHomework(SubjectInfo Info,
+	public HomeworkInfo CreateHomework(String name,
 			Date StartTime, Date EndTime, int Level, String Mark) {
 		HomeworkInfo homeworkInfo=new HomeworkInfo();
-		homeworkInfo.setSubject(Info);
+		homeworkInfo.setSubjectName(name);
 		homeworkInfo.setStartTime(StartTime);
 		homeworkInfo.setEndTime(EndTime);
 		homeworkInfo.setLevel(Level);

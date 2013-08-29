@@ -5,6 +5,11 @@ import java.util.List;
 
 
 public class VacationManager {
+	
+	public List<TermInfo> getAllVacation()
+	{
+		return null;
+	}
 	/**
 	 * 
 	* @Title: CreateNewVacation  
@@ -16,11 +21,7 @@ public class VacationManager {
 	* @return TermInfo    返回类型  
 	* @throws
 	 */
-	public List<TermInfo> getAllVacation()
-	{
-		return null;
-	}
-	public TermInfo CreateNewVacation(Date StartTime,Date EndTime,boolean isVacation){
+	public TermInfo CreateVacation(Date StartTime,Date EndTime,boolean isVacation){
 	TermInfo info=new TermInfo();
 	info.setStartTime(StartTime);
 	info.setEndTime(EndTime);

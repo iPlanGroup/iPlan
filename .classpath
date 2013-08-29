@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< HEAD
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+=======
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+>>>>>>> 4f2d80dab2ae65412d7012fd6baa92291eac9e2a
+>>>>>>> ec102675260c781a54de887ba14c2e45ab230e3a
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
