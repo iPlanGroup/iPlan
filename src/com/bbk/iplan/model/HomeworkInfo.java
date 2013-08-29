@@ -1,7 +1,6 @@
 package com.bbk.iplan.model;
 
 import java.util.Date;
-
 public class HomeworkInfo {
 	private int ID;
 	private String subjectName;
