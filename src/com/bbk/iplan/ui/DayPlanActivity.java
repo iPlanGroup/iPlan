@@ -1,5 +1,7 @@
-package com.bbk.UI;
+package com.bbk.iplan.ui;
 
+
+import com.bbk.UI.R;
 
 import android.app.Activity;
 import android.os.Bundle;
