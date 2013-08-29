@@ -21,8 +21,8 @@ public class EventInfo {
 	private Date remindTime; // 鎻愰啋鏃堕棿
 	private TermInfo term; // 鎵�湪瀛︽湡
 	private SubjectInfo subject; // 绉戠洰
-	private Date StatrTime;
-	private Date EndTime;
+	private Long StatrTime;
+	private Long EndTime;
 
 	public String getName() {
 		return name;
@@ -72,20 +72,20 @@ public class EventInfo {
 		this.subject = subject;
 	}
 
-	public Date getStatrTime() {
+	public Long getStatrTime() {
 		return StatrTime;
 	}
 
 	public void setStatrTime(Date statrTime) {
-		StatrTime = statrTime;
+		StatrTime = statrTime.getTime();
 	}
 
-	public Date getEndTime() {
+	public Long getEndTime() {
 		return EndTime;
 	}
 
 	public void setEndTime(Date endTime) {
-		EndTime = endTime;
+		EndTime = endTime.getTime();
 	}
 
 	public int getID() {

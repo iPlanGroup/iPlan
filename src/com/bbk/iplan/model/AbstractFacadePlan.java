@@ -5,9 +5,8 @@ public abstract class  AbstractFacadePlan {
 	private WeekPlan mWeekPlan;
 	public abstract DayPlan getCurDayPlan();
 	public abstract WeekPlan getCurWeekPlan();
-	public abstract void CreateNewHomework();
-	public abstract void CreateNewEvent();
-	public abstract void CreateNewSubject();
-	public abstract void ModifyHomework();
+	public abstract void CreateDayPlan(int mode);
+	public abstract void ModifyDayPlan(int mode);
+	public abstract void DeleteDayPlan(int mode);
 	
 }

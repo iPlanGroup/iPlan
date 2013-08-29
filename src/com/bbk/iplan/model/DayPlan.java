@@ -30,8 +30,8 @@ public class DayPlan {
 		return mListSubjectInfos = mSubjectManager.getLocalSubject(LocalTime);
 	}
 
-	public HomeworkInfo CreateNewHomework(String name, Date EndTime,
-			int Level, String Mark) {
+	public HomeworkInfo CreateNewHomework(String name, Date EndTime, int Level,
+			String Mark) {
 		HomeworkInfo info = mHomeworkManager.CreateHomework(name, LocalTime,
 				EndTime, Level, Mark);
 		mListHomeworkInfos.add(info);
@@ -46,14 +46,18 @@ public class DayPlan {
 		return info;
 	}
 
-	public EventInfo CreateExam(int Mode,String name,Date remindTime,String mark,Date StartTime,Date EndTime)
-	{
-		EventInfo info= mEventManager.CreateExam(Mode, name, remindTime, mark, StartTime, EndTime);
+	public EventInfo CreateExam(int Mode, String name, Date remindTime,
+			String mark, Date StartTime, Date EndTime) {
+		EventInfo info = mEventManager.CreateExam(Mode, name, remindTime, mark,
+				StartTime, EndTime);
 		return info;
 	}
-	public EventInfo CreateSingleSubject(){
-		return null;
+
+	public EventInfo CreateSingleSubject(String name,Date remindTime,String mark,TermInfo term,SubjectInfo subject){
+		EventInfo info =mEventManager.CreateSingleSubject(EventInfo.MODE_SINGLE, name, remindTime, mark, term, subject);
+		return info;
 	}
+
 	public Date getLocalTime() {
 		return LocalTime;
 	}
