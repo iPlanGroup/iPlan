@@ -1,14 +1,16 @@
 package com.bbk.iplan.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.bbk.iplan.app.IPlanApplication;
 import com.bbk.iplan.dao.IPlanDataBaseHelper.TableCreateInterface;
 
 
 /**
- * 
- * @author �ƺ��
- * 
  * <pre>
  * create table homework_subject
  * (
@@ -29,6 +31,30 @@ public class HomeWorkSubjectTable implements TableCreateInterface{
 	private static final String HOMEWORK_ID = "homework_id";
 	private static final String SUBJECT_ID = "subject_id";
 	
+	
+	public static List<Integer> readHomeworkId(int homeworkSubjectId)
+	{
+		
+		List<Integer> temp = new ArrayList<Integer>();
+		
+		SQLiteDatabase db = IPlanApplication.getDataBaseHelper().getReadableDatabase();
+		
+		Cursor cursor = db.query(TABLE_NAME, 
+				new String[]{HomeWorkSubjectTable.HOMEWORK_ID}, null, null, null, null, null);
+		
+		while (cursor.moveToNext())
+		{
+			temp.add(cursor.getInt(cursor.getColumnIndexOrThrow(HomeWorkSubjectTable.HOMEWORK_ID)));
+		}
+		
+		if(cursor != null)
+		{
+			cursor.close();
+			db.close();
+		}
+		
+		return temp;
+	}
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {
