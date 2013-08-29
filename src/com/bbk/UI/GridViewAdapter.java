@@ -34,7 +34,6 @@ public class GridViewAdapter extends BaseAdapter {
 		return position;
 	}
 
-	@SuppressLint("ResourceAsColor")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		TitleView result = new TitleView(context);
@@ -47,7 +46,7 @@ public class GridViewAdapter extends BaseAdapter {
 				new LayoutParams(LayoutParams.FILL_PARENT,
 						LayoutParams.WRAP_CONTENT)));
 		result.setGravity(Gravity.CENTER);
-		result.setBackgroundColor(R.color.white);
+//		result.setBackgroundColor(R.color.white);
 		
 		return result;
 	

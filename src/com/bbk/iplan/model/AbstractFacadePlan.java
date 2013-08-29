@@ -1,4 +1,4 @@
-package com.bbk.ipan.model;
+package com.bbk.iplan.model;
 
 public abstract class  AbstractFacadePlan {
 	private DayPlan mDayPlan;
