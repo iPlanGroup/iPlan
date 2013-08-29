@@ -1,4 +1,4 @@
-package com.bbk.ipan.model;
+package com.bbk.iplan.model;
 
 import java.util.Date;
 import java.util.List;

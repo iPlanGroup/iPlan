@@ -1,4 +1,4 @@
-package com.bbk.ipan.model;
+package com.bbk.iplan.model;
 
 public class SystemManager extends AbstractSystemManager {
 	private EventManager mEventManager=new EventManager();

@@ -2,7 +2,7 @@ package com.bbk.UI;
 
 import java.util.HashMap;
 
-import com.bbk.ipan.model.SystemManager;
+import com.bbk.iplan.model.SystemManager;
 
 import android.os.Bundle;
 import android.app.Activity;
