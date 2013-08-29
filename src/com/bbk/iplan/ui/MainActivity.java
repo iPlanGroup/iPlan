@@ -1,7 +1,8 @@
-package com.bbk.UI;
+package com.bbk.iplan.ui;
 
 import java.util.HashMap;
 
+import com.bbk.UI.R;
 import com.bbk.iplan.model.SystemManager;
 
 import android.os.Bundle;
