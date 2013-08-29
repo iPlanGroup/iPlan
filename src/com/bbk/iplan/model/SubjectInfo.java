@@ -3,9 +3,11 @@ package com.bbk.iplan.model;
 import java.util.Date;
 
 public class SubjectInfo {
+	private int ID;
+
 	private String name;
-	private Date time;
-	private Date NotifyTime;
+	private Long time;
+	private Long NotifyTime;
 	private String place;
 	private String teacher;
 	private String mark;
@@ -15,17 +17,17 @@ public class SubjectInfo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getTime() {
+	public Long getTime() {
 		return time;
 	}
 	public void setTime(Date time) {
-		this.time = time;
+		this.time = time.getTime();
 	}
-	public Date getNotifyTime() {
+	public Long getNotifyTime() {
 		return NotifyTime;
 	}
 	public void setNotifyTime(Date notifyTime) {
-		NotifyTime = notifyTime;
+		NotifyTime = notifyTime.getTime();
 	}
 	public String getPlace() {
 		return place;
@@ -44,6 +46,12 @@ public class SubjectInfo {
 	}
 	public void setMark(String mark) {
 		this.mark = mark;
+	}
+	public int getID() {
+		return ID;
+	}
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
 }
