@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/add_event_bg" 
+    >
+    <Button 
+        android:id="@+id/new_class_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="新课"
+        android:gravity="center"
+        android:textSize="@dimen/textSize"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/add_event_btn"
+        />
+    
+   <Button 
+        android:id="@+id/new_exam_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="考试"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/new_class_btn"
+        android:background="@drawable/add_event_btn"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/textSize"
+        />
+        
+    <Button 
+        android:id="@+id/new_holiday_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="假期"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/new_exam_btn"
+        android:background="@drawable/add_event_btn"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/textSize"
+        />
+
+</RelativeLayout>

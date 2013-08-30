@@ -8,22 +8,25 @@
 package com.bbk.UI;
 
 public final class R {
+    public static final class array {
+        public static final int subject=0x7f040000;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int black=0x7f04000b;
-        public static final int calendar_active_month_bg=0x7f040000;
-        public static final int calendar_bg=0x7f040001;
-        public static final int calendar_divider=0x7f040002;
-        public static final int calendar_inactive_month_bg=0x7f040003;
-        public static final int calendar_selected_day_bg=0x7f040004;
-        public static final int calendar_selected_range_bg=0x7f040005;
-        public static final int calendar_text_active=0x7f040007;
-        public static final int calendar_text_inactive=0x7f040006;
-        public static final int calendar_text_selected=0x7f040008;
-        public static final int calendar_text_unselectable=0x7f040009;
-        public static final int cray=0x7f04000c;
-        public static final int white=0x7f04000a;
+        public static final int black=0x7f05000b;
+        public static final int calendar_active_month_bg=0x7f050000;
+        public static final int calendar_bg=0x7f050001;
+        public static final int calendar_divider=0x7f050002;
+        public static final int calendar_inactive_month_bg=0x7f050003;
+        public static final int calendar_selected_day_bg=0x7f050004;
+        public static final int calendar_selected_range_bg=0x7f050005;
+        public static final int calendar_text_active=0x7f050007;
+        public static final int calendar_text_inactive=0x7f050006;
+        public static final int calendar_text_selected=0x7f050008;
+        public static final int calendar_text_unselectable=0x7f050009;
+        public static final int cray=0x7f05000c;
+        public static final int white=0x7f05000a;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -32,62 +35,115 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
+        public static final int textSize=0x7f060002;
     }
     public static final class drawable {
         public static final int add=0x7f020000;
-        public static final int book_background=0x7f020001;
-        public static final int come_back_today=0x7f020002;
-        public static final int day_plan=0x7f020003;
-        public static final int edit=0x7f020004;
-        public static final int ic_launcher=0x7f020005;
-        public static final int radius=0x7f020006;
-        public static final int setting=0x7f020007;
-        public static final int summary=0x7f020008;
-        public static final int title_bar=0x7f020009;
-        public static final int week_plan=0x7f02000a;
-        public static final int weekadd=0x7f02000b;
+        public static final int add_event_bg=0x7f020001;
+        public static final int add_event_btn=0x7f020002;
+        public static final int book_background=0x7f020003;
+        public static final int btn_browser=0x7f020004;
+        public static final int btn_browser2=0x7f020005;
+        public static final int come_back_today=0x7f020006;
+        public static final int day_plan=0x7f020007;
+        public static final int divider=0x7f020008;
+        public static final int edit=0x7f020009;
+        public static final int homework_bg=0x7f02000a;
+        public static final int homework_cancel_btn=0x7f02000b;
+        public static final int homework_ok_btn=0x7f02000c;
+        public static final int homework_subject_add_btn=0x7f02000d;
+        public static final int homework_subject_pull_btn=0x7f02000e;
+        public static final int ic_launcher=0x7f02000f;
+        public static final int line=0x7f020010;
+        public static final int radius=0x7f020011;
+        public static final int setting=0x7f020012;
+        public static final int summary=0x7f020013;
+        public static final int summary_bg=0x7f020014;
+        public static final int summary_cancel_btn=0x7f020015;
+        public static final int summary_finish_btn2=0x7f020016;
+        public static final int title_bar=0x7f020017;
+        public static final int week_plan=0x7f020018;
+        public static final int weekadd=0x7f020019;
     }
     public static final class id {
-        public static final int action_settings=0x7f090016;
-        public static final int arrayaddbtn=0x7f090011;
-        public static final int arrayslistView=0x7f090009;
-        public static final int back2today=0x7f090002;
-        public static final int calendar_ata=0x7f09000d;
-        public static final int calendarbigday=0x7f09000b;
-        public static final int calendarview=0x7f09000e;
-        public static final int calendarweek=0x7f09000c;
-        public static final int day1=0x7f090014;
-        public static final int dayplanLayout=0x7f090006;
-        public static final int dayplanbtn=0x7f090004;
-        public static final int dayplanlayout=0x7f09000f;
-        public static final int hwaddbtn=0x7f090007;
-        public static final int hweditbtn=0x7f090008;
-        public static final int hwlistView=0x7f09000a;
-        public static final int listView1=0x7f090010;
-        public static final int main_GridView=0x7f090015;
-        public static final int mainlinear=0x7f090012;
-        public static final int relativeLayout1=0x7f090000;
-        public static final int setbtn=0x7f090001;
-        public static final int staticbtn=0x7f090003;
-        public static final int textView1=0x7f090013;
-        public static final int weekplanbtn=0x7f090005;
+        public static final int action_settings=0x7f0a0037;
+        public static final int add_hw_btn=0x7f0a0028;
+        public static final int add_plan_btn=0x7f0a0027;
+        public static final int arrayaddbtn=0x7f0a0024;
+        public static final int arrayslistView=0x7f0a001c;
+        public static final int back2today=0x7f0a0015;
+        public static final int calendar_ata=0x7f0a0020;
+        public static final int calendarbigday=0x7f0a001e;
+        public static final int calendarview=0x7f0a0021;
+        public static final int calendarweek=0x7f0a001f;
+        public static final int cancel_btn=0x7f0a0001;
+        public static final int child_name_tv=0x7f0a0033;
+        public static final int child_pull_iv=0x7f0a0034;
+        public static final int date_picker_btn=0x7f0a000b;
+        public static final int day1=0x7f0a002a;
+        public static final int dayplanLayout=0x7f0a0019;
+        public static final int dayplanbtn=0x7f0a0017;
+        public static final int dayplanlayout=0x7f0a0022;
+        public static final int finsh_or_un_sw=0x7f0a0031;
+        public static final int group_name_tv=0x7f0a0035;
+        public static final int group_pull_iv=0x7f0a0036;
+        public static final int homework_deadtime_tv=0x7f0a000a;
+        public static final int homework_descr_tv=0x7f0a0007;
+        public static final int homework_pority_tv=0x7f0a000d;
+        public static final int homework_title_rl=0x7f0a0000;
+        public static final int homework_tv=0x7f0a0002;
+        public static final int hw_desc_et=0x7f0a0008;
+        public static final int hwaddbtn=0x7f0a001a;
+        public static final int hweditbtn=0x7f0a001b;
+        public static final int hwlistView=0x7f0a001d;
+        public static final int line_five=0x7f0a000f;
+        public static final int line_four=0x7f0a0006;
+        public static final int line_one=0x7f0a0009;
+        public static final int line_two=0x7f0a000c;
+        public static final int listView1=0x7f0a0023;
+        public static final int main_GridView=0x7f0a002b;
+        public static final int mainlinear=0x7f0a0025;
+        public static final int new_class_btn=0x7f0a0010;
+        public static final int new_exam_btn=0x7f0a0011;
+        public static final int new_holiday_btn=0x7f0a0012;
+        public static final int ok_btn=0x7f0a0003;
+        public static final int relativeLayout1=0x7f0a0013;
+        public static final int select_homework_pority_tv=0x7f0a000e;
+        public static final int selected_subject_tv=0x7f0a0005;
+        public static final int setbtn=0x7f0a0014;
+        public static final int spinner_subject_tv=0x7f0a0004;
+        public static final int staticbtn=0x7f0a0016;
+        public static final int summary_btn=0x7f0a0026;
+        public static final int summary_cancel_btn=0x7f0a002d;
+        public static final int summary_finish_btn=0x7f0a002f;
+        public static final int summary_list=0x7f0a0032;
+        public static final int summary_switch_rl=0x7f0a0030;
+        public static final int summary_title_name_tv=0x7f0a002e;
+        public static final int summary_title_rl=0x7f0a002c;
+        public static final int textView1=0x7f0a0029;
+        public static final int weekplanbtn=0x7f0a0018;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int plan_dayplan=0x7f030001;
-        public static final int plan_hwdetail=0x7f030002;
-        public static final int plan_main=0x7f030003;
-        public static final int plan_week=0x7f030004;
+        public static final int add_hw_pop=0x7f030001;
+        public static final int add_plan_pop=0x7f030002;
+        public static final int plan_dayplan=0x7f030003;
+        public static final int plan_hwdetail=0x7f030004;
+        public static final int plan_main=0x7f030005;
+        public static final int plan_week=0x7f030006;
+        public static final int summary=0x7f030007;
+        public static final int summary_child_list=0x7f030008;
+        public static final int summary_group_list=0x7f030009;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060002;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int hello_world=0x7f070002;
     }
     public static final class style {
         /** 
@@ -113,12 +169,12 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int calendar=0x7f070003;
-        public static final int weekDays=0x7f070002;
+        public static final int AppTheme=0x7f080001;
+        public static final int calendar=0x7f080003;
+        public static final int weekDays=0x7f080002;
     }
 }
