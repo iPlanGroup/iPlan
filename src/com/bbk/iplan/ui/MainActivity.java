@@ -6,14 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-<<<<<<< HEAD:src/com/bbk/UI/MainActivity.java
-=======
-import com.bbk.UI.R;
-import com.bbk.iplan.model.SystemManager;
-
-import android.os.Bundle;
-import android.app.Activity;
->>>>>>> 285e30d672a62f5d6db898a998e1ea1d73cab6e5:src/com/bbk/iplan/ui/MainActivity.java
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -34,7 +26,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.DatePicker;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
@@ -44,7 +35,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.bbk.ipan.model.SystemManager;
+import com.bbk.UI.R;
+import com.bbk.iplan.model.SystemManager;
 import com.bbk.pop.SummaryExListAdapter;
 
 public class MainActivity extends ActivityGroup implements OnClickListener, ExpandableListView.OnGroupClickListener,
