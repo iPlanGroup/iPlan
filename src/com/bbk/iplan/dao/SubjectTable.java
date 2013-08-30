@@ -1,8 +1,14 @@
 package com.bbk.iplan.dao;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.bbk.iplan.app.IPlanApplication;
 import com.bbk.iplan.dao.IPlanDataBaseHelper.TableCreateInterface;
+import com.bbk.iplan.model.EventInfo;
+import com.bbk.iplan.model.SubjectInfo;
+import com.bbk.iplan.model.TermInfo;
 
 /**
  * 
@@ -36,6 +42,54 @@ public class SubjectTable implements TableCreateInterface{
 	private static final String END_TIME = "end_time";
 	private static final String PLACE = "place";
 	private static final String TEACHER = "teacher";
+	
+	
+	
+	public static void insert(SubjectInfo subjectInfo, EventInfo eventInfo, TermInfo info)
+	{
+		SQLiteDatabase db = IPlanApplication.getDataBaseHelper()
+				.getWritableDatabase();
+		
+		ContentValues values = new ContentValues();
+		
+		values.put(SubjectTable.NAME, subjectInfo.getName());
+		values.put(SubjectTable.EVENT_ID, eventInfo.getID());
+		values.put(SubjectTable.START_TIME, eventInfo.getStatrTime().toString());
+		values.put(SubjectTable.TEACHER, subjectInfo.getTeacher());
+		values.put(SubjectTable.PLACE, subjectInfo.getPlace());
+		values.put(SubjectTable.END_TIME, eventInfo.getEndTime());
+		
+		
+		
+		db.insert(TABLE_NAME, null, values );
+	}
+	
+	public static String readSubjectName(int subjectId)
+	{
+		
+		String name = null;
+		SQLiteDatabase db = IPlanApplication.getDataBaseHelper()
+				.getReadableDatabase();
+
+		Cursor cursor = db.query(TABLE_NAME, new String[]
+		{ SubjectTable.NAME }, null, null, null, null, null);
+		
+		
+		while(cursor.moveToNext())
+		{
+			name = cursor.getString(cursor.getColumnIndexOrThrow(SubjectTable.NAME));
+		}
+		
+		if(cursor != null)
+		{
+			cursor.close();
+			db.close();
+		}
+		
+		return name;
+		
+	}
+	
 	
 	@Override
 	public void onCreate(SQLiteDatabase db) {

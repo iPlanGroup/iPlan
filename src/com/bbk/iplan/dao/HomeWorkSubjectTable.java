@@ -32,6 +32,34 @@ public class HomeWorkSubjectTable implements TableCreateInterface{
 	private static final String SUBJECT_ID = "subject_id";
 	
 	
+	public static int getSubjectId(int homeworkId)
+	{
+		
+		int subjectId = -1;
+		
+		
+		SQLiteDatabase db = IPlanApplication.getDataBaseHelper()
+				.getReadableDatabase();
+
+		Cursor cursor = db.query(TABLE_NAME, new String[]
+		{ HomeWorkSubjectTable.SUBJECT_ID }, null, null, null, null, null);
+		
+		
+		while(cursor.moveToNext())
+		{
+			subjectId = cursor.getInt(cursor.getColumnIndexOrThrow(HomeWorkSubjectTable.SUBJECT_ID));
+		}
+		
+		if(cursor != null)
+		{
+			cursor.close();
+			db.close();
+		}
+		
+		return subjectId;
+		
+	}
+	
 	public static List<Integer> readHomeworkId(int homeworkSubjectId)
 	{
 		

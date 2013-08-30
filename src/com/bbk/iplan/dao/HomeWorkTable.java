@@ -36,12 +36,10 @@ public class HomeWorkTable implements TableCreateInterface
 	private static final String HOMEWORK_ID = "_id"; // homework_id
 	private static final String NAME = "name";
 	private static final String DESCRIPTION = "description";
-	private static final String SUBJECT_ID = "subject_id";
 	private static final String LEVEL = "level";
 	private static final String DEALLINE = "deadline";
 	private static final String PARTNER = "partner";
 	private static final String LOCAL_TIME = "local_time";
-
 	
 	/**
 	 * 
@@ -61,7 +59,6 @@ public class HomeWorkTable implements TableCreateInterface
 		{ HomeWorkTable.HOMEWORK_ID }, null, null, null, null, null);
 
 		HomeworkInfo homeworkInfo = null; 
-		String localTime = null;
 		Date bufferTime = null;
 		while (cursor.moveToNext())
 		{
@@ -90,6 +87,9 @@ public class HomeWorkTable implements TableCreateInterface
 				homeworkInfo.setLevel(cursor.getInt(cursor.getColumnIndexOrThrow(HomeWorkTable.LEVEL)));
 				homeworkInfo.setMark(cursor.getString(cursor.getColumnIndexOrThrow(HomeWorkTable.DESCRIPTION)));
 				homeworkInfo.setStartTime(bufferTime);
+				homeworkInfo.setID(cursor.getInt(cursor.getColumnIndexOrThrow(HomeWorkTable.HOMEWORK_ID)));
+				homeworkInfo.setSubjectName(SubjectTable.readSubjectName(HomeWorkSubjectTable.getSubjectId(homeworkId)));
+				temp.add(homeworkInfo);
 			}
 			
 		}
@@ -100,7 +100,7 @@ public class HomeWorkTable implements TableCreateInterface
 			db.close();
 		}
 
-		return null;
+		return temp;
 	}
 
 	@Override
@@ -111,7 +111,6 @@ public class HomeWorkTable implements TableCreateInterface
 				+ HomeWorkTable.HOMEWORK_ID
 				+ " integer primary key autoincrement, " + HomeWorkTable.NAME
 				+ " varchar(1024) not null, " + HomeWorkTable.DESCRIPTION
-				+ " varchar(1024), " + HomeWorkTable.SUBJECT_ID
 				+ " int not null," + HomeWorkTable.LEVEL + " int not null,"
 				+ HomeWorkTable.DEALLINE + " date not null,"
 				+ HomeWorkTable.PARTNER + " varchar(1024)" + " );";
