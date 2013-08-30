@@ -8,12 +8,20 @@ import java.util.Date;
 public class FacadePlan extends AbstractFacadePlan {
 	private DayPlan mDayPlan;
 	private WeekPlan mWeekPlan;
-	private HomeworkInfo mHomeworkInfo = new HomeworkInfo();
 	public static final int MODE_HOMEWORK = 0;
 	public static final int MODE_EVENT = 1;
 	public static final int MODE_SUBJECT = 2;
 	public SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd");
-
+	private String name;
+	private Date StartTime=new Date();
+	private Date EndTime=new Date();
+	private String place;
+	private String teacher;
+	private int Level;
+	private String mark;
+	private Date remindTime;
+	private TermInfo term;
+	private SubjectInfo subject;
 	public FacadePlan() {
 		// TODO Auto-generated constructor stub
 		String datestr = mFormat.format(Calendar.getInstance().getTime());
@@ -26,21 +34,21 @@ public class FacadePlan extends AbstractFacadePlan {
 		mWeekPlan = new WeekPlan();
 	}
 
-	public void setHomeworkInfo(String name, Date LocalTime, Date EndTime, int Level,
+	public void setHomeworkInfo(String name, Date StartTime, Date EndTime, int Level,
 			String Mark) {
-		mHomeworkInfo.setSubjectName(name);
-		if (mDayPlan.getLocalTime().equals(mFormat.format(LocalTime)))
-			mHomeworkInfo.setStartTime(mDayPlan.getLocalTime());
+		this.name=name;
+		if (mDayPlan.getLocalTime().equals(mFormat.format(StartTime)))
+			StartTime=mDayPlan.getLocalTime();
 		else
 			try {
-				mHomeworkInfo.setStartTime(mFormat.parse(mFormat
-						.format(LocalTime)));
+				StartTime=mFormat.parse(mFormat
+						.format(StartTime));
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		mHomeworkInfo.setLevel(Level);
-		mHomeworkInfo.setMark(Mark);
+		this.Level=Level;
+		mark=Mark;
 	}
 	public void setSubjectInfo()
 	{

@@ -46,9 +46,9 @@ public class DayPlan {
 		return info;
 	}
 
-	public EventInfo CreateExam(int Mode, String name, Date remindTime,
+	public EventInfo CreateExam(String name, Date remindTime,
 			String mark, Date StartTime, Date EndTime) {
-		EventInfo info = mEventManager.CreateExam(Mode, name, remindTime, mark,
+		EventInfo info = mEventManager.CreateExam(EventInfo.MODE_EXAM, name, remindTime, mark,
 				StartTime, EndTime);
 		return info;
 	}

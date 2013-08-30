@@ -3,12 +3,22 @@ package com.bbk.iplan.model;
 import java.util.Date;
 public class HomeworkInfo {
 	private int ID;
+	private String name;
+
+
 	private String subjectName;
 	private Long StartTime;
 	private Long EndTime;
 	private int level;
 	private String mark;
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getSubjectName() {
 		return subjectName;
 	}
