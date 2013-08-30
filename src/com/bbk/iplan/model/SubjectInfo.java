@@ -11,6 +11,8 @@ public class SubjectInfo {
 	private String place;
 	private String teacher;
 	private String mark;
+	
+	
 	public String getName() {
 		return name;
 	}
