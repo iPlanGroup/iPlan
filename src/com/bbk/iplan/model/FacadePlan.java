@@ -10,7 +10,8 @@ public class FacadePlan extends AbstractFacadePlan {
 	private WeekPlan mWeekPlan;
 	public static final int MODE_HOMEWORK = 0;
 	public static final int MODE_EVENT = 1;
-	public static final int MODE_SUBJECT = 2;
+	public static final int MODE_SINGLESUBJECT = 2;
+	public static final int MODE_LONGSUBJECT = 3;
 	public SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd");
 	private String name;
 	private Date StartTime=new Date();
@@ -33,8 +34,20 @@ public class FacadePlan extends AbstractFacadePlan {
 		}
 		mWeekPlan = new WeekPlan();
 	}
-
-	public void setHomeworkInfo(String name, Date StartTime, Date EndTime, int Level,
+	public void setCurTerm(Date startTime,Date endTime){
+		term.setStartTime(startTime);
+		term.setEndTime(endTime);
+		term.setIsTerm(false);
+	}
+	public void setSubject(String name,Date StartTime,Date notifyTime,String teacher,String place,String mark){
+		subject.setName(name);
+		subject.setTime(StartTime);
+		subject.setNotifyTime(notifyTime);
+		subject.setTeacher(teacher);
+		subject.setPlace(place);
+		subject.setMark(mark);
+	}
+	public void setHomeworkInfo(String name, Date StartTime, Date EndTime, int Level,Date remindTime,TermInfo term,SubjectInfo subject,
 			String Mark) {
 		this.name=name;
 		if (mDayPlan.getLocalTime().equals(mFormat.format(StartTime)))
@@ -49,20 +62,25 @@ public class FacadePlan extends AbstractFacadePlan {
 			}
 		this.Level=Level;
 		mark=Mark;
-	}
-	public void setSubjectInfo()
-	{
-		
+		this.remindTime=remindTime;
+		this.term=term;
+		this.subject=subject;
 	}
 	@Override
 	public Object CreateDayPlan(int mode) {
 		Object object = new Object();
 		switch (mode) {
 		case MODE_HOMEWORK:
+			object=mDayPlan.CreateHomework(name, EndTime, mode, mark);
 			break;
 		case MODE_EVENT:
+			object=mDayPlan.CreateExam(name, remindTime, mark, StartTime, EndTime);
 			break;
-		case MODE_SUBJECT:
+		case MODE_SINGLESUBJECT:
+			object=mDayPlan.CreateLongSubject(name, StartTime, remindTime, place, teacher, mark);
+			break;
+		case MODE_LONGSUBJECT:
+			object=mDayPlan.CreateSingleSubject(name, remindTime, mark, term, subject);
 			break;
 		}
 		return object;
