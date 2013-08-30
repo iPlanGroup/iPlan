@@ -88,15 +88,21 @@ public class FacadePlan extends AbstractFacadePlan {
 	}
 
 	@Override
-	public DayPlan getCurDayPlan() {
+	public DayPlan getCurDayPlan(Date time) {
 		// TODO Auto-generated method stub
-		return null;
+		mDayPlan.setLocalTime(time);
+		mDayPlan.setListHomeworkInfos(mDayPlan.getDayHomework());
+		mDayPlan.setListSubjectInfos(mDayPlan.getDaySubject());
+		return mDayPlan;
 	}
 
 	@Override
-	public WeekPlan getCurWeekPlan() {
+	public WeekPlan getCurWeekPlan(Date time) {
 		// TODO Auto-generated method stub
-		return null;
+		mWeekPlan=new WeekPlan();
+		mWeekPlan.setListHomework(mWeekPlan.getWeekPlanHomework(time));
+		mWeekPlan.setListSubject(mWeekPlan.getWeekPlanSubject(time));
+		return mWeekPlan;
 	}
 
 	@Override

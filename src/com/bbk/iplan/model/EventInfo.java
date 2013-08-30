@@ -15,14 +15,14 @@ public class EventInfo {
 	public static final int MODE_EXAM = 2; // 课程类型:考试
 	public static final int MODE_LONGSUBJECT = 3;// 课程类型:长期课
 	private int ID;
-	private int Mode; // 浜嬩欢绫诲瀷
-	private String name; // 浜嬩欢鍚嶇О
-	private String mark; // 澶囨敞
-	private Date remindTime; // 鎻愰啋鏃堕棿
-	private TermInfo term; // 鎵�湪瀛︽湡
-	private SubjectInfo subject; // 绉戠洰
-	private Long StatrTime;
-	private Long EndTime;
+	private int Mode; // 学科类型
+	private String name; // 事件名称
+	private String mark; // 备注
+	private Long remindTime; // 提醒时间
+	private TermInfo term; // 所在学期
+	private SubjectInfo subject; // 课程信息
+	private Long StartTime;  //事件开始时间
+	private Long EndTime;    //事件结束时间
 
 	public String getName() {
 		return name;
@@ -48,12 +48,12 @@ public class EventInfo {
 		this.mark = mark;
 	}
 
-	public Date getRemindTime() {
+	public Long getRemindTime() {
 		return remindTime;
 	}
 
 	public void setRemindTime(Date remindTime) {
-		this.remindTime = remindTime;
+		this.remindTime = remindTime.getTime();
 	}
 
 	public TermInfo getTerm() {
@@ -72,12 +72,12 @@ public class EventInfo {
 		this.subject = subject;
 	}
 
-	public Long getStatrTime() {
-		return StatrTime;
+	public Long getStartTime() {
+		return StartTime;
 	}
 
-	public void setStatrTime(Date statrTime) {
-		StatrTime = statrTime.getTime();
+	public void setStartTime(Date statrTime) {
+		StartTime = statrTime.getTime();
 	}
 
 	public Long getEndTime() {

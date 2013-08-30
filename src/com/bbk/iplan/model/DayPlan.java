@@ -2,6 +2,7 @@ package com.bbk.iplan.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class DayPlan {
 	private Date LocalTime;
@@ -10,6 +11,22 @@ public class DayPlan {
 	private EventManager mEventManager;
 	private List<HomeworkInfo> mListHomeworkInfos;
 	private List<SubjectInfo> mListSubjectInfos;
+
+	public List<HomeworkInfo> getListHomeworkInfos() {
+		return mListHomeworkInfos;
+	}
+
+	public void setListHomeworkInfos(List<HomeworkInfo> mListHomeworkInfos) {
+		this.mListHomeworkInfos = mListHomeworkInfos;
+	}
+
+	public List<SubjectInfo> getListSubjectInfos() {
+		return mListSubjectInfos;
+	}
+
+	public void setListSubjectInfos(List<SubjectInfo> mListSubjectInfos) {
+		this.mListSubjectInfos = mListSubjectInfos;
+	}
 
 	public DayPlan(Date time) {
 		LocalTime = time;
@@ -64,5 +81,8 @@ public class DayPlan {
 
 	public void setLocalTime(Date localTime) {
 		LocalTime = localTime;
+	}
+	public void ModifyHomeworkInfo(Map<String,String> Info){
+		String name=Info.get("name");
 	}
 }
