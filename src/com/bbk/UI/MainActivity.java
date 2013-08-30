@@ -342,6 +342,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener, Expa
 
 		public void onNothingSelected(AdapterView<?> arg0) 
 		{
+			System.out.println("git%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
 		}
 	}
 
