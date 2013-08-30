@@ -30,7 +30,7 @@ public class DayPlan {
 		return mListSubjectInfos = mSubjectManager.getLocalSubject(LocalTime);
 	}
 
-	public HomeworkInfo CreateNewHomework(String name, Date EndTime, int Level,
+	public HomeworkInfo CreateHomework(String name, Date EndTime, int Level,
 			String Mark) {
 		HomeworkInfo info = mHomeworkManager.CreateHomework(name, LocalTime,
 				EndTime, Level, Mark);
@@ -38,10 +38,10 @@ public class DayPlan {
 		return info;
 	}
 
-	public SubjectInfo CreateNewSubject(String name, Date time,
-			Date notifytime, String place, String teacher, String mark) {
+	public SubjectInfo CreateLongSubject(String name, Date time,
+			Date remindTime, String place, String teacher, String mark) {
 		SubjectInfo info = mSubjectManager.CreateLongSubject(name, time,
-				notifytime, place, teacher, mark);
+				remindTime, place, teacher, mark);
 		mListSubjectInfos.add(info);
 		return info;
 	}

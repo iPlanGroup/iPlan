@@ -11,9 +11,9 @@ import java.util.Date;
  * 
  */
 public class EventInfo {
-	public static final int MODE_SINGLE = 1; // 浜嬩欢绫诲瀷:鍗曟璇�
-	public static final int MODE_EXAM = 2; // 浜嬩欢绫诲瀷:鑰冭瘯
-	public static final int MODE_LONGSUBJECT = 3;// 浜嬩欢绫诲瀷:闀挎湡璇�
+	public static final int MODE_SINGLE = 1; // 课程类型:单次科
+	public static final int MODE_EXAM = 2; // 课程类型:考试
+	public static final int MODE_LONGSUBJECT = 3;// 课程类型:长期课
 	private int ID;
 	private int Mode; // 浜嬩欢绫诲瀷
 	private String name; // 浜嬩欢鍚嶇О
