@@ -24,5 +24,8 @@
     <style name="calendar" parent="@android:style/Widget.Holo.CalendarView">
         <item name="android:weekDayTextAppearance">@style/weekDays</item>
     </style>
-
+    
+    <style name="AppTheme" parent="android:Theme.Light">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 </resources>

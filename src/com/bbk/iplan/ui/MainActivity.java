@@ -31,16 +31,20 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bbk.UI.R;
+import com.bbk.flipview.library.flipcontrol.FlipViewController;
+import com.bbk.flipview.library.fliputils.TravelAdapter;
 import com.bbk.iplan.model.SystemManager;
 import com.bbk.pop.SummaryExListAdapter;
 
 public class MainActivity extends ActivityGroup implements OnClickListener, ExpandableListView.OnGroupClickListener,
-                                  ExpandableListView.OnChildClickListener{
+    ExpandableListView.OnChildClickListener{
 	private SystemManager manager;
 	private RelativeLayout container = null;
 	
@@ -72,6 +76,11 @@ public class MainActivity extends ActivityGroup implements OnClickListener, Expa
     private TextView popSubjectBtn = null;
     private TextView popPorityBtn = null;
     
+	private FlipViewController flipView;
+	
+	public List<HashMap<String, Object>> bookDataList = null;
+	public SimpleAdapter bookDataAdapter = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -86,13 +95,29 @@ public class MainActivity extends ActivityGroup implements OnClickListener, Expa
 		container = (RelativeLayout) findViewById(R.id.dayplanLayout);
 		Button dayplanButton = (Button) findViewById(R.id.dayplanbtn);
 		Button weekplanButton = (Button) findViewById(R.id.weekplanbtn);
+
+        bookDataList = getBookDataList();
+		bookDataAdapter = getBookDataAdapter(bookDataList);
+
 		
-		addPlanBtn = (ImageView)findViewById(R.id.add_plan_btn);
-		addHWBtn = (ImageView)findViewById(R.id.add_hw_btn);
+	    flipView = (FlipViewController)findViewById(R.id.flip_view);
+//	    flipView.setAdapter(new TravelAdapter(this));
+	    flipView.setAdapter(new TravelAdapter(this, bookDataAdapter));
+	    flipView.setOnViewFlipListener(new FlipViewController.ViewFlipListener() 
+	    {
+	        @Override
+	        public void onViewFlipped(View view, int position) 
+	        {
+	            Toast.makeText(view.getContext(), "当前页码: " + position, Toast.LENGTH_SHORT).show();
+	        }
+	      });
+	    
+//		addPlanBtn = (ImageView)findViewById(R.id.add_plan_btn);
+//		addHWBtn = (ImageView)findViewById(R.id.add_hw_btn);
 		summaryBtn = (Button)findViewById(R.id.summary_btn);
 		
-		addPlanBtn.setOnClickListener(this);
-		addHWBtn.setOnClickListener(this);
+//		addPlanBtn.setOnClickListener(this);
+//		addHWBtn.setOnClickListener(this);
 		summaryBtn.setOnClickListener(this);
 		
 		dayplanButton.setOnClickListener(new View.OnClickListener() {
@@ -120,30 +145,44 @@ public class MainActivity extends ActivityGroup implements OnClickListener, Expa
 		});
 
 	}
-
+	
 	@Override
 	public void onClick(View v)
 	{
         switch(v.getId())
         {
-           case R.id.add_plan_btn:
-           {
-        	   showAddPlanPop();
-        	   break;
-           }
-           
-           case R.id.add_hw_btn:
-           {
-        	   showAddHWPop();
-        	   break;
-           }
-           
            case R.id.summary_btn:
            {
         	   showSummaryPop();
         	   break;
            }
         }
+	}
+	
+	public SimpleAdapter getBookDataAdapter(List<HashMap<String, Object>> dataList)
+	{
+        SimpleAdapter listItemAdapter = new SimpleAdapter(this,dataList,
+            R.layout.list_item,
+            new String[] {"ItemImage","ItemTitle", "ItemText"}, 
+            new int[] {R.id.ItemImage,R.id.ItemTitle,R.id.ItemText}
+        );
+        
+        return listItemAdapter;
+	}
+	
+	public ArrayList<HashMap<String, Object>> getBookDataList()
+	{
+        ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
+        for(int i=0;i<10;i++)
+        {
+        	HashMap<String, Object> map = new HashMap<String, Object>();
+        	map.put("ItemImage", R.drawable.ic_launcher);//图像资源的ID
+        	map.put("ItemTitle", "Level "+i);
+        	map.put("ItemText", "Finished in 1 Min 54 Secs, 70 Moves! ");
+        	listItem.add(map);
+        }
+        
+        return listItem;
 	}
 	
 	public void showAddPlanPop()

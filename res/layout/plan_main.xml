@@ -77,126 +77,13 @@
         android:background="#34353A"
         android:orientation="horizontal" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:background="@drawable/book_background"
-            android:orientation="horizontal"
-            android:visibility="visible" >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/radius"
-                android:orientation="vertical" >
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical" >
-
-                    <ImageView
-                        android:id="@+id/add_plan_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/add" />
-
-                    <TextView
-                        android:id="@+id/hweditbtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="320dp"
-                        android:text="安排"
-                        android:textColor="#000000"
-                        android:textSize="25dp" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#dcdcdc" />
-
-                <ListView
-                    android:id="@+id/arrayslistView"
-                    android:layout_width="340dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp" >
-                </ListView>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="1dp"
-                android:layout_height="400dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/radius"
-                android:orientation="vertical"
-                android:visibility="visible" >
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center" >
-
-                    <TextView
-                        android:id="@+id/hweditbtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:clickable="true"
-                        android:gravity="center"
-                        android:text="编辑"
-                        android:background="@drawable/edit"
-                        android:textColor="#000000"
-                        android:textSize="20dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="320dp"
-                        android:text="作业"
-                        android:textColor="#000000"
-                        android:textSize="25dp" />
-
-                    <ImageView
-                        android:id="@+id/add_hw_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="320dp"
-                        android:src="@drawable/add" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#dcdcdc" />
-
-                <ListView
-                    android:id="@+id/hwlistView"
-                    android:layout_width="340dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp" >
-                </ListView>
-            </LinearLayout>
-        </LinearLayout>
+    <com.bbk.flipview.library.flipcontrol.FlipViewController 
+        android:id="@+id/flip_view"
+        android:layout_width="780dp"  
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignParentLeft="true">
+    </com.bbk.flipview.library.flipcontrol.FlipViewController >
 
         <LinearLayout
             android:layout_width="match_parent"
