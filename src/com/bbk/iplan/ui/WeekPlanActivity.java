@@ -1,7 +1,6 @@
 package com.bbk.iplan.ui ;
 
 
-import com.bbk.UI.R;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -30,7 +29,6 @@ public class WeekPlanActivity extends Activity {
 
 	}
 
-	// ��AdapterView������(���������߼���)���򷵻ص�Item�����¼�
 	class ItemClickListener implements OnItemClickListener {
 		public void onItemClick(AdapterView<?> arg0, View view, int id,
 				long arg3) {
@@ -39,7 +37,6 @@ public class WeekPlanActivity extends Activity {
 
 	}
 
-	// ��ֹgridview����
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub

@@ -82,7 +82,10 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="655dp"
-            android:layout_margin="10dp"
+            android:layout_marginBottom="28dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="28dp"
             android:layout_weight="0.41"
             android:background="@drawable/radius"
             android:orientation="vertical" >
@@ -100,7 +103,7 @@
                     android:layout_marginTop="5dp"
                     android:text="  8月  2013"
                     android:textColor="#ffffff"
-                    android:textSize="25dp" />
+                    android:textSize="30dp" />
 
                 <ImageView
                     android:id="@+id/hwaddbtn"
@@ -108,6 +111,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
                     android:src="@drawable/weekadd" />
             </RelativeLayout>
 
@@ -304,7 +310,7 @@
 
                 <GridView
                     android:id="@+id/main_GridView"
-                    android:layout_width="637dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
@@ -321,10 +327,11 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_alignParentRight="true"
             android:orientation="vertical" >
 
             <LinearLayout
+                android:id="@+id/dategroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
@@ -333,11 +340,12 @@
                     android:id="@+id/calendarbigday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
                     android:clickable="true"
                     android:text="13"
                     android:textColor="#FFA01B"
-                    android:textSize="90dp" />
+                    android:textSize="120dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -350,20 +358,18 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="40dp"
                         android:clickable="true"
-                        android:paddingLeft="5dip"
                         android:text="周三"
                         android:textColor="#77787B"
-                        android:textSize="35dp" />
+                        android:textSize="40dp" />
 
                     <TextView
                         android:id="@+id/calendar_ata"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:clickable="true"
-                        android:paddingLeft="5dip"
                         android:text="8月"
                         android:textColor="#77787B"
-                        android:textSize="35dp" />
+                        android:textSize="40dp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -371,21 +377,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
-                <CalendarView
-                    android:id="@+id/calendarview"
-                    android:layout_width="230dp"
-                    android:layout_height="280dp"
-                    android:background="#272A31"
-                    android:firstDayOfWeek="1"
-                    android:selectedWeekBackgroundColor="#1D99F9"
-                    android:showWeekNumber="false"
-                    android:shownWeekCount="5"
-                    android:visibility="visible"
-                    android:weekDayTextAppearance="@style/weekDays"
-                    android:weekSeparatorLineColor="#34353A" />
-
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
@@ -393,6 +386,34 @@
                     android:text="          2013年8月24日"
                     android:textColor="#ffffff"
                     android:textSize="20dp" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <CalendarView
+                        android:id="@+id/calendarview"
+                        android:layout_width="318dp"
+                        android:layout_height="339dp"
+                        android:background="#272A31"
+                        android:firstDayOfWeek="1"
+                        android:selectedWeekBackgroundColor="#1D99F9"
+                        android:showWeekNumber="false"
+                        android:shownWeekCount="5"
+                        android:visibility="visible"
+                        android:weekSeparatorLineColor="#34353A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:background="#272A31"
+                        android:gravity="center"
+                        android:text="2013年8月24日"
+                        android:textColor="#ffffff"
+                        android:textSize="22dp" />
+                </FrameLayout>
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>
