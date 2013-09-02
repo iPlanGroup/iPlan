@@ -3,6 +3,8 @@ package com.bbk.iplan.model;
 import java.util.Date;
 import java.util.List;
 
+import com.bbk.iplan.data.TermInfo;
+
 
 public class VacationManager {
 	

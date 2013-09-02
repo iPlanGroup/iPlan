@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<<<<<<< HEAD
     package="com.bbk.iplan.ui"
+=======
+    package="com.bbk.iplan"
+>>>>>>> 919bf5e95de316a0680068d5db7aa47cdb248bbe
     android:versionCode="1"
     android:versionName="1.0" >
 

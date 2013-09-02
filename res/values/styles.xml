@@ -17,4 +17,19 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+<<<<<<< HEAD
 </resources>
+=======
+    <style name="weekDays">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="calendar" parent="@android:style/Widget.Holo.CalendarView">
+        <item name="android:weekDayTextAppearance">@style/weekDays</item>
+    </style>
+    
+    <style name="AppTheme" parent="android:Theme.Light">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>
+>>>>>>> 919bf5e95de316a0680068d5db7aa47cdb248bbe

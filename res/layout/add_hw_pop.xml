@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/homework_bg"
+    android:paddingBottom="5dp" >
+
+    <RelativeLayout
+        android:id="@+id/homework_title_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/homework_cancel_btn"
+            android:text="取消"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/homework_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="作业"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/textSize" />
+
+        <Button
+            android:id="@+id/ok_btn"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/cancel_btn"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/homework_ok_btn"
+            android:text="确认"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/textSize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/homework_title_rl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="10dp" >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:background="#FFFFFF"
+            android:paddingLeft="10dp" >
+
+            <TextView
+                android:id="@+id/spinner_subject_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="学科： "
+                android:textSize="@dimen/textSize" >
+            </TextView>
+         
+          <TextView
+                android:id="@+id/selected_subject_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="选择学科"
+                android:textSize="@dimen/textSize"
+                android:layout_toRightOf="@id/spinner_subject_tv"
+                android:layout_alignTop="@id/spinner_subject_tv"
+                android:layout_marginLeft="10dp" >
+            </TextView>
+            
+        <TextView
+                android:id="@+id/line_four"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/spinner_subject_tv"
+                android:background="@drawable/line" />
+            
+ <!--  
+            <Spinner
+                android:id="@+id/spinner_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinner_subject_tv" >
+            </Spinner>
+ -->  
+            <TextView
+                android:id="@+id/homework_descr_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line_four"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#FFFFFF"
+                android:text="作业描述"
+                android:textColor="#B7B7B7"
+                android:textSize="@dimen/textSize" />
+
+            <EditText
+                android:id="@+id/hw_desc_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/homework_descr_tv"
+                android:layout_below="@id/homework_descr_tv"
+                android:hint="input content"
+                android:textSize="@dimen/textSize" />
+
+            <TextView
+                android:id="@+id/line_one"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/hw_desc_et"
+                android:background="@drawable/line" />
+
+            <TextView
+                android:id="@+id/homework_deadtime_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line_one"
+                android:layout_marginTop="10dp"
+                android:text="到期日:"
+                android:textSize="@dimen/textSize" />
+            
+           <TextView
+                android:id="@+id/date_picker_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/homework_deadtime_tv"
+                android:layout_alignTop="@id/homework_deadtime_tv"
+                android:text="选择时间"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/textSize"
+                />
+<!-- 
+            <DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/homework_deadtime_tv"
+                android:calendarViewShown="false"
+                />
+ -->
+            <TextView
+                android:id="@+id/line_two"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/date_picker_btn"
+                android:background="@drawable/line" />
+
+            <TextView
+                android:id="@+id/homework_pority_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/homework_deadtime_tv"
+                android:layout_below="@id/line_two"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="优先级："
+                android:textSize="@dimen/textSize" />
+           
+           <TextView
+                android:id="@+id/select_homework_pority_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/homework_pority_tv"
+                android:layout_alignTop="@id/homework_pority_tv"
+                android:text="选择优先级"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/textSize" />
+           
+           <TextView
+                android:id="@+id/line_five"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/homework_pority_tv"
+                android:background="@drawable/line" />
+                
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF" >
+    
+    <TextView 
+        android:id="@+id/child_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="23sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        />
+    <ImageView 
+        android:id="@+id/child_pull_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/divider"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+</RelativeLayout>

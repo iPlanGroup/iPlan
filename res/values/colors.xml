@@ -15,6 +15,10 @@
   <color name="black">#00000000</color>
   <color name="cray">#EBE9EA</color>
   
-  
+  	<color name="transparentBlack">#6D000000</color>
+	<color name="darkgrey">#949494</color>
+	<color name="red">#FF0000</color>
+	<color name="green">#00FF00</color>
+	<color name="blue">#0000FF</color>
   
 </resources>

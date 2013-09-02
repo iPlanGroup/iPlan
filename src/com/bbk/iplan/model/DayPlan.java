@@ -2,6 +2,12 @@ package com.bbk.iplan.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
+import com.bbk.iplan.data.EventInfo;
+import com.bbk.iplan.data.HomeworkInfo;
+import com.bbk.iplan.data.SubjectInfo;
+import com.bbk.iplan.data.TermInfo;
 
 public class DayPlan {
 	private Date LocalTime;
@@ -10,6 +16,22 @@ public class DayPlan {
 	private EventManager mEventManager;
 	private List<HomeworkInfo> mListHomeworkInfos;
 	private List<SubjectInfo> mListSubjectInfos;
+
+	public List<HomeworkInfo> getListHomeworkInfos() {
+		return mListHomeworkInfos;
+	}
+
+	public void setListHomeworkInfos(List<HomeworkInfo> mListHomeworkInfos) {
+		this.mListHomeworkInfos = mListHomeworkInfos;
+	}
+
+	public List<SubjectInfo> getListSubjectInfos() {
+		return mListSubjectInfos;
+	}
+
+	public void setListSubjectInfos(List<SubjectInfo> mListSubjectInfos) {
+		this.mListSubjectInfos = mListSubjectInfos;
+	}
 
 	public DayPlan(Date time) {
 		LocalTime = time;
@@ -30,7 +52,7 @@ public class DayPlan {
 		return mListSubjectInfos = mSubjectManager.getLocalSubject(LocalTime);
 	}
 
-	public HomeworkInfo CreateNewHomework(String name, Date EndTime, int Level,
+	public HomeworkInfo CreateHomework(String name, Date EndTime, int Level,
 			String Mark) {
 		HomeworkInfo info = mHomeworkManager.CreateHomework(name, LocalTime,
 				EndTime, Level, Mark);
@@ -38,17 +60,17 @@ public class DayPlan {
 		return info;
 	}
 
-	public SubjectInfo CreateNewSubject(String name, Date time,
-			Date notifytime, String place, String teacher, String mark) {
+	public SubjectInfo CreateLongSubject(String name, Date time,
+			Date remindTime, String place, String teacher, String mark) {
 		SubjectInfo info = mSubjectManager.CreateLongSubject(name, time,
-				notifytime, place, teacher, mark);
+				remindTime, place, teacher, mark);
 		mListSubjectInfos.add(info);
 		return info;
 	}
 
-	public EventInfo CreateExam(int Mode, String name, Date remindTime,
+	public EventInfo CreateExam(String name, Date remindTime,
 			String mark, Date StartTime, Date EndTime) {
-		EventInfo info = mEventManager.CreateExam(Mode, name, remindTime, mark,
+		EventInfo info = mEventManager.CreateExam(EventInfo.MODE_EXAM, name, remindTime, mark,
 				StartTime, EndTime);
 		return info;
 	}
@@ -64,5 +86,8 @@ public class DayPlan {
 
 	public void setLocalTime(Date localTime) {
 		LocalTime = localTime;
+	}
+	public void ModifyHomeworkInfo(Map<String,String> Info){
+		String name=Info.get("name");
 	}
 }
