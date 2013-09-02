@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import com.bbk.iplan.R;
 import com.bbk.iplan.model.SystemManager;
 
 import android.app.Activity;

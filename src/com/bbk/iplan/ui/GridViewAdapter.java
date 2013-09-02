@@ -10,6 +10,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 
+import com.bbk.iplan.ui.TitleView;
+
 public class GridViewAdapter extends BaseAdapter {
 	private Context context;
 	

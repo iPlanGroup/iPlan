@@ -25,10 +25,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.bbk.UI.R;
 import com.bbk.flipview.library.baseutils.AphidLog;
 import com.bbk.flipview.library.baseutils.IO;
 import com.bbk.flipview.library.flipcontrol.FlipViewController;
+import com.bbk.iplan.R;
 
 /**
  * Modified from the issue#5 comment contributed by @cagkanciloglu

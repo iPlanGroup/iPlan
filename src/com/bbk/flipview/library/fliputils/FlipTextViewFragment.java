@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.bbk.UI.R;
 import com.bbk.flipview.library.flipcontrol.FlipViewController;
+import com.bbk.iplan.R;
 
 
 /*

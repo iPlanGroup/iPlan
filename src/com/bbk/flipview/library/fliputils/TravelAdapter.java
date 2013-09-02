@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.bbk.UI.R;
 import com.bbk.flipview.library.baseutils.AphidLog;
+import com.bbk.iplan.R;
 import com.bbk.iplan.ui.MainActivity;
 
 public class TravelAdapter extends BaseAdapter

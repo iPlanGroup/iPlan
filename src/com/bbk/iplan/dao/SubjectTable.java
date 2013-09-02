@@ -54,7 +54,8 @@ public class SubjectTable implements TableCreateInterface{
 		
 		values.put(SubjectTable.NAME, subjectInfo.getName());
 		values.put(SubjectTable.EVENT_ID, eventInfo.getID());
-		values.put(SubjectTable.START_TIME, eventInfo.getStatrTime().toString());
+//		values.put(SubjectTable.START_TIME, eventInfo.getStatrTime().toString());
+		values.put(SubjectTable.START_TIME, eventInfo.getStartTime().toString());
 		values.put(SubjectTable.TEACHER, subjectInfo.getTeacher());
 		values.put(SubjectTable.PLACE, subjectInfo.getPlace());
 		values.put(SubjectTable.END_TIME, eventInfo.getEndTime());

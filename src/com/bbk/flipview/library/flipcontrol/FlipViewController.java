@@ -39,8 +39,8 @@ import android.widget.AbsListView;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 
-import com.bbk.UI.R;
 import com.bbk.flipview.library.baseutils.AphidLog;
+import com.bbk.iplan.R;
 
 public class FlipViewController extends AdapterView<Adapter>
 {
