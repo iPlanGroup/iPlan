@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.bbk.iplan.data.HomeworkInfo;
+import com.bbk.iplan.data.SubjectInfo;
+
 public  class WeekPlan {
 	private DayPlan mDayPlan=new DayPlan(null);
 	private List<List<HomeworkInfo>> listHomework;

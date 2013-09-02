@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import com.bbk.iplan.data.SubjectInfo;
+import com.bbk.iplan.data.TermInfo;
+
 public class FacadePlan extends AbstractFacadePlan {
 	private DayPlan mDayPlan;
 	private WeekPlan mWeekPlan;

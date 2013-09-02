@@ -3,6 +3,8 @@ package com.bbk.iplan.model;
 import java.util.Date;
 import java.util.List;
 
+import com.bbk.iplan.data.HomeworkInfo;
+
 public class HomeworkManager {
 	public List<HomeworkInfo> getUnFinished() {
 		return null;

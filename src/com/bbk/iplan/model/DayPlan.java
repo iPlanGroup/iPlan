@@ -4,6 +4,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.bbk.iplan.data.EventInfo;
+import com.bbk.iplan.data.HomeworkInfo;
+import com.bbk.iplan.data.SubjectInfo;
+import com.bbk.iplan.data.TermInfo;
+
 public class DayPlan {
 	private Date LocalTime;
 	private HomeworkManager mHomeworkManager;

@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.bbk.iplan.app.IPlanApplication;
 import com.bbk.iplan.dao.IPlanDataBaseHelper.TableCreateInterface;
-import com.bbk.iplan.model.HomeworkInfo;
+import com.bbk.iplan.data.HomeworkInfo;
 
 /**
  *         <pre>
