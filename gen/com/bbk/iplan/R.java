@@ -264,7 +264,7 @@ public final class R {
 <tr><td><code>ARGB_4444</code></td><td>1</td><td></td></tr>
 <tr><td><code>RGB_565</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name android:animationBitmapFormat
+          @attr name com.bbk.iplan:animationBitmapFormat
         */
         public static final int FlipViewController_animationBitmapFormat = 1;
         /**
@@ -281,7 +281,7 @@ public final class R {
 <tr><td><code>vertical</code></td><td>0</td><td></td></tr>
 <tr><td><code>horizontal</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name android:orientation
+          @attr name com.bbk.iplan:orientation
         */
         public static final int FlipViewController_orientation = 0;
     };

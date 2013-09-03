@@ -32,6 +32,10 @@ public  class EventManager {
 		eventInfo.setSubject(subject);
 		return eventInfo;
 	}
+	public boolean ModifyEventInfo()
+	{
+		return true;
+	}
 	public  void Recommand() {
 	}
 }

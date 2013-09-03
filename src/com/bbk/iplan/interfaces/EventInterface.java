@@ -1,0 +1,46 @@
+package com.bbk.iplan.interfaces;
+
+import java.util.Date;
+import java.util.List;
+
+import com.bbk.iplan.data.EventInfo;
+import com.bbk.iplan.data.SubjectInfo;
+import com.bbk.iplan.data.TermInfo;
+
+public interface EventInterface {
+	/**
+	 * 获取所有事件,包括考试和单次课
+	 * @return
+	 */
+	public List<EventInfo> getAllEventInfo(); 
+	/**
+	 * 创建考试信息
+	 * @param Mode
+	 * @param name
+	 * @param remindTime
+	 * @param mark
+	 * @param StartTime
+	 * @param EndTime
+	 * @return
+	 */
+	public EventInfo CreateExam(int Mode, String name, Date remindTime,
+			String mark, Date StartTime, Date EndTime); 
+	/**
+	 * 创建单次课信息
+	 * @param Mode
+	 * @param name
+	 * @param remindTime
+	 * @param mark
+	 * @param term
+	 * @param subject
+	 * @return
+	 */
+	public EventInfo CreateSingleSubject(int Mode, String name,
+			Date remindTime, String mark, TermInfo term, SubjectInfo subject);
+	/**
+	 * 删除事件信息
+	 * @param id
+	 * @return
+	 */
+	public boolean DeleteEventInfo(int id);
+}
