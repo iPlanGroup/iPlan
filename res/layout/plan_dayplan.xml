@@ -16,116 +16,16 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/book_background"
         android:orientation="horizontal"
-        android:visibility="visible" >
+        android:visibility="visible" 
+        >
 
-        <RelativeLayout
-            android:layout_width="312dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/radius"
-            android:gravity="center_vertical"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/arraysaddbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:src="@drawable/add" />
-
-            <TextView
-                android:id="@+id/baseline1"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_below="@id/arraysaddbtn"
-                android:background="#dcdcdc" />
-
-            <ListView
-                android:id="@+id/arrayslistView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/baseline1"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp" >
-            </ListView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/arraysaddbtn"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="安排"
-                android:textColor="#000000"
-                android:textSize="25dp" />
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="10dp"
-            android:layout_height="match_parent" />
-
-        <RelativeLayout
-            android:layout_width="312dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/radius"
-            android:orientation="vertical"
-            android:visibility="visible" >
-
-            <TextView
-                android:id="@+id/hweditbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit"
-                android:clickable="true"
-                android:gravity="center"
-                android:text="编辑"
-                android:textColor="#000000"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/baseline2"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_below="@id/hweditbtn"
-                android:background="#dcdcdc" />
-
-            <ListView
-                android:id="@+id/hwlistView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/baseline2"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp" >
-            </ListView>
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/hwaddbtn"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
-                android:text="作业"
-                android:textColor="#000000"
-                android:textSize="25dp" />
-
-            <ImageView
-                android:id="@+id/hwaddbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:clickable="true"
-                android:src="@drawable/add" />
-        </RelativeLayout>
+        <com.bbk.flipview.library.flipcontrol.FlipViewController
+            android:id="@+id/flip_view"
+            android:layout_width="678dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp" >
+        </com.bbk.flipview.library.flipcontrol.FlipViewController>
     </com.bbk.iplan.ui.CustomView>
 
     <LinearLayout

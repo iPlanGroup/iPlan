@@ -103,39 +103,40 @@ public final class R {
         public static final int ItemTitle=0x7f050033;
         public static final int RGB_565=0x7f050004;
         public static final int RelativeLayout01=0x7f050031;
-        public static final int action_settings=0x7f050067;
+        public static final int action_settings=0x7f050068;
         public static final int add_hw_btn=0x7f05001e;
         public static final int add_plan_btn=0x7f05001a;
-        public static final int arraysaddbtn=0x7f050037;
-        public static final int arrayslistView=0x7f050039;
-        public static final int back2today=0x7f05004c;
-        public static final int baseline1=0x7f050038;
-        public static final int baseline2=0x7f05003a;
-        public static final int button111=0x7f050044;
-        public static final int calendar_ata=0x7f05004b;
-        public static final int calendar_month=0x7f050041;
-        public static final int calendarbigday=0x7f050040;
-        public static final int calendarview=0x7f05003e;
-        public static final int calendarweek=0x7f050042;
+        public static final int arraysaddbtn=0x7f050040;
+        public static final int arrayslistView=0x7f050042;
+        public static final int back2today=0x7f05004d;
+        public static final int baseline1=0x7f050041;
+        public static final int baseline2=0x7f050043;
+        public static final int button111=0x7f05003f;
+        public static final int calendar_ata=0x7f05004c;
+        public static final int calendar_month=0x7f05003c;
+        public static final int calendarbigday=0x7f05003b;
+        public static final int calendarview=0x7f050039;
+        public static final int calendarweek=0x7f05003d;
         public static final int cancel_btn=0x7f050007;
-        public static final int child_name_tv=0x7f050058;
-        public static final int child_pull_iv=0x7f050059;
+        public static final int child_name_tv=0x7f050059;
+        public static final int child_pull_iv=0x7f05005a;
         public static final int container=0x7f050035;
-        public static final int custom_detail=0x7f050043;
+        public static final int custom_detail=0x7f05003e;
         public static final int custom_viewgroup=0x7f050036;
         public static final int date_picker_btn=0x7f050011;
-        public static final int dategroup=0x7f05003d;
-        public static final int day1=0x7f05004f;
-        public static final int dayplanLayout=0x7f05004e;
-        public static final int dayplanbtn=0x7f050049;
-        public static final int dayplanlayout=0x7f050047;
+        public static final int dategroup=0x7f050038;
+        public static final int day1=0x7f050050;
+        public static final int dayplanLayout=0x7f05004f;
+        public static final int dayplanbtn=0x7f05004a;
+        public static final int dayplanlayout=0x7f050048;
         public static final int description=0x7f050023;
-        public static final int description2=0x7f050060;
-        public static final int description3=0x7f050065;
-        public static final int finsh_or_un_sw=0x7f050056;
-        public static final int flipView=0x7f050066;
+        public static final int description2=0x7f050061;
+        public static final int description3=0x7f050066;
+        public static final int finsh_or_un_sw=0x7f050057;
+        public static final int flipView=0x7f050067;
         public static final int flip_text_view_fragment=0x7f050025;
-        public static final int frameLayout1=0x7f05003f;
+        public static final int flip_view=0x7f050037;
+        public static final int frameLayout1=0x7f05003a;
         public static final int gallery_flip_item_background_imageview=0x7f050027;
         public static final int gallery_flip_item_background_progressbar=0x7f050028;
         public static final int gallery_flip_item_place_city_textview=0x7f050030;
@@ -144,8 +145,8 @@ public final class R {
         public static final int gallery_flip_item_place_linearlayout=0x7f05002b;
         public static final int gallery_flip_item_place_name_ellipsizingtextview=0x7f05002a;
         public static final int gallery_flip_item_place_name_textview=0x7f05002d;
-        public static final int group_name_tv=0x7f05005a;
-        public static final int group_pull_iv=0x7f05005b;
+        public static final int group_name_tv=0x7f05005b;
+        public static final int group_pull_iv=0x7f05005c;
         public static final int homework_deadtime_tv=0x7f050010;
         public static final int homework_descr_tv=0x7f05000d;
         public static final int homework_pority_tv=0x7f050013;
@@ -153,73 +154,76 @@ public final class R {
         public static final int homework_tv=0x7f050008;
         public static final int horizontal=0x7f050001;
         public static final int hw_desc_et=0x7f05000e;
-        public static final int hwaddbtn=0x7f05003c;
+        public static final int hwaddbtn=0x7f050045;
         public static final int hweditbtn=0x7f05001b;
         public static final int hwlistView=0x7f05001f;
         public static final int imageView1=0x7f05002e;
         public static final int imageView2=0x7f050029;
-        public static final int left_page=0x7f05005c;
+        public static final int left_page=0x7f05005d;
         public static final int left_page_ll=0x7f050019;
         public static final int line_five=0x7f050015;
         public static final int line_four=0x7f05000c;
         public static final int line_one=0x7f05000f;
         public static final int line_two=0x7f050012;
-        public static final int main_GridView=0x7f050050;
+        public static final int main_GridView=0x7f050051;
         public static final int new_class_btn=0x7f050016;
         public static final int new_exam_btn=0x7f050017;
         public static final int new_holiday_btn=0x7f050018;
         public static final int ok_btn=0x7f050009;
         public static final int photo=0x7f050021;
-        public static final int photo2=0x7f05005e;
-        public static final int photo3=0x7f050063;
+        public static final int photo2=0x7f05005f;
+        public static final int photo3=0x7f050064;
         public static final int planlistView=0x7f05001c;
-        public static final int relativeLayout1=0x7f050045;
-        public static final int right_page=0x7f050061;
+        public static final int relativeLayout1=0x7f050046;
+        public static final int right_page=0x7f050062;
         public static final int right_page_ll=0x7f05001d;
         public static final int select_homework_pority_tv=0x7f050014;
         public static final int selected_subject_tv=0x7f05000b;
-        public static final int setbtn=0x7f050046;
+        public static final int setbtn=0x7f050047;
         public static final int spinner_subject_tv=0x7f05000a;
-        public static final int staticbtn=0x7f050048;
-        public static final int summary_cancel_btn=0x7f050052;
-        public static final int summary_finish_btn=0x7f050054;
-        public static final int summary_list=0x7f050057;
-        public static final int summary_switch_rl=0x7f050055;
-        public static final int summary_title_name_tv=0x7f050053;
-        public static final int summary_title_rl=0x7f050051;
-        public static final int summybtn=0x7f05004d;
+        public static final int staticbtn=0x7f050049;
+        public static final int summary_cancel_btn=0x7f050053;
+        public static final int summary_finish_btn=0x7f050055;
+        public static final int summary_list=0x7f050058;
+        public static final int summary_switch_rl=0x7f050056;
+        public static final int summary_title_name_tv=0x7f050054;
+        public static final int summary_title_rl=0x7f050052;
+        public static final int summarybtn=0x7f05004e;
         public static final int tag_async_image_view_position=0x7f050005;
-        public static final int textView1=0x7f05003b;
+        public static final int textView1=0x7f050044;
         public static final int title=0x7f050020;
-        public static final int title2=0x7f05005d;
-        public static final int title3=0x7f050062;
+        public static final int title2=0x7f05005e;
+        public static final int title3=0x7f050063;
         public static final int toggle_button=0x7f050024;
         public static final int vertical=0x7f050000;
-        public static final int weekplanbtn=0x7f05004a;
+        public static final int weekplanbtn=0x7f05004b;
         public static final int wikipedia=0x7f050022;
-        public static final int wikipedia2=0x7f05005f;
-        public static final int wikipedia3=0x7f050064;
+        public static final int wikipedia2=0x7f050060;
+        public static final int wikipedia3=0x7f050065;
     }
     public static final class layout {
         public static final int add_hw_pop=0x7f030000;
         public static final int add_plan_pop=0x7f030001;
         public static final int book_display=0x7f030002;
-        public static final int complex1=0x7f030003;
-        public static final int fragment_layout=0x7f030004;
-        public static final int gallery_flip_item_layout=0x7f030005;
-        public static final int list_item=0x7f030006;
-        public static final int page1=0x7f030007;
-        public static final int page2=0x7f030008;
-        public static final int page3=0x7f030009;
-        public static final int plan_dayplan=0x7f03000a;
-        public static final int plan_hw=0x7f03000b;
-        public static final int plan_main=0x7f03000c;
-        public static final int plan_week=0x7f03000d;
-        public static final int summary=0x7f03000e;
-        public static final int summary_child_list=0x7f03000f;
-        public static final int summary_group_list=0x7f030010;
-        public static final int two_page=0x7f030011;
-        public static final int xml_layout=0x7f030012;
+        public static final int book_displaybc=0x7f030003;
+        public static final int complex1=0x7f030004;
+        public static final int fragment_layout=0x7f030005;
+        public static final int gallery_flip_item_layout=0x7f030006;
+        public static final int list_item=0x7f030007;
+        public static final int page1=0x7f030008;
+        public static final int page2=0x7f030009;
+        public static final int page3=0x7f03000a;
+        public static final int plan_dayplan=0x7f03000b;
+        public static final int plan_dayplanbc=0x7f03000c;
+        public static final int plan_hw=0x7f03000d;
+        public static final int plan_main=0x7f03000e;
+        public static final int plan_mainbc=0x7f03000f;
+        public static final int plan_week=0x7f030010;
+        public static final int summary=0x7f030011;
+        public static final int summary_child_list=0x7f030012;
+        public static final int summary_group_list=0x7f030013;
+        public static final int two_page=0x7f030014;
+        public static final int xml_layout=0x7f030015;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -264,7 +268,7 @@ public final class R {
 <tr><td><code>ARGB_4444</code></td><td>1</td><td></td></tr>
 <tr><td><code>RGB_565</code></td><td>2</td><td></td></tr>
 </table>
-          @attr name com.bbk.iplan:animationBitmapFormat
+          @attr name android:animationBitmapFormat
         */
         public static final int FlipViewController_animationBitmapFormat = 1;
         /**
@@ -281,7 +285,7 @@ public final class R {
 <tr><td><code>vertical</code></td><td>0</td><td></td></tr>
 <tr><td><code>horizontal</code></td><td>1</td><td></td></tr>
 </table>
-          @attr name com.bbk.iplan:orientation
+          @attr name android:orientation
         */
         public static final int FlipViewController_orientation = 0;
     };

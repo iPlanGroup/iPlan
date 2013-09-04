@@ -31,19 +31,17 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bbk.flipview.library.flipcontrol.FlipViewController;
 import com.bbk.iplan.R;
+import com.bbk.iplan.calendar.DateWidget;
 import com.bbk.iplan.model.SystemManager;
-import com.bbk.iplan.ui.DayPlanActivity;
-import com.bbk.iplan.ui.WeekPlanActivity;
 import com.bbk.pop.SummaryExListAdapter;
 
 public class MainActivity extends ActivityGroup implements OnClickListener,
@@ -90,7 +88,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 	private TextView popSubjectBtn = null;
 	private TextView popPorityBtn = null;
 
-	private FlipViewController flipView;
+//	private FlipViewController flipView;
 
 	public List<HashMap<String, Object>> bookDataList = null;
 	public SimpleAdapter bookDataAdapter = null;
@@ -120,23 +118,23 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 		Button dayplanButton = (Button) findViewById(R.id.dayplanbtn);
 		Button weekplanButton = (Button) findViewById(R.id.weekplanbtn);
 
-		bookDataList = getBookDataList();
-		bookDataAdapter = getBookDataAdapter(bookDataList);
+//		bookDataList = getBookDataList();
+//		bookDataAdapter = getBookDataAdapter(bookDataList);
 
-		// flipView = (FlipViewController)findViewById(R.id.flip_view);
-		// flipView.setAdapter(new TravelAdapter(this));
-		// flipView.setAdapter(new TravelAdapter(this, bookDataAdapter));
-		flipView.setOnViewFlipListener(new FlipViewController.ViewFlipListener() {
-			@Override
-			public void onViewFlipped(View view, int position) {
-				Toast.makeText(view.getContext(), "当前页码: " + position,
-						Toast.LENGTH_SHORT).show();
-			}
-		});
+//		flipView = (FlipViewController) findViewById(R.id.flip_view);
+//		flipView.setAdapter(new TravelAdapter(this));
+//		flipView.setAdapter(new TravelAdapter(this, bookDataAdapter));
+//		flipView.setOnViewFlipListener(new FlipViewController.ViewFlipListener() {
+//			@Override
+//			public void onViewFlipped(View view, int position) {
+//				Toast.makeText(view.getContext(), "当前页码: " + position,
+//						Toast.LENGTH_SHORT).show();
+//			}
+//		});
 
 		// addPlanBtn = (ImageView)findViewById(R.id.add_plan_btn);
 		// addHWBtn = (ImageView)findViewById(R.id.add_hw_btn);
-		// summaryBtn = (Button)findViewById(R.id.summary_btn);
+		summaryBtn = (Button) findViewById(R.id.summarybtn);
 
 		// addPlanBtn.setOnClickListener(this);
 		// addHWBtn.setOnClickListener(this);
@@ -179,6 +177,12 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 		// }
 		//
 		// });
+		
+//		DateWidget dateWidget = new DateWidget();
+//		View calendar = dateWidget.init(MainActivity.this);
+//		RelativeLayout calendarView = (RelativeLayout)findViewById(R.id.calendarview);
+//		calendarView.addView(calendar);
+//		dateWidget.init2();
 
 	}
 
@@ -190,11 +194,10 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 
 	public void onClick(View v) {
 		switch (v.getId()) {
-		// case R.id.summary_btn:
-		// {
-		// showSummaryPop();
-		// break;
-		// }
+		case R.id.summarybtn: {
+			showSummaryPop();
+			break;
+		}
 		}
 	}
 
@@ -366,7 +369,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 		summarySwitch = (Switch) myView.findViewById(R.id.finsh_or_un_sw);
 		summarySwitch.setOnCheckedChangeListener(new SummSwitchListener());
 
-		// adapter = new SummaryExListAdapter(this, groupList, childList);
+		adapter = new SummaryExListAdapter(this, groupList, childList);
 		elv = (ExpandableListView) myView.findViewById(R.id.summary_list);
 		elv.setOnChildClickListener(this);
 		elv.setOnGroupClickListener(this);
@@ -394,24 +397,8 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 				long arg3) {
 			showSubjectTV.setText("学科： " + subjectArr[arg2]);
-			// showSubjectTV.setText("subject: " +
-			// subjectSpAdapter.getItem(arg2));
+			showSubjectTV.setText("subject: " + subjectSpAdapter.getItem(arg2));
 		}
-
-		// public void setFullscreen() {
-		// requestWindowFeature(Window.FEATURE_NO_TITLE);
-		// getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-		// WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		// }
-		//
-		// public void scrollLayout(CustomView view, int startX, int startY, int
-		// dx,
-		// int dy, int durating) {
-		//
-		// view.beginScroll(startX, startY, dx, dy, durating);
-		// // mCustomView.beginScroll(0, 0, 320, 0, 1000);
-		//
-		// }
 
 		public void viewMove(View view, float startX, float startY, float dx,
 				float dy, int durating) {

@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#34353A"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dip"
+        android:visibility="visible"
+        android:background="@drawable/title_bar"
+        android:gravity="center" >
+
+        <Button
+            android:id="@+id/setbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/setting"
+            android:text="设置"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/back2today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/setbtn"
+            android:background="@drawable/come_back_today"
+            android:text="回到今天"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/summarybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/summary"
+            android:text="汇总"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+<Button
+            android:id="@+id/weekplanbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/dayplanbtn"
+            android:layout_alignBottom="@+id/dayplanbtn"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/week_plan"
+            android:text="周计划"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/dayplanbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/back2today"
+            android:layout_alignBottom="@+id/back2today"
+            android:layout_marginLeft="240dp"
+            android:layout_toRightOf="@+id/back2today"
+            android:background="@drawable/week_plan"
+            android:text="日计划"
+            android:textColor="#ffffff"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#34353A" >
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -16,6 +16,7 @@ import android.widget.SimpleAdapter;
 
 import com.bbk.flipview.library.baseutils.AphidLog;
 import com.bbk.iplan.R;
+import com.bbk.iplan.ui.DayPlanActivity;
 import com.bbk.iplan.ui.MainActivity;
 
 public class TravelAdapter extends BaseAdapter
@@ -28,16 +29,16 @@ public class TravelAdapter extends BaseAdapter
 	private List<Travels.Data> travelData;
 	
     private SimpleAdapter sa = null;
-    private MainActivity mainActivity = null;
+    private DayPlanActivity mainActivity = null;
     
-	public TravelAdapter(MainActivity context)
+	public TravelAdapter(DayPlanActivity context)
 	{
 		inflater = LayoutInflater.from(context);
 		this.mainActivity = context;
 		travelData = new ArrayList<Travels.Data>(Travels.IMG_DESCRIPTIONS);
 	}
 	
-	public TravelAdapter(MainActivity context, SimpleAdapter sa)
+	public TravelAdapter(DayPlanActivity context, SimpleAdapter sa)
 	{
 		inflater = LayoutInflater.from(context);   
 		this.sa = sa;
@@ -98,7 +99,7 @@ public class TravelAdapter extends BaseAdapter
 			public void onClick(View v)
 			{
 				System.out.println("show add plan");
-				mainActivity.showAddPlanPop();
+//				mainActivity.showAddPlanPop();
 			}
 		});
 		
@@ -108,7 +109,7 @@ public class TravelAdapter extends BaseAdapter
 			public void onClick(View v)
 			{
 				System.out.println("show add homework");
-                mainActivity.showAddHWPop();				
+//                mainActivity.showAddHWPop();				
 			}
 		});
 
