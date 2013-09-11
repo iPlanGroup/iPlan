@@ -21,13 +21,9 @@ public class TitleView extends TextView {
 	}
 
 	protected void onDraw(Canvas canvas) {
-		// ��������
 		Paint paint = new Paint();
-		// ������ɫ
 		paint.setColor(0xffDCDCDC);
-		// ���ô�ϸ
-		paint.setStrokeWidth(3f);
-		// ���þ��
+		paint.setStrokeWidth(1f);
 		paint.setAntiAlias(false);
 
 		int viewWidth = this.getWidth();

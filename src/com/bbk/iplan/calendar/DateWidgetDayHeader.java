@@ -11,7 +11,7 @@ import android.widget.LinearLayout.LayoutParams;
 
 public class DateWidgetDayHeader extends View {
 	// fields
-	private final static int iDayHeaderFontSize = 12;
+	private final static int iDayHeaderFontSize = 18;
 
 	// fields
 	private Paint pt = new Paint();
@@ -52,7 +52,7 @@ public class DateWidgetDayHeader extends View {
 			final int iDayNamePosX = (int) rect.left
 					+ ((int) rect.width() >> 1)
 					- ((int) pt.measureText(sDayName) >> 1);
-			canvas.drawText(sDayName, iDayNamePosX, rect.top + iTextPosY + 2,
+			canvas.drawText(sDayName, iDayNamePosX+1, rect.top + iTextPosY + 2,
 					pt);
 		}
 	}

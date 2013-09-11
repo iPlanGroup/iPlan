@@ -23,7 +23,7 @@ public class DateWidgetDayCell extends View {
 
 	public static int ANIM_ALPHA_DURATION = 100;
 	// fields
-	private final static float fTextSize = 18;
+	private final static float fTextSize = 20;
 	private final static int iMargin = 1;
 	private final static int iAlphaInactiveMonth = 0x88;
 
@@ -161,7 +161,7 @@ public class DateWidgetDayCell extends View {
 
 		} else {
 
-			pt.setColor(DayStyle.getColorBkg(bHoliday, bToday));
+			pt.setColor(DayStyle.getColorBkg(bHoliday, false));
 			if (!bIsActiveMonth)
 				pt.setAlpha(iAlphaInactiveMonth);
 			canvas.drawRect(rect, pt);

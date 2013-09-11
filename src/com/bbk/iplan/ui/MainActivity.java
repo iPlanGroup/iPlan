@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -31,7 +32,6 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
@@ -44,20 +44,15 @@ import com.bbk.iplan.calendar.DateWidget;
 import com.bbk.iplan.model.SystemManager;
 import com.bbk.pop.SummaryExListAdapter;
 
+@SuppressLint("NewApi")
 public class MainActivity extends ActivityGroup implements OnClickListener,
 		ExpandableListView.OnGroupClickListener,
 		ExpandableListView.OnChildClickListener {
 	private SystemManager manager;
 	private RelativeLayout container = null;
-	// private Button staticButton;
-	// private LinearLayout dateView = null;
-	// private CustomView mCustomView;
-	// private CustomView mHwDetails;
-	// private CalendarView mCalendarView;
 	private Button dayplanButton;
 	private Button weekplanButton;
 
-	// private LinearLayout bseLinearLayout;
 
 	private ImageView addPlanBtn = null;
 	private ImageView addHWBtn = null;
@@ -88,8 +83,6 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 	private TextView popSubjectBtn = null;
 	private TextView popPorityBtn = null;
 
-//	private FlipViewController flipView;
-
 	public List<HashMap<String, Object>> bookDataList = null;
 	public SimpleAdapter bookDataAdapter = null;
 
@@ -114,75 +107,9 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
 				.getDecorView());
 
-		container = (RelativeLayout) findViewById(R.id.dayplanLayout);
-		Button dayplanButton = (Button) findViewById(R.id.dayplanbtn);
-		Button weekplanButton = (Button) findViewById(R.id.weekplanbtn);
-
-//		bookDataList = getBookDataList();
-//		bookDataAdapter = getBookDataAdapter(bookDataList);
-
-//		flipView = (FlipViewController) findViewById(R.id.flip_view);
-//		flipView.setAdapter(new TravelAdapter(this));
-//		flipView.setAdapter(new TravelAdapter(this, bookDataAdapter));
-//		flipView.setOnViewFlipListener(new FlipViewController.ViewFlipListener() {
-//			@Override
-//			public void onViewFlipped(View view, int position) {
-//				Toast.makeText(view.getContext(), "当前页码: " + position,
-//						Toast.LENGTH_SHORT).show();
-//			}
-//		});
-
-		// addPlanBtn = (ImageView)findViewById(R.id.add_plan_btn);
-		// addHWBtn = (ImageView)findViewById(R.id.add_hw_btn);
-		summaryBtn = (Button) findViewById(R.id.summarybtn);
-
-		// addPlanBtn.setOnClickListener(this);
-		// addHWBtn.setOnClickListener(this);
 		summaryBtn.setOnClickListener(this);
-
-		dayplanButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-				container.removeAllViews();
-				container.addView(getLocalActivityManager().startActivity(
-						"Module1",
-						new Intent(MainActivity.this, DayPlanActivity.class)
-								.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-						.getDecorView());
-
-			}
-		});
-		weekplanButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				container.removeAllViews();
-				container.addView(getLocalActivityManager().startActivity(
-						"Module2",
-						new Intent(MainActivity.this, WeekPlanActivity.class)
-								.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-						.getDecorView());
-			}
-		});
-
-		// staticButton.setOnClickListener(new View.OnClickListener() {
-		// @Override
-		// public void onClick(View v) {
-		//
-		// scrollLayout(mCustomView, 0, 0, 320, 0, 1000);
-		// viewMove(dateView, 0f, -300f, 0f, 0f, 500);
-		// viewMove(mCalendarView, 0f, 0f, 0f, -150f, 700);
-		// scrollLayout(mHwDetails, 0, 0, 0, 250, 2000);
-		//
-		// }
-		//
-		// });
-		
-//		DateWidget dateWidget = new DateWidget();
-//		View calendar = dateWidget.init(MainActivity.this);
-//		RelativeLayout calendarView = (RelativeLayout)findViewById(R.id.calendarview);
-//		calendarView.addView(calendar);
-//		dateWidget.init2();
+		dayplanButton.setOnClickListener(this);
+		weekplanButton.setOnClickListener(this);
 
 	}
 
@@ -198,31 +125,27 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 			showSummaryPop();
 			break;
 		}
+		case R.id.dayplanbtn: {
+			container.removeAllViews();
+			container.addView(getLocalActivityManager().startActivity(
+					"Module1",
+					new Intent(MainActivity.this, DayPlanActivity.class)
+							.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+					.getDecorView());
+			break;
+		}
+		case R.id.weekplanbtn: {
+			container.removeAllViews();
+			container.addView(getLocalActivityManager().startActivity(
+					"Module2",
+					new Intent(MainActivity.this, WeekPlanActivity.class)
+							.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
+					.getDecorView());
+			break;
+		}
 		}
 	}
 
-	public SimpleAdapter getBookDataAdapter(
-			List<HashMap<String, Object>> dataList) {
-		SimpleAdapter listItemAdapter = new SimpleAdapter(this, dataList,
-				R.layout.list_item, new String[] { "ItemImage", "ItemTitle",
-						"ItemText" }, new int[] { R.id.ItemImage,
-						R.id.ItemTitle, R.id.ItemText });
-
-		return listItemAdapter;
-	}
-
-	public ArrayList<HashMap<String, Object>> getBookDataList() {
-		ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
-		for (int i = 0; i < 10; i++) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("ItemImage", R.drawable.ic_launcher);// 图像资源的ID
-			map.put("ItemTitle", "Level " + i);
-			map.put("ItemText", "Finished in 1 Min 54 Secs, 70 Moves! ");
-			listItem.add(map);
-		}
-
-		return listItem;
-	}
 
 	public void showAddPlanPop() {
 		LayoutInflater inflater = (LayoutInflater) this
@@ -422,6 +345,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 		container = (RelativeLayout) findViewById(R.id.container);
 		dayplanButton = (Button) findViewById(R.id.dayplanbtn);
 		weekplanButton = (Button) findViewById(R.id.weekplanbtn);
+		summaryBtn = (Button) findViewById(R.id.summarybtn);
 	}
 
 	@Override
@@ -439,9 +363,4 @@ public class MainActivity extends ActivityGroup implements OnClickListener,
 		return false;
 	}
 
-	public void setFullscreen() {
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-	}
 }

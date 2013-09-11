@@ -7,21 +7,15 @@ public class DayStyle {
 
 	private static String[] getWeekDayNames() {
 		String[] vec = new String[10];
-//		vec[Calendar.SUNDAY] = "Sun";
-//		vec[Calendar.MONDAY] = "Mon";
-//		vec[Calendar.TUESDAY] = "Tue";
-//		vec[Calendar.WEDNESDAY] = "Wed";
-//		vec[Calendar.THURSDAY] = "Thu";
-//		vec[Calendar.FRIDAY] = "Fri";
-//		vec[Calendar.SATURDAY] = "Sat";
+
 
 		vec[Calendar.SUNDAY] = "日";
-		vec[Calendar.MONDAY] = "月";
-		vec[Calendar.TUESDAY] = "火"; 
-		vec[Calendar.WEDNESDAY] = "水"; 
-		vec[Calendar.THURSDAY] = "木"; 
-		vec[Calendar.FRIDAY] = "金"; 
-		vec[Calendar.SATURDAY] ="土";
+		vec[Calendar.MONDAY] = "一";
+		vec[Calendar.TUESDAY] = "二"; 
+		vec[Calendar.WEDNESDAY] = "三"; 
+		vec[Calendar.THURSDAY] = "四"; 
+		vec[Calendar.FRIDAY] = "五"; 
+		vec[Calendar.SATURDAY] ="六";
 		return vec;
 	}
 
@@ -33,26 +27,26 @@ public class DayStyle {
 	private final static String[] vecStrWeekDayNames = getWeekDayNames();
 
 	// fields
-	public final static int iColorFrameHeader = 0xff666666;
-	public final static int iColorFrameHeaderHoliday = 0xff707070;
-	public final static int iColorTextHeader = 0xffcccccc;
-	public final static int iColorTextHeaderHoliday = 0xffd0d0d0;
+	public final static int iColorFrameHeader = 0xff1d99f9;
+	public final static int iColorFrameHeaderHoliday = 0xff1d99f9;
+	public final static int iColorTextHeader = 0xffffffff;
+	public final static int iColorTextHeaderHoliday = 0xffffffff;
 
-	public final static int iColorText = 0xffdddddd;
-	public final static int iColorBkg = 0xff888888;
-	public final static int iColorTextHoliday = 0xfff0f0f0;
-	public final static int iColorBkgHoliday = 0xffaaaaaa;
+	public final static int iColorText = 0xffffffff;
+	public final static int iColorBkg = 0xff272a31;
+	public final static int iColorTextHoliday = 0xffffffff;
+	public final static int iColorBkgHoliday = 0xff272a31;
 
-	public final static int iColorTextToday = 0xff002200;
-	public final static int iColorBkgToday = 0xff88bb88;
+	public final static int iColorTextToday = 0xffa9abab;
+	public final static int iColorBkgToday = 0xff1d99f9;
 
-	public final static int iColorTextSelected = 0xff001122;
-	public final static int iColorBkgSelectedLight = 0xffbbddff;
-	public final static int iColorBkgSelectedDark = 0xff225599;
+	public final static int iColorTextSelected = 0xffa9abab;
+	public final static int iColorBkgSelectedLight = 0xff1d99f9;
+	public final static int iColorBkgSelectedDark = 0xff1d99f9;
 
-	public final static int iColorTextFocused = 0xff221100;
-	public final static int iColorBkgFocusLight = 0xffffddbb;
-	public final static int iColorBkgFocusDark = 0xffaa5500;
+	public final static int iColorTextFocused = 0xffa9abab;
+	public final static int iColorBkgFocusLight = 0xff1d99f9;
+	public final static int iColorBkgFocusDark = 0xff1d99f9;
 
 	// methods
 	public static int getColorFrameHeader(boolean bHoliday) {

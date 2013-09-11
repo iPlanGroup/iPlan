@@ -1,6 +1,5 @@
 package com.bbk.iplan.calendar;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -8,11 +7,13 @@ import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.bbk.iplan.ui.MainActivity;
+import com.bbk.iplan.R;
+import com.bbk.iplan.ui.DayPlanActivity;
 
 public class DateWidget{
 	private ArrayList<DateWidgetDayCell> days = new ArrayList<DateWidgetDayCell>();
@@ -24,19 +25,21 @@ public class DateWidget{
 	LinearLayout layContent = null;
 	Button btnPrev = null;
 	Button btnToday = null;
+	TextView textToday= null;
 	Button btnNext = null;
 	private int iFirstDayOfWeek = Calendar.MONDAY;
 	private int iMonthViewCurrentMonth = 0;
 	private int iMonthViewCurrentYear = 0;
 	public static final int SELECT_DATE_REQUEST = 111;
-	private static final int iDayCellSize = 20;
-	private static final int iDayHeaderHeight = 24;
+	private static final int iDayCellSize = 40;
+	private static final int iDayHeaderHeight = 28;
 	private static final int iTotalWidth = (iDayCellSize * 7);
 	private TextView tv;
 	private int mYear;
 	private int mMonth;
 	private int mDay;
 	Context mActivity;
+	DayPlanActivity mm;
 
 	public View init(Context context) {
 		
@@ -67,53 +70,61 @@ public class DateWidget{
 		return lay;
 	}
 
-	private Button createButton(String sText, int iWidth, int iHeight) {
-		Button btn = new Button(mActivity);
-		btn.setText(sText);
-		btn.setLayoutParams(new LayoutParams(iWidth, iHeight));
-		return btn;
-	}
+//	private Button createButton(String sText, int iWidth, int iHeight) {
+//		Button btn = new Button(mActivity);
+//		btn.setText(sText);
+//		btn.setLayoutParams(new LayoutParams(iWidth, iHeight));
+//		return btn;
+//	}
 /**
  * 获取日历头button
  * @param layTopControls
  */
 	private void generateTopButtons(LinearLayout layTopControls) {
 		final int iHorPadding = 24;
-		final int iSmallButtonWidth = 30;
-		btnToday = createButton("", iTotalWidth - iSmallButtonWidth
-				- iSmallButtonWidth,
-				android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-		btnToday.setPadding(iHorPadding, btnToday.getPaddingTop(), iHorPadding,
-				btnToday.getPaddingBottom());
-		btnToday.setBackgroundResource(android.R.drawable.btn_default_small);
-
-		SymbolButton btnPrev = new SymbolButton(mActivity,
-				SymbolButton.symbol.arrowLeft);
-		btnPrev.setLayoutParams(new LayoutParams(iSmallButtonWidth,
+		textToday=new TextView(mActivity);
+		textToday.setLayoutParams(new LayoutParams(200,
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+		textToday.setTextColor(0xffffffff);
+		textToday.setPadding(iHorPadding, textToday.getPaddingTop(), iHorPadding,
+				textToday.getPaddingBottom());
+		textToday.setGravity(Gravity.CENTER);
+		textToday.setTextSize(28);
+		textToday.setTextColor(0xffffffff);
+		
+		textToday.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				setTodayViewItem();
+			}
+		});
+		
+		ImageButton btnPrev = new ImageButton(mActivity);
+		btnPrev.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
-		btnPrev.setBackgroundResource(android.R.drawable.btn_default_small);
+		btnPrev.setBackgroundColor(0x00000000);
+		btnPrev.setImageResource(R.drawable.button_left);
+		btnPrev.setPadding(0, 4, 0,
+				4);
+		
+		ImageButton btnNext = new ImageButton(mActivity);
 
-		SymbolButton btnNext = new SymbolButton(mActivity,
-				SymbolButton.symbol.arrowRight);
-		btnNext.setLayoutParams(new LayoutParams(iSmallButtonWidth,
+		btnNext.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
-		btnNext.setBackgroundResource(android.R.drawable.btn_default_small);
-
+		btnNext.setBackgroundColor(0x00000000);
+		btnNext.setImageResource(R.drawable.button_right);
+		btnNext.setPadding(0, 4, 0,
+				4);
 		// set events
 		btnPrev.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View arg0) {
+				
 				setPrevViewItem();
 			}
 		});
-		btnToday.setOnClickListener(new Button.OnClickListener() {
-			public void onClick(View arg0) {
-
-				setTodayViewItem();
-				String s = calToday.get(Calendar.YEAR) + "/"
-						+ (calToday.get(Calendar.MONTH) + 1);
-				btnToday.setText(s);
-			}
-		});
+		
 		btnNext.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View arg0) {
 				setNextViewItem();
@@ -122,8 +133,10 @@ public class DateWidget{
 
 		layTopControls.setGravity(Gravity.CENTER_HORIZONTAL);
 		layTopControls.addView(btnPrev);
-		layTopControls.addView(btnToday);
+		layTopControls.addView(textToday);
 		layTopControls.addView(btnNext);
+
+
 	}
 /**
  * 获取日历View
@@ -131,11 +144,16 @@ public class DateWidget{
  */
 	private View generateContentView() {
 		LinearLayout layMain = createLayout(LinearLayout.VERTICAL);
-		layMain.setPadding(8, 8, 8, 8);
+		layMain.setGravity(Gravity.CENTER);
+		layMain.setPadding(0, 0, 0, 0);
+		layMain.setBackgroundColor(0xff1D2228);
 		LinearLayout layTopControls = createLayout(LinearLayout.HORIZONTAL);
+		layTopControls.setGravity(Gravity.CENTER);
+		layTopControls.setBackgroundColor(0xff272a31);
+		//layTopControls.setPadding(0, 0, 100, 0);
 
 		layContent = createLayout(LinearLayout.VERTICAL);
-		layContent.setPadding(20, 0, 20, 0);
+		layContent.setPadding(1, 0, 1, 0);
 		generateTopButtons(layTopControls);
 		generateCalendar(layContent);
 		layMain.addView(layTopControls);
@@ -153,7 +171,7 @@ public class DateWidget{
 		LinearLayout layRow = createLayout(LinearLayout.HORIZONTAL);
 		for (int iDay = 0; iDay < 7; iDay++) {
 			DateWidgetDayCell dayCell = new DateWidgetDayCell(mActivity,
-					iDayCellSize, iDayCellSize);
+					iDayCellSize, iDayCellSize+2);
 			dayCell.setItemClick(mOnDayCellClick);
 			days.add(dayCell);
 			layRow.addView(dayCell);
@@ -249,6 +267,7 @@ public class DateWidget{
 			calCalendar.add(Calendar.DAY_OF_MONTH, 1);
 		}
 		layContent.invalidate();
+
 		return daySelected;
 	}
 /**
@@ -273,15 +292,18 @@ public class DateWidget{
 				iDay = 6;
 		}
 		calStartDate.add(Calendar.DAY_OF_WEEK, -iDay);
+
 	}
 /**
  * 当前时间
  */
-	private void UpdateCurrentMonthDisplay() {
-		String s = calCalendar.get(Calendar.YEAR) + "/"
-				+ (calCalendar.get(Calendar.MONTH) + 1);// dateMonth.format(calCalendar.getTime());
-		btnToday.setText(s);
-		mYear = calCalendar.get(Calendar.YEAR);
+	private void UpdateCurrentMonthDisplay() { 
+		textToday.setText(new StringBuilder().append(calStartDate.get(Calendar.YEAR)).append("/").append(
+				format(calStartDate.get(Calendar.MONTH) + 1)));
+		//String s = calCalendar.get(Calendar.YEAR) + "/"
+				//+ (calCalendar.get(format(mMonth + 1)));// dateMonth.format(calCalendar.getTime());
+		//mYear = calCalendar.get(Calendar.YEAR);
+		//textToday.setText(s);
 	}
 
 	private void setPrevViewItem() {
@@ -303,6 +325,8 @@ public class DateWidget{
 		calToday.setFirstDayOfWeek(iFirstDayOfWeek);
 		calStartDate.setTimeInMillis(calToday.getTimeInMillis());
 		calStartDate.setFirstDayOfWeek(iFirstDayOfWeek);
+		calSelected.setTimeInMillis(calToday.getTimeInMillis());
+		
 		UpdateStartDateForMonth();
 		updateCalendar();
 	}
@@ -318,7 +342,6 @@ public class DateWidget{
 		calStartDate.set(Calendar.YEAR, iMonthViewCurrentYear);
 		UpdateStartDateForMonth();
 		updateCalendar();
-
 	}
 
 	private DateWidgetDayCell.OnItemClick mOnDayCellClick = new DateWidgetDayCell.OnItemClick() {
@@ -327,17 +350,22 @@ public class DateWidget{
 			item.setSelected(true);
 			updateCalendar();
 			updateControlsState();
+			//点击单元调用主界面函数
+			mm = (DayPlanActivity)mActivity;
+			System.out.println("点击-----22222222222--------------------事件");
+			mm.setDate(calSelected);
+			
 		}
 	};
 
 	private void updateControlsState() {
-		SimpleDateFormat dateFull = new SimpleDateFormat("d MMMM yyyy");
+		//SimpleDateFormat dateFull = new SimpleDateFormat("d MMMM yyyy");
 		mYear = calSelected.get(Calendar.YEAR);
 		mMonth = calSelected.get(Calendar.MONTH);
 		mDay = calSelected.get(Calendar.DAY_OF_MONTH);
-		tv.setText(new StringBuilder().append(mYear).append("/").append(
-				format(mMonth + 1)).append("/").append(format(mDay)).append(
-				"-----").append(dateFull.format(calSelected.getTime())));
+		textToday.setText(new StringBuilder().append(mYear).append("/").append(
+				format(mMonth + 1)));
+
 	}
 
 	private String format(int x) {
@@ -346,5 +374,14 @@ public class DateWidget{
 			s = "0" + s;
 		return s;
 	}
+	/**
+	 * 主界面点击回到今天内部接口
+	 */
+	public void backToday(){
+		setTodayViewItem();
+		String s = calToday.get(Calendar.YEAR) + "/"
+				+ (calToday.get(Calendar.MONTH) + 1);
+	}
+	
 
 }
