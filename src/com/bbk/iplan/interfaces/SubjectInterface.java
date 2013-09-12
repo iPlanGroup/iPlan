@@ -10,7 +10,7 @@ public interface SubjectInterface {
 	 * 获取所有科目
 	 * @return
 	 */
-	public List<SubjectInfo> getAllSubjet(); 
+	public List<SubjectInfo> getAllSubject(); 
 	/**
 	 * 获取当天科目
 	 * @param time
