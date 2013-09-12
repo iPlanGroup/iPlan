@@ -38,6 +38,16 @@ public interface HomeworkInterface {
 	 * @return
 	 */
 	public boolean DeleteHomeworkInfo(int id);
-	
+	/**
+	 * 
+	 * @Title: modifyHomeworkInfo 
+	 * @Description: 修改家庭作业信息
+	 * @param @param id
+	 * @param @param column
+	 * @param @param value
+	 * @param @param mode    设定文件 
+	 * @return void    返回类型 
+	 * @throws
+	 */
 	public void modifyHomeworkInfo(int id,String column,Object value,int mode);
 }

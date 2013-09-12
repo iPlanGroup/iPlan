@@ -8,6 +8,7 @@ import com.bbk.iplan.data.EventInfo;
 import com.bbk.iplan.data.HomeworkInfo;
 import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
+import com.bbk.iplan.interfaces.ManagerInterface;
 
 public class DayPlan {
 	private Date LocalTime;
@@ -61,9 +62,9 @@ public class DayPlan {
 	}
 
 	public SubjectInfo CreateLongSubject(String name, Date time,
-			Date remindTime, String place, String teacher, String mark) {
+			Date remindTime, String place, String teacher, String mark,TermInfo termInfo) {
 		SubjectInfo info = mSubjectManager.CreateLongSubject(name, time,
-				remindTime, place, teacher, mark);
+				remindTime, place, teacher, mark, termInfo);
 		mListSubjectInfos.add(info);
 		return info;
 	}
@@ -87,7 +88,40 @@ public class DayPlan {
 	public void setLocalTime(Date localTime) {
 		LocalTime = localTime;
 	}
+	public void DeleteInfo(int mode,int id){
+		ManagerInterface mInterface = null;
+		switch(mode){
+		case SystemManager.MODE_EVENT:
+			mInterface=mEventManager;
+			break;
+		case SystemManager.MODE_HOMEWORK:
+			mInterface=mHomeworkManager;
+			break;
+		case SystemManager.MODE_SUBJECT:
+			mInterface=mSubjectManager;
+			break;
+		case SystemManager.MODE_VACATION:
+			mInterface=new VacationManager();
+			break;
+		}
+		mInterface.DeleteInfo(id);
+	}
 	public void ModifyInfo(int MODE,int id,String column,Object value,int mode){
-		
+		ManagerInterface mInterface = null;
+		switch(mode){
+		case SystemManager.MODE_EVENT:
+			mInterface=mEventManager;
+			break;
+		case SystemManager.MODE_HOMEWORK:
+			mInterface=mHomeworkManager;
+			break;
+		case SystemManager.MODE_SUBJECT:
+			mInterface=mSubjectManager;
+			break;
+		case SystemManager.MODE_VACATION:
+			mInterface=new VacationManager();
+			break;
+		}
+		mInterface.ModifyInfo(id, column, value, mode);
 	}
 }

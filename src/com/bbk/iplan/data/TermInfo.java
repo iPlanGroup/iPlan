@@ -10,6 +10,13 @@ public class TermInfo {
 	private Long StartTime;  //学期开始时间
 	private Long EndTime;    //学期结束时间
 	private Boolean isTerm;  //判断是否为假期
+	private String name; //假期名称
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public List<SubjectInfo> getSubjectInfos() {
 		return subjectInfos;
 	}

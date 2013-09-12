@@ -22,13 +22,23 @@ public interface VacationInterface {
 	 * @param isVacation
 	 * @return
 	 */
-	public TermInfo CreateVacation(Date StartTime,Date EndTime,boolean isVacation);
+	public TermInfo CreateVacation(String name,Date StartTime,Date EndTime,boolean isVacation);
 	/**
 	 * 删除假期或者学期信息
 	 * @param id
 	 * @return
 	 */
 	public boolean DeleteVacationInfo(int id);
-	
+	/**
+	 * 
+	 * @Title: modifyVacationInfo 
+	 * @Description: 修改假期信息
+	 * @param @param id
+	 * @param @param column
+	 * @param @param value
+	 * @param @param mode    设定文件 
+	 * @return void    返回类型 
+	 * @throws
+	 */
 	public void modifyVacationInfo(int id,String column,Object value,int mode);
 }

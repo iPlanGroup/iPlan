@@ -27,6 +27,8 @@ public class FacadePlan extends AbstractFacadePlan {
 	private Date remindTime;
 	private TermInfo term;
 	private SubjectInfo subject;
+	private TermInfo termInfo;
+
 	public FacadePlan() {
 		// TODO Auto-generated constructor stub
 		String datestr = mFormat.format(Calendar.getInstance().getTime());
@@ -81,7 +83,7 @@ public class FacadePlan extends AbstractFacadePlan {
 			object=mDayPlan.CreateExam(name, remindTime, mark, StartTime, EndTime);
 			break;
 		case MODE_SINGLESUBJECT:
-			object=mDayPlan.CreateLongSubject(name, StartTime, remindTime, place, teacher, mark);
+			object=mDayPlan.CreateLongSubject(name, StartTime, remindTime, place, teacher, mark,termInfo);
 			break;
 		case MODE_LONGSUBJECT:
 			object=mDayPlan.CreateSingleSubject(name, remindTime, mark, term, subject);
@@ -116,28 +118,20 @@ public class FacadePlan extends AbstractFacadePlan {
 		this.subjectName = subjectName;
 	}
 	@Override
-	public void ModifyDayPlan(int mode,String column,Object value,int columnMode) {
+	public void ModifyDayPlan(int mode,int id,String column,Object value,int columnMode) {
 		// TODO Auto-generated method stub
-
+		mDayPlan.ModifyInfo(mode, id, column, value, columnMode);
 	}
-
+	public TermInfo getTermInfo() {
+		return termInfo;
+	}
+	public void setTermInfo(TermInfo termInfo) {
+		this.termInfo = termInfo;
+	}
 	@Override
 	public void DeleteDayPlan(int mode,int id) {
 		// TODO Auto-generated method stub
-//		switch (mode){
-//		case MODE_HOMEWORK:
-//			mDayPlan.(name,subjectName, EndTime, mode, mark);
-//			break;
-//		case MODE_EVENT:
-//			mDayPlan.CreateExam(name, remindTime, mark, StartTime, EndTime);
-//			break;
-//		case MODE_SINGLESUBJECT:
-//			mDayPlan.CreateLongSubject(name, StartTime, remindTime, place, teacher, mark);
-//			break;
-//		case MODE_LONGSUBJECT:
-//			mDayPlan.CreateSingleSubject(name, remindTime, mark, term, subject);
-//			break;
-//		}
+		mDayPlan.DeleteInfo(mode, id);
 	}
 
 }

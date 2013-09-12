@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.bbk.iplan.data.SubjectInfo;
+import com.bbk.iplan.data.TermInfo;
 
 public interface SubjectInterface {
 	
@@ -33,7 +34,7 @@ public interface SubjectInterface {
 	 * @return
 	 */
 	public SubjectInfo CreateLongSubject(String name, Date time,
-			Date notifytime, String place, String teacher, String mark);  
+			Date notifytime, String place, String teacher, String mark,TermInfo termInfo);  
 	/**
 	 * 删除长期课信息
 	 * @param id
@@ -41,6 +42,16 @@ public interface SubjectInterface {
 	 */
 	
 	public boolean DeleteSubjectInfo(int id);
-	
+	/**
+	 * 
+	 * @Title: modifySubjectInfo 
+	 * @Description: 修改课程信息
+	 * @param @param id
+	 * @param @param column
+	 * @param @param value
+	 * @param @param mode    设定文件 
+	 * @return void    返回类型 
+	 * @throws
+	 */
 	public void modifySubjectInfo(int id,String column,Object value,int mode);
 }

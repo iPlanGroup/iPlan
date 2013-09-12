@@ -48,7 +48,17 @@ public interface EventInterface {
 	 * @return
 	 */
 	public boolean DeleteEventInfo(int id);
-	
-	public void ModifyColumn(int id,String column,Object value,int Mode);
+	/**
+	 * 
+	 * @Title: ModifyEventInfo 
+	 * @Description: 修改单次课和考试信息
+	 * @param @param id
+	 * @param @param column
+	 * @param @param value
+	 * @param @param Mode    设定文件 
+	 * @return void    返回类型 
+	 * @throws
+	 */
+	public void ModifyEventInfo(int id,String column,Object value,int Mode);
 
 }
