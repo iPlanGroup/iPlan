@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/homework_bg"
+    android:paddingBottom="5dp" >
+
+    <RelativeLayout
+        android:id="@+id/add_class_title_rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" >
+
+        <Button
+            android:id="@+id/add_class_cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/homework_cancel_btn"
+            android:text="取消"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"
+            android:textSize="@dimen/textSize" />
+
+        <TextView
+            android:id="@+id/add_class_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="添加课程"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/textSize" />
+
+        <Button
+            android:id="@+id/add_class_ok_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/add_class_cancel_btn"
+            android:padding="8dp"
+            android:background="@drawable/homework_ok_btn"
+            android:text="确认"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/textSize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_class_title_rl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/add_hw_content_bg" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:id="@+id/add_class_subject_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:text="学    科： "
+                android:textColor="#616161"
+                android:textSize="@dimen/textSize" >
+            </TextView>
+         
+          <TextView
+                android:id="@+id/add_class_select_subject_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="选择学科"
+                android:textColor="#616161"
+                android:textSize="@dimen/textSize"
+                android:layout_toRightOf="@id/add_class_subject_tv"
+                android:layout_alignTop="@id/add_class_subject_tv"
+                android:layout_marginLeft="10dp" >
+            </TextView>
+            
+        <TextView
+                android:id="@+id/aad_class_line_one"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/add_class_subject_tv"
+                android:background="@drawable/line" />
+        
+        <TextView
+                android:id="@+id/class_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/aad_class_line_one"
+                android:layout_marginTop="10dp"
+                android:text="上课时间："
+                android:textSize="@dimen/textSize" />
+            
+           <TextView
+                android:id="@+id/add_class_date_picker_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/class_time_tv"
+                android:layout_alignTop="@id/class_time_tv"
+                android:text="选择时间"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/textSize"
+                />
+           
+           <TextView
+                android:id="@+id/add_class_line_two"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/add_class_date_picker_btn"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/line" />
+           
+           <TextView
+                android:id="@+id/class_pre_notice_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_class_line_two"
+                android:layout_marginTop="10dp"
+                android:text="通知时间："
+                android:textSize="@dimen/textSize" />
+            
+           <TextView
+                android:id="@+id/add_class_pre_time_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/class_pre_notice_time_tv"
+                android:layout_alignTop="@id/class_pre_notice_time_tv"
+                android:text="选择时间"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/textSize"
+                />
+           
+          <TextView
+                android:id="@+id/add_class_line_three"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/class_pre_notice_time_tv"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/line" />
+          
+          <TextView
+                android:id="@+id/class_category_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_class_line_three"
+                android:layout_marginTop="10dp"
+                android:text="课程类型："
+                android:textSize="@dimen/textSize" />
+            
+           <TextView
+                android:id="@+id/add_category_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_toRightOf="@id/class_category_tv"
+                android:layout_alignTop="@id/class_category_tv"
+                android:text="选择类型"
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/textSize"
+                />
+           
+          <TextView
+                android:id="@+id/add_class_line_six"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/class_category_tv"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/line" />
+
+            <TextView
+                android:id="@+id/class_place_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_class_line_six"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="5dp"
+                android:text="上课地点："
+                android:textSize="@dimen/textSize" />
+
+            <EditText
+                android:id="@+id/class_place_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/class_place_tv"
+                android:layout_alignTop="@id/class_place_tv"
+                android:hint="place"
+                android:singleLine="true"
+                android:textSize="@dimen/textSize" />
+
+          <TextView
+                android:id="@+id/add_class_line_four"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/class_place_tv"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/line" />
+
+             <TextView
+                android:id="@+id/teacher_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_class_line_four"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="5dp"
+                android:text="老师姓名："
+                android:textSize="@dimen/textSize" />
+
+            <EditText
+                android:id="@+id/teacher_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/teacher_name_tv"
+                android:layout_alignTop="@id/teacher_name_tv"
+                android:hint="name"
+                android:singleLine="true"
+                android:textSize="@dimen/textSize" />
+
+           
+            <TextView
+                android:id="@+id/add_class_line_five"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/teacher_name_tv"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/line" />
+            
+            <TextView
+                android:id="@+id/add_class_bak_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_class_line_five"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="5dp"
+                android:background="#FFFFFF"
+                android:text="备注："
+                android:textSize="@dimen/textSize" />
+
+           <EditText
+                android:id="@+id/add_class_bak_et"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_alignLeft="@id/add_class_bak_tv"
+                android:layout_below="@id/add_class_bak_tv"
+                android:hint="bak"
+                android:maxLines="2"
+                android:textSize="@dimen/textSize" />
+                
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,10 +1,8 @@
 package com.bbk.flipview.library.fliputils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,7 +15,6 @@ import android.widget.SimpleAdapter;
 import com.bbk.flipview.library.baseutils.AphidLog;
 import com.bbk.iplan.R;
 import com.bbk.iplan.ui.DayPlanActivity;
-import com.bbk.iplan.ui.MainActivity;
 
 public class TravelAdapter extends BaseAdapter
 {
@@ -29,12 +26,13 @@ public class TravelAdapter extends BaseAdapter
 	private List<Travels.Data> travelData;
 	
     private SimpleAdapter sa = null;
-    private DayPlanActivity mainActivity = null;
+//    private MainActivity mainActivity = null;
+    private DayPlanActivity dayPlanAc = null;
     
 	public TravelAdapter(DayPlanActivity context)
 	{
 		inflater = LayoutInflater.from(context);
-		this.mainActivity = context;
+		this.dayPlanAc = context;
 		travelData = new ArrayList<Travels.Data>(Travels.IMG_DESCRIPTIONS);
 	}
 	
@@ -42,7 +40,7 @@ public class TravelAdapter extends BaseAdapter
 	{
 		inflater = LayoutInflater.from(context);   
 		this.sa = sa;
-		this.mainActivity = context;
+		this.dayPlanAc = context;
 		travelData = new ArrayList<Travels.Data>(Travels.IMG_DESCRIPTIONS);
 	}
 
@@ -90,8 +88,22 @@ public class TravelAdapter extends BaseAdapter
 			hwLV.setAdapter(sa);
 		}
 		
-		ImageView addPlanBtn = (ImageView)layout.findViewById(R.id.add_plan_btn);
-		ImageView addHWBtn = (ImageView)layout.findViewById(R.id.add_hw_btn);
+		final ImageView addPlanBtn = (ImageView)layout.findViewById(R.id.add_plan_btn);
+		final ImageView addHWBtn = (ImageView)layout.findViewById(R.id.add_hw_btn);
+		
+		addHWBtn.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				System.out.println("show add homework");
+//                mainActivity.pop.showAddHWPop(addHWBtn);
+//				mainActivity.pop.showAddClassPop(addHWBtn);
+//				mainActivity.pop.showAddExamPop(addHWBtn);
+//				dayPlanAc.pop.showAddHolidayPop(addHWBtn);
+				dayPlanAc.pop.showAddHolidayPop(addHWBtn);
+			}
+		});
 		
 		addPlanBtn.setOnClickListener(new OnClickListener()
 		{
@@ -100,16 +112,7 @@ public class TravelAdapter extends BaseAdapter
 			{
 				System.out.println("show add plan");
 //				mainActivity.showAddPlanPop();
-			}
-		});
-		
-		addHWBtn.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-				System.out.println("show add homework");
-//                mainActivity.showAddHWPop();				
+				dayPlanAc.pop.showAddPlanPop(addPlanBtn);
 			}
 		});
 
