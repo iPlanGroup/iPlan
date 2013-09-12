@@ -12,8 +12,10 @@ public class SubjectInfo {
 	private String teacher;  //上课老师
 	private String mark;   //备注
 	private TermInfo termInfo;
+	private int week_time[]=new int[7];
 	
 	
+
 	public TermInfo getTermInfo() {
 		return termInfo;
 	}
@@ -62,5 +64,10 @@ public class SubjectInfo {
 	public void setID(int iD) {
 		ID = iD;
 	}
-	
+	public int[] getWeek_time() {
+		return week_time;
+	}
+	public void setWeek_time(int[] week_time) {
+		this.week_time = week_time;
+	}
 }
