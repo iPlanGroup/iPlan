@@ -21,6 +21,9 @@ public class SummaryExListAdapter extends BaseExpandableListAdapter
     private List<HashMap<String, String>> groupList;
     private List<List<HashMap<String, String>	>> childList;
     
+	public static final String GROUP = "group";
+	public static final String CHILD = "child";
+	
 	public SummaryExListAdapter(MainActivity mainActivity,
 			List<HashMap<String, String>> goupList,
 			List<List<HashMap<String, String>>> childList)
@@ -34,7 +37,7 @@ public class SummaryExListAdapter extends BaseExpandableListAdapter
 	@Override
 	public Object getChild(int arg0, int arg1)
 	{
-		return childList.get(arg0).get(arg1).get(MainActivity.CHILD).toString();
+		return childList.get(arg0).get(arg1).get(CHILD).toString();
 	}
 
 	@Override
@@ -57,7 +60,7 @@ public class SummaryExListAdapter extends BaseExpandableListAdapter
 
 		TextView childNameTV = (TextView)view.findViewById(R.id.child_name_tv);
 		
-		String childNameStr = childList.get(arg0).get(arg1).get(MainActivity.CHILD);
+		String childNameStr = childList.get(arg0).get(arg1).get(CHILD);
 		
         childNameTV.setText(childNameStr);	
 		return view;
@@ -72,7 +75,7 @@ public class SummaryExListAdapter extends BaseExpandableListAdapter
 	@Override
 	public Object getGroup(int arg0)
 	{
-		return groupList.get(arg0).get(MainActivity.GROUP).toString();
+		return groupList.get(arg0).get(GROUP).toString();
 	}
 
 	@Override
@@ -98,19 +101,9 @@ public class SummaryExListAdapter extends BaseExpandableListAdapter
 		}
 		
 		TextView groupNameTV = (TextView)view.findViewById(R.id.group_name_tv);
-		ImageView groupPullIV = (ImageView)view.findViewById(R.id.group_pull_iv);
 		
-		String groupNameStr = groupList.get(arg0).get(MainActivity.GROUP);
+		String groupNameStr = groupList.get(arg0).get(GROUP);
 		groupNameTV.setText(groupNameStr);
-		
-		if(arg1)
-		{
-			groupPullIV.setBackgroundResource(R.drawable.btn_browser);
-		}
-		else
-		{
-			groupPullIV.setBackgroundResource(R.drawable.btn_browser2);
-		}
 		
 		return view;
 	}

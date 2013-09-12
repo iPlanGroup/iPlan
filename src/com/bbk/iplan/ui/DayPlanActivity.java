@@ -21,6 +21,8 @@ import com.bbk.flipview.library.fliputils.TravelAdapter;
 import com.bbk.iplan.R;
 import com.bbk.iplan.calendar.DateWidget;
 import com.bbk.iplan.model.SystemManager;
+import com.bbk.iplan.utils.BookUtils;
+import com.bbk.pop.PopUtils;
 
 public class DayPlanActivity extends Activity {
 	private SystemManager manager;
@@ -36,15 +38,23 @@ public class DayPlanActivity extends Activity {
 	public SimpleAdapter bookDataAdapter = null;
 	private Calendar mCalendar = null;
 
+	public PopUtils pop = null;
+	public BookUtils bookUtils = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.plan_dayplan);
+		
+		pop = new PopUtils(this);
+		bookUtils = new BookUtils();
+		
 		init();
-		bookDataList = getBookDataList();
+		bookDataList = bookUtils.getBookDataList();
 		bookDataAdapter = getBookDataAdapter(bookDataList);
+		
 		flipView = (FlipViewController) findViewById(R.id.flip_view);
 		flipView.setAdapter(new TravelAdapter(this, bookDataAdapter));
 		flipView.setOnViewFlipListener(new FlipViewController.ViewFlipListener() {
@@ -127,18 +137,5 @@ public class DayPlanActivity extends Activity {
 						R.id.ItemTitle, R.id.ItemText });
 
 		return listItemAdapter;
-	}
-
-	public ArrayList<HashMap<String, Object>> getBookDataList() {
-		ArrayList<HashMap<String, Object>> listItem = new ArrayList<HashMap<String, Object>>();
-		for (int i = 0; i < 5; i++) {
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("ItemImage", R.drawable.ic_launcher);// 图像资源的ID
-			map.put("ItemTitle", "Level " + i);
-			map.put("ItemText", "Finished ");
-			listItem.add(map);
-		}
-
-		return listItem;
 	}
 }

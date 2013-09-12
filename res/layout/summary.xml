@@ -1,85 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-    android:background="@drawable/summary_bg">
-    <RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/summary_bg" >
+
+    <RelativeLayout
         android:id="@+id/summary_title_rl"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        >
-       <Button 
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp" >
+
+        <Button
             android:id="@+id/summary_cancel_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/summary_cancel_btn"
+            android:padding="10dp"
             android:text="取消"
             android:textColor="#ffffff"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
-            android:textSize="@dimen/textSize"
-            android:background="@drawable/summary_cancel_btn"/>
-        <TextView 
+            android:textSize="@dimen/textSize" />
+
+        <TextView
             android:id="@+id/summary_title_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="汇总"
-            android:textSize="@dimen/textSize"
-            android:textColor="#ffffff"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
-        <Button 
+            android:layout_centerVertical="true"
+            android:text="汇总"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/textSize" />
+
+        <Button
             android:id="@+id/summary_finish_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/summary_finish_btn2"
+            android:padding="10dp"
             android:text="完成"
             android:textColor="#ffffff"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="3dp"
-            android:textSize="@dimen/textSize"
-            android:background="@drawable/summary_finish_btn2"/>
-    </RelativeLayout>   
-    
-    <RelativeLayout 
-        android:id="@+id/summary_switch_rl"
-        android:layout_width="match_parent"
+            android:textSize="@dimen/textSize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/switch_list_rl"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="5dp"
         android:layout_below="@id/summary_title_rl"
-        android:background="#CACBCF">
-        <Switch 
-            android:id="@+id/finsh_or_un_sw"
-            android:layout_width="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center" 
+        android:background="@drawable/switch_list_bg">
+
+        <RelativeLayout
+            android:id="@+id/summary_switch_rl"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textOn="未完成"
-            android:textOff="已完成"
-            android:textSize="@dimen/textSize"
-            android:layout_centerInParent="true"
-            android:textColor="#ffffff"/>
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/summary_switch_bg2"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/summary_middle_line"
+                android:layout_width="1dp"
+                android:layout_height="5dp"
+                android:layout_centerHorizontal="true"
+                android:background="#0055F1" />
+
+            <Button
+                android:id="@+id/summary_hw_unfinish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/summary_middle_line"
+                android:background="@drawable/summary_unfinish_btn"
+                android:padding="5dp"
+                android:text="未完成"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/textSize" />
+
+            <Button
+                android:id="@+id/summary_hw_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/summary_middle_line"
+                android:background="@drawable/summary_finish_btn"
+                android:padding="5dp"
+                android:text="已完成"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/textSize" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/summary_switch_rl"
+            android:layout_alignRight="@id/summary_switch_rl"
+            android:layout_below="@id/summary_switch_rl"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" >
+
+            <ExpandableListView
+                android:id="@+id/summary_list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:childDivider="@drawable/line"
+                android:divider="@drawable/line" />
+        </RelativeLayout>
     </RelativeLayout>
-    
-    <RelativeLayout 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/summary_switch_rl"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_alignLeft="@id/summary_switch_rl"
-        android:layout_alignRight="@id/summary_switch_rl"
-        >
-       <ExpandableListView 
-           android:id="@+id/summary_list"
-		   android:layout_width="fill_parent"
-		   android:layout_height="fill_parent"
-           android:layout_alignParentLeft="true"
-           android:divider="@drawable/line"
-           android:childDivider="@drawable/line"
-        />
-    </RelativeLayout>
- 
-    
+
 </RelativeLayout>
