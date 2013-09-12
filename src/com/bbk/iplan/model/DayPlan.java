@@ -87,7 +87,7 @@ public class DayPlan {
 	public void setLocalTime(Date localTime) {
 		LocalTime = localTime;
 	}
-	public void ModifyHomeworkInfo(Map<String,String> Info){
-		String name=Info.get("name");
+	public void ModifyInfo(int MODE,int id,String column,Object value,int mode){
+		
 	}
 }

@@ -6,6 +6,11 @@ import java.util.List;
 import com.bbk.iplan.data.SubjectInfo;
 
 public interface SubjectInterface {
+	
+	public static final int MODE_STRING=1;
+	public static final int MODE_LONG=2;
+	public static final int MODE_INT=3;
+	public static final int MODE_BOOLEAN=4;
 	/**
 	 * 获取所有科目
 	 * @return
@@ -36,4 +41,6 @@ public interface SubjectInterface {
 	 */
 	
 	public boolean DeleteSubjectInfo(int id);
+	
+	public void modifySubjectInfo(int id,String column,Object value,int mode);
 }

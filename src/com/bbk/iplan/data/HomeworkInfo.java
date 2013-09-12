@@ -4,13 +4,13 @@ import java.util.Date;
 import java.util.List;
 public class HomeworkInfo {
 	private int ID;
-	private String name;
+	private String name;  //作业名称
 
-	private String subjectName;
-	private Long StartTime;
-	private Long EndTime;
-	private int level;
-	private String mark;
+	private String subjectName;   //作业所在科目
+	private Long StartTime;   //开始时间
+	private Long EndTime;     //结束时间
+	private int level;        //优先级
+	private String mark;      //备注
 
 	public String getName() {
 		return name;

@@ -8,6 +8,11 @@ import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
 
 public interface EventInterface {
+	public static final int MODE_STRING=1;
+	public static final int MODE_LONG=2;
+	public static final int MODE_INT=3;
+	public static final int MODE_BOOLEAN=4;
+	
 	/**
 	 * 获取所有事件,包括考试和单次课
 	 * @return
@@ -44,6 +49,6 @@ public interface EventInterface {
 	 */
 	public boolean DeleteEventInfo(int id);
 	
-	public void ModifyColumn(int id,String column,String value);
+	public void ModifyColumn(int id,String column,Object value,int Mode);
 
 }

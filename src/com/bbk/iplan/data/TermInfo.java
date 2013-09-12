@@ -7,9 +7,9 @@ import java.util.List;
 public class TermInfo {
 	private int ID;
 	private List<SubjectInfo> subjectInfos;  //学科基本信息
-	private Long StartTime;
-	private Long EndTime;
-	private Boolean isTerm;
+	private Long StartTime;  //学期开始时间
+	private Long EndTime;    //学期结束时间
+	private Boolean isTerm;  //判断是否为假期
 	public List<SubjectInfo> getSubjectInfos() {
 		return subjectInfos;
 	}

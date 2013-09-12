@@ -5,14 +5,21 @@ import java.util.Date;
 public class SubjectInfo {
 	private int ID;
 
-	private String name;
-	private Long time;
-	private Long NotifyTime;
-	private String place;
-	private String teacher;
-	private String mark;
+	private String name;  //课程名称
+	private Long time;  //课程开始时间(通用) 
+	private Long NotifyTime;  //提醒时间(长期课结束时间)
+	private String place;  //上课地点
+	private String teacher;  //上课老师
+	private String mark;   //备注
+	private TermInfo termInfo;
 	
 	
+	public TermInfo getTermInfo() {
+		return termInfo;
+	}
+	public void setTermInfo(TermInfo termInfo) {
+		this.termInfo = termInfo;
+	}
 	public String getName() {
 		return name;
 	}

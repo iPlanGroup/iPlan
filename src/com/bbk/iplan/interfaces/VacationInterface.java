@@ -6,6 +6,10 @@ import java.util.List;
 import com.bbk.iplan.data.TermInfo;
 
 public interface VacationInterface {
+	public static final int MODE_STRING=1;
+	public static final int MODE_LONG=2;
+	public static final int MODE_INT=3;
+	public static final int MODE_BOOLEAN=4;
 	/**
 	 * 获取所有假期信息包括学期
 	 * @return
@@ -25,4 +29,6 @@ public interface VacationInterface {
 	 * @return
 	 */
 	public boolean DeleteVacationInfo(int id);
+	
+	public void modifyVacationInfo(int id,String column,Object value,int mode);
 }

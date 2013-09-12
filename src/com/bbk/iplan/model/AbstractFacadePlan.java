@@ -8,8 +8,8 @@ public abstract class  AbstractFacadePlan {
 	public abstract DayPlan getCurDayPlan(Date time);
 	public abstract WeekPlan getCurWeekPlan(Date time);
 	public abstract Object CreateDayPlan(int mode);
-	public abstract void ModifyDayPlan(int mode);
-	public abstract void DeleteDayPlan(int mode);
+	public abstract void ModifyDayPlan(int mode,String column,Object value,int columnMode);
+	public abstract void DeleteDayPlan(int mode,int id);
 	
 	
 }
