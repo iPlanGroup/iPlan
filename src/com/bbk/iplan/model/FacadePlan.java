@@ -124,20 +124,20 @@ public class FacadePlan extends AbstractFacadePlan {
 	@Override
 	public void DeleteDayPlan(int mode,int id) {
 		// TODO Auto-generated method stub
-		switch (mode){
-		case MODE_HOMEWORK:
-			mDayPlan.(name,subjectName, EndTime, mode, mark);
-			break;
-		case MODE_EVENT:
-			mDayPlan.CreateExam(name, remindTime, mark, StartTime, EndTime);
-			break;
-		case MODE_SINGLESUBJECT:
-			mDayPlan.CreateLongSubject(name, StartTime, remindTime, place, teacher, mark);
-			break;
-		case MODE_LONGSUBJECT:
-			mDayPlan.CreateSingleSubject(name, remindTime, mark, term, subject);
-			break;
-		}
+//		switch (mode){
+//		case MODE_HOMEWORK:
+//			mDayPlan.(name,subjectName, EndTime, mode, mark);
+//			break;
+//		case MODE_EVENT:
+//			mDayPlan.CreateExam(name, remindTime, mark, StartTime, EndTime);
+//			break;
+//		case MODE_SINGLESUBJECT:
+//			mDayPlan.CreateLongSubject(name, StartTime, remindTime, place, teacher, mark);
+//			break;
+//		case MODE_LONGSUBJECT:
+//			mDayPlan.CreateSingleSubject(name, remindTime, mark, term, subject);
+//			break;
+//		}
 	}
 
 }
