@@ -13,7 +13,7 @@ public class HomeworkManager {
 	{
 		return null;
 	}
-	public HomeworkInfo CreateHomework(String name,
+	public HomeworkInfo CreateHomework(String name,String subjectName,
 			Date StartTime, Date EndTime, int Level, String Mark) {
 		HomeworkInfo homeworkInfo=new HomeworkInfo();
 		homeworkInfo.setSubjectName(name);

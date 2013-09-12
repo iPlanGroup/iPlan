@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import android.annotation.SuppressLint;
 import android.app.ActivityGroup;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -22,7 +21,6 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -40,11 +38,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.bbk.iplan.R;
-import com.bbk.iplan.calendar.DateWidget;
 import com.bbk.iplan.model.SystemManager;
 import com.bbk.pop.SummaryExListAdapter;
 
-@SuppressLint("NewApi")
 public class MainActivity extends ActivityGroup implements OnClickListener,
 		ExpandableListView.OnGroupClickListener,
 		ExpandableListView.OnChildClickListener {

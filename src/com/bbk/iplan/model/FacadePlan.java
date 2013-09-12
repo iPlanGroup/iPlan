@@ -17,6 +17,7 @@ public class FacadePlan extends AbstractFacadePlan {
 	public static final int MODE_LONGSUBJECT = 3;
 	public SimpleDateFormat mFormat = new SimpleDateFormat("yyyy/MM/dd");
 	private String name;
+	private String subjectName;
 	private Date StartTime=new Date();
 	private Date EndTime=new Date();
 	private String place;
@@ -74,7 +75,7 @@ public class FacadePlan extends AbstractFacadePlan {
 		Object object = new Object();
 		switch (mode) {
 		case MODE_HOMEWORK:
-			object=mDayPlan.CreateHomework(name, EndTime, mode, mark);
+			object=mDayPlan.CreateHomework(name,subjectName, EndTime, mode, mark);
 			break;
 		case MODE_EVENT:
 			object=mDayPlan.CreateExam(name, remindTime, mark, StartTime, EndTime);
@@ -108,6 +109,12 @@ public class FacadePlan extends AbstractFacadePlan {
 		return mWeekPlan;
 	}
 
+	public String getSubjectName() {
+		return subjectName;
+	}
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
 	@Override
 	public void ModifyDayPlan(int mode) {
 		// TODO Auto-generated method stub

@@ -26,7 +26,7 @@ public interface HomeworkInterface {
 	 * @param Mark
 	 * @return
 	 */
-	public HomeworkInfo CreateHomework(String name,
+	public HomeworkInfo CreateHomework(String name,String subjectName,
 			Date StartTime, Date EndTime, int Level, String Mark);
 	/**
 	 * 删除家庭作业信息

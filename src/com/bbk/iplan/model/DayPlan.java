@@ -52,9 +52,9 @@ public class DayPlan {
 		return mListSubjectInfos = mSubjectManager.getLocalSubject(LocalTime);
 	}
 
-	public HomeworkInfo CreateHomework(String name, Date EndTime, int Level,
+	public HomeworkInfo CreateHomework(String name, String subjectName,Date EndTime, int Level,
 			String Mark) {
-		HomeworkInfo info = mHomeworkManager.CreateHomework(name, LocalTime,
+		HomeworkInfo info = mHomeworkManager.CreateHomework(name, subjectName,LocalTime,
 				EndTime, Level, Mark);
 		mListHomeworkInfos.add(info);
 		return info;

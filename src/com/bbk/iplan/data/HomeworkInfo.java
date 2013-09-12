@@ -1,10 +1,10 @@
 package com.bbk.iplan.data;
 
 import java.util.Date;
+import java.util.List;
 public class HomeworkInfo {
 	private int ID;
 	private String name;
-
 
 	private String subjectName;
 	private Long StartTime;

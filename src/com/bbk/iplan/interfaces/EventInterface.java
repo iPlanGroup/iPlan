@@ -43,4 +43,7 @@ public interface EventInterface {
 	 * @return
 	 */
 	public boolean DeleteEventInfo(int id);
+	
+	public void ModifyColumn(int id,String column,String value);
+
 }
