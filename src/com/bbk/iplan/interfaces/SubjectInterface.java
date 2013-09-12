@@ -33,7 +33,7 @@ public interface SubjectInterface {
 	 * @param mark
 	 * @return
 	 */
-	public SubjectInfo CreateLongSubject(String name, Date time,
+	public SubjectInfo CreateLongSubject(String name, Date time,int[] week_time,
 			Date notifytime, String place, String teacher, String mark,TermInfo termInfo);  
 	/**
 	 * 删除长期课信息

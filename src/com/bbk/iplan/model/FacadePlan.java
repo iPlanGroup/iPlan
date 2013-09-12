@@ -28,6 +28,7 @@ public class FacadePlan extends AbstractFacadePlan {
 	private TermInfo term;
 	private SubjectInfo subject;
 	private TermInfo termInfo;
+	private int [] week_time=new int[7];
 
 	public FacadePlan() {
 		// TODO Auto-generated constructor stub
@@ -39,6 +40,13 @@ public class FacadePlan extends AbstractFacadePlan {
 			e.printStackTrace();
 		}
 		mWeekPlan = new WeekPlan();
+	}
+	public TermInfo CreateTerm(String name,Date StartTime,Date EndTime){
+		TermInfo info;
+		VacationManager manager=(VacationManager)SystemManager.getInstance().getSystemManager(SystemManager.MODE_VACATION);
+		info=manager.CreateVacation(name, StartTime, EndTime, false);
+		return info;
+		
 	}
 	public void setCurTerm(Date startTime,Date endTime){
 		term.setStartTime(startTime);
@@ -80,13 +88,13 @@ public class FacadePlan extends AbstractFacadePlan {
 			object=mDayPlan.CreateHomework(name,subjectName, EndTime, mode, mark);
 			break;
 		case MODE_EVENT:
-			object=mDayPlan.CreateExam(name, remindTime, mark, StartTime, EndTime);
+			object=mDayPlan.CreateExam(name, remindTime,subject, mark, StartTime, EndTime);
 			break;
 		case MODE_SINGLESUBJECT:
-			object=mDayPlan.CreateLongSubject(name, StartTime, remindTime, place, teacher, mark,termInfo);
+			object=mDayPlan.CreateLongSubject(name, StartTime, week_time,remindTime, place, teacher, mark,termInfo);
 			break;
 		case MODE_LONGSUBJECT:
-			object=mDayPlan.CreateSingleSubject(name, remindTime, mark, term, subject);
+			object=mDayPlan.CreateSingleSubject(name, remindTime, StartTime, EndTime,mark, term, subject);
 			break;
 		}
 		return object;
@@ -132,6 +140,12 @@ public class FacadePlan extends AbstractFacadePlan {
 	public void DeleteDayPlan(int mode,int id) {
 		// TODO Auto-generated method stub
 		mDayPlan.DeleteInfo(mode, id);
+	}
+	public int[] getWeek_time() {
+		return week_time;
+	}
+	public void setWeek_time(int[] week_time) {
+		this.week_time = week_time;
 	}
 
 }

@@ -28,7 +28,7 @@ public interface EventInterface {
 	 * @param EndTime
 	 * @return
 	 */
-	public EventInfo CreateExam(int Mode, String name, Date remindTime,
+	public EventInfo CreateExam(int Mode, String name, Date remindTime,SubjectInfo subject,
 			String mark, Date StartTime, Date EndTime); 
 	/**
 	 * 创建单次课信息
@@ -41,7 +41,7 @@ public interface EventInterface {
 	 * @return
 	 */
 	public EventInfo CreateSingleSubject(int Mode, String name,
-			Date remindTime, String mark, TermInfo term, SubjectInfo subject);
+			Date remindTime, Date StartTime,Date EndTime,String mark, TermInfo term, SubjectInfo subject);
 	/**
 	 * 删除事件信息
 	 * @param id

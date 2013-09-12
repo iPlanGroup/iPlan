@@ -61,23 +61,22 @@ public class DayPlan {
 		return info;
 	}
 
-	public SubjectInfo CreateLongSubject(String name, Date time,
+	public SubjectInfo CreateLongSubject(String name, Date time,int []week_time,
 			Date remindTime, String place, String teacher, String mark,TermInfo termInfo) {
-		SubjectInfo info = mSubjectManager.CreateLongSubject(name, time,
+		SubjectInfo info = mSubjectManager.CreateLongSubject(name, time,week_time,
 				remindTime, place, teacher, mark, termInfo);
 		mListSubjectInfos.add(info);
 		return info;
 	}
 
-	public EventInfo CreateExam(String name, Date remindTime,
+	public EventInfo CreateExam(String name, Date remindTime,SubjectInfo subject,
 			String mark, Date StartTime, Date EndTime) {
-		EventInfo info = mEventManager.CreateExam(EventInfo.MODE_EXAM, name, remindTime, mark,
-				StartTime, EndTime);
+		EventInfo info = mEventManager.CreateExam(EventInfo.MODE_EXAM, name, remindTime, subject, mark, StartTime, EndTime);
 		return info;
 	}
 
-	public EventInfo CreateSingleSubject(String name,Date remindTime,String mark,TermInfo term,SubjectInfo subject){
-		EventInfo info =mEventManager.CreateSingleSubject(EventInfo.MODE_SINGLE, name, remindTime, mark, term, subject);
+	public EventInfo CreateSingleSubject(String name,Date remindTime,Date StartTime,Date EndTime,String mark,TermInfo term,SubjectInfo subject){
+		EventInfo info =mEventManager.CreateSingleSubject(EventInfo.MODE_SINGLE, name, remindTime, StartTime,EndTime,mark, term, subject);
 		return info;
 	}
 

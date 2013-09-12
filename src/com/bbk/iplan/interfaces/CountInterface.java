@@ -23,7 +23,7 @@ public interface CountInterface {
 	 * @return List<HomeworkInfo>    返回类型 
 	 * @throws
 	 */
-	public  List<HomeworkInfo> getCountHomewokeInfo();
+	public  List<HomeworkInfo> getCountHomeworkInfo();
 	/**
 	 * 
 	 * @Title: getCountEventInfo 
@@ -41,7 +41,7 @@ public interface CountInterface {
 	 * @return List<HomeworkInfo>    返回类型 
 	 * @throws
 	 */
-	public  List<HomeworkInfo> getCountHomewokeInfoByLevel();
+	public  List<HomeworkInfo> getCountHomeworkInfoByLevel();
 	/**
 	 * 
 	 * @Title: getCountSubjectInfos 

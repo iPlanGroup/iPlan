@@ -15,7 +15,7 @@ public  class EventManager implements ManagerInterface{
 		
 		return mInterface.getAllEventInfo();
 	}
-	public  EventInfo CreateExam(int Mode,String name,Date remindTime,String mark,Date StartTime,Date EndTime) {
+	public  EventInfo CreateExam(int Mode,String name,Date remindTime,SubjectInfo subject,String mark,Date StartTime,Date EndTime) {
 		EventInfo eventInfo=new EventInfo();
 		eventInfo.setMode(Mode);
 		eventInfo.setName(name);
@@ -23,10 +23,11 @@ public  class EventManager implements ManagerInterface{
 		eventInfo.setMark(mark);
 		eventInfo.setStartTime(StartTime);
 		eventInfo.setEndTime(EndTime);
-		mInterface.CreateExam(Mode, name, remindTime, mark, StartTime, EndTime);
+		eventInfo.setSubject(subject);
+		mInterface.CreateExam(Mode, name, remindTime,subject, mark, StartTime, EndTime);
 		return eventInfo;
 	}
-	public  EventInfo CreateSingleSubject(int Mode,String name,Date remindTime,String mark,TermInfo term,SubjectInfo subject) {
+	public  EventInfo CreateSingleSubject(int Mode,String name,Date remindTime,Date StartTime,Date EndTime,String mark,TermInfo term,SubjectInfo subject) {
 		EventInfo eventInfo=new EventInfo();
 		eventInfo.setMode(Mode);
 		eventInfo.setName(name);
@@ -34,7 +35,7 @@ public  class EventManager implements ManagerInterface{
 		eventInfo.setMark(mark);
 		eventInfo.setTerm(term);
 		eventInfo.setSubject(subject);
-		mInterface.CreateSingleSubject(Mode, name, remindTime, mark, term, subject);
+		mInterface.CreateSingleSubject(Mode, name, remindTime,StartTime,EndTime, mark, term, subject);
 		return eventInfo;
 	}
 	public  void Recommand() {

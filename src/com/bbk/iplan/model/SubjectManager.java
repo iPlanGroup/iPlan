@@ -19,7 +19,7 @@ public class SubjectManager implements ManagerInterface{
 		return mInterface.getLocalSubject(time);
 	}
 
-	public SubjectInfo CreateLongSubject(String name, Date time,
+	public SubjectInfo CreateLongSubject(String name, Date time,int[] week_time,
 			Date notifytime, String place, String teacher, String mark,TermInfo termInfo) {
 		SubjectInfo info = new SubjectInfo();
 		info.setName(name);
@@ -29,7 +29,7 @@ public class SubjectManager implements ManagerInterface{
 		info.setTeacher(teacher);
 		info.setMark(mark);
 		info.setTermInfo(termInfo);
-		mInterface.CreateLongSubject(name, time, notifytime, place, teacher, mark, termInfo);
+		mInterface.CreateLongSubject(name, time, week_time, notifytime, place, teacher, mark, termInfo);
 		return info;
 	}
 
