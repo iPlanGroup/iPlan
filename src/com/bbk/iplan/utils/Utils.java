@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.widget.ExpandableListView;
 import android.widget.PopupWindow;
 
 import com.bbk.iplan.R;
+import com.bbk.iplan.app.IPlanApplication;
+import com.bbk.iplan.data.EventInfo;
 import com.bbk.iplan.ui.MainActivity;
 import com.bbk.pop.SummaryExListAdapter;
 
@@ -101,5 +105,146 @@ public class Utils implements ExpandableListView.OnGroupClickListener, Expandabl
 	{
         System.out.println("group: " + groupPosition + " child: " + childPosition);
 		return false;
+	}
+	public static final String MODE_SINGLE_TEXT = "单次课";
+	public static final String MODE_LONGSUBJECT_TEXT = "定期课";
+	public static final String MODE_EXAM_TEXT = "考试";
+	
+	/**
+	 * 
+	 * 判断是输入的时间是否是在定期课的时间里面
+	 * 
+	 * @param startDate
+	 * @param endDate
+	 * @param inputDate
+	 * @return
+	 */
+	public static boolean isSubjectDate(Date startDate, Date endDate, Date inputDate)
+	{
+		
+		if(inputDate.before(endDate) && inputDate.after(startDate))
+		{
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	/**
+	 * 判断是否是截止时间，这个时间要精确到秒
+	 * @return
+	 */
+	public static boolean isDeadLine(Date dealLineDate)
+	{
+		//当前时间,判断是否是截止时间，只需判断这个时间是否大于dealline
+		
+		Date date = new Date(System.currentTimeMillis());
+		
+		if(date.after(dealLineDate))
+		{
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	/**
+	 * 
+	 * 判断输入的时间是否是
+	 * @param inputDate
+	 * @param localDate
+	 * @return
+	 */
+	public static boolean isLocalDate(Date inputDate, Date localDate)
+	{
+		
+		boolean isToday = false;
+		
+		int inputYear = inputDate.getYear();
+		int inputMon = inputDate.getMonth();
+		int inputDay = inputDate.getDay();
+		
+		int localYear = localDate.getYear();
+		int localMon = localDate.getMonth();
+		int localDay = localDate.getDay();
+		
+		if(inputYear == localYear && inputMon == localMon && inputDay == localDay)
+		{
+			isToday = true;
+		}
+		
+		return isToday;
+		
+	}
+	
+	/**
+	 * 获得数据库最大的ID
+	 * @param tableName
+	 * @return
+	 */
+	public static int getMaxId(String tableName)
+	{
+
+		int id = 1;
+
+		SQLiteDatabase db = IPlanApplication.getDataBaseHelper()
+				.getReadableDatabase();
+
+		Cursor cursor = db.query(tableName, null, null, null, null, null, "_id DESC");
+		if(cursor.moveToNext())
+		{
+		  id = cursor.getInt(cursor.getColumnIndex("_id"));
+		}
+		
+		db.close();
+		return id;
+		
+	}
+	
+	public static String getModeName(int mode)
+	{
+
+		switch (mode)
+		{
+			case EventInfo.MODE_SINGLE:
+
+				return MODE_SINGLE_TEXT;
+			case EventInfo.MODE_LONGSUBJECT:
+
+				return MODE_LONGSUBJECT_TEXT;
+			case EventInfo.MODE_EXAM:
+
+				return MODE_EXAM_TEXT;
+
+			default:
+				break;
+		}
+
+		return null;
+
+	}
+
+	public static int getMode(String type)
+	{
+
+		if (type.equals(MODE_SINGLE_TEXT))
+		{
+			return EventInfo.MODE_SINGLE;
+		}
+
+		if (type.equals(MODE_LONGSUBJECT_TEXT))
+		{
+			return EventInfo.MODE_LONGSUBJECT;
+		}
+
+		if (type.equals(MODE_EXAM_TEXT))
+		{
+			return EventInfo.MODE_EXAM;
+		}
+
+		return 0;
+
 	}
 }
