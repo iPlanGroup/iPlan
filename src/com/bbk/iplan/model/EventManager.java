@@ -3,6 +3,8 @@ package com.bbk.iplan.model;
 import java.util.Date;
 import java.util.List;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.EventInfo;
 import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
@@ -46,9 +48,9 @@ public  class EventManager implements ManagerInterface{
 		return mInterface.DeleteEventInfo(id);
 	}
 	@Override
-	public void ModifyInfo(int id, String column, Object value, int mode) {
+	public void ModifyInfo(int id, ContentValues contentValues) {
 		// TODO Auto-generated method stub
-		mInterface.ModifyEventInfo(id, column, value, mode);
+		mInterface.ModifyEventInfo(id, contentValues);
 	}
 
 }

@@ -3,6 +3,8 @@ package com.bbk.iplan.interfaces;
 import java.util.Date;
 import java.util.List;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
 
@@ -53,5 +55,5 @@ public interface SubjectInterface {
 	 * @return void    返回类型 
 	 * @throws
 	 */
-	public void modifySubjectInfo(int id,String column,Object value,int mode);
+	public void modifySubjectInfo(int id,ContentValues contentValues);
 }

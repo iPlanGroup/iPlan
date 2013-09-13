@@ -1,4 +1,7 @@
 package com.bbk.iplan.interfaces;
+
+import android.content.ContentValues;
+
 /** 
  * @Title: ManagerInterface.java 
  * @Package com.bbk.iplan.interfaces 
@@ -9,5 +12,5 @@ package com.bbk.iplan.interfaces;
  */
 public interface ManagerInterface {
 	public  boolean DeleteInfo(int id);
-	public  void ModifyInfo(int id,String column,Object value,int mode); 
+	public  void ModifyInfo(int id,ContentValues contentValues); 
 }

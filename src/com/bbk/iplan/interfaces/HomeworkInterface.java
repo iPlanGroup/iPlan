@@ -3,6 +3,8 @@ package com.bbk.iplan.interfaces;
 import java.util.Date;
 import java.util.List;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.HomeworkInfo;
 
 public interface HomeworkInterface {
@@ -49,5 +51,5 @@ public interface HomeworkInterface {
 	 * @return void    返回类型 
 	 * @throws
 	 */
-	public void modifyHomeworkInfo(int id,String column,Object value,int mode);
+	public void modifyHomeworkInfo(int id,ContentValues contentValues);
 }

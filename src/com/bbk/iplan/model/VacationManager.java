@@ -3,6 +3,8 @@ package com.bbk.iplan.model;
 import java.util.Date;
 import java.util.List;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.TermInfo;
 import com.bbk.iplan.interfaces.ManagerInterface;
 import com.bbk.iplan.interfaces.VacationInterface;
@@ -43,9 +45,9 @@ public class VacationManager implements ManagerInterface{
 		return mInterface.DeleteVacationInfo(id);
 	}
 	@Override
-	public void ModifyInfo(int id, String column, Object value, int mode) {
+	public void ModifyInfo(int id, ContentValues contentValues) {
 		// TODO Auto-generated method stub
-		mInterface.modifyVacationInfo(id, column, value, mode);
+		mInterface.modifyVacationInfo(id, contentValues);
 	}
 
 }

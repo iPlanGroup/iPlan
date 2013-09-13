@@ -3,6 +3,8 @@ package com.bbk.iplan.interfaces;
 import java.util.Date;
 import java.util.List;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.EventInfo;
 import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
@@ -59,6 +61,6 @@ public interface EventInterface {
 	 * @return void    返回类型 
 	 * @throws
 	 */
-	public void ModifyEventInfo(int id,String column,Object value,int Mode);
+	public void ModifyEventInfo(int id,ContentValues contentValues);
 
 }

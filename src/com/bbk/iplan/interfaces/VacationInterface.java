@@ -3,6 +3,8 @@ package com.bbk.iplan.interfaces;
 import java.util.Date;
 import java.util.List;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.TermInfo;
 
 public interface VacationInterface {
@@ -40,5 +42,5 @@ public interface VacationInterface {
 	 * @return void    返回类型 
 	 * @throws
 	 */
-	public void modifyVacationInfo(int id,String column,Object value,int mode);
+	public void modifyVacationInfo(int id,ContentValues contentValues);
 }

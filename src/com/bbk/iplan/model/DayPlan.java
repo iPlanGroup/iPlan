@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.EventInfo;
 import com.bbk.iplan.data.HomeworkInfo;
 import com.bbk.iplan.data.SubjectInfo;
@@ -17,6 +19,15 @@ public class DayPlan {
 	private EventManager mEventManager;
 	private List<HomeworkInfo> mListHomeworkInfos;
 	private List<SubjectInfo> mListSubjectInfos;
+	private List<EventInfo> mListEventInfos;
+
+	public List<EventInfo> getmListEventInfos() {
+		return mListEventInfos;
+	}
+
+	public void setmListEventInfos(List<EventInfo> mListEventInfos) {
+		this.mListEventInfos = mListEventInfos;
+	}
 
 	public List<HomeworkInfo> getListHomeworkInfos() {
 		return mListHomeworkInfos;
@@ -29,6 +40,7 @@ public class DayPlan {
 	public List<SubjectInfo> getListSubjectInfos() {
 		return mListSubjectInfos;
 	}
+
 
 	public void setListSubjectInfos(List<SubjectInfo> mListSubjectInfos) {
 		this.mListSubjectInfos = mListSubjectInfos;
@@ -105,7 +117,7 @@ public class DayPlan {
 		}
 		mInterface.DeleteInfo(id);
 	}
-	public void ModifyInfo(int MODE,int id,String column,Object value,int mode){
+	public void ModifyInfo(int mode,int id,ContentValues contentValues){
 		ManagerInterface mInterface = null;
 		switch(mode){
 		case SystemManager.MODE_EVENT:
@@ -121,6 +133,6 @@ public class DayPlan {
 			mInterface=new VacationManager();
 			break;
 		}
-		mInterface.ModifyInfo(id, column, value, mode);
+		mInterface.ModifyInfo(id, contentValues);
 	}
 }

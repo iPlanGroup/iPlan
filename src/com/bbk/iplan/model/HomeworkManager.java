@@ -3,6 +3,8 @@ package com.bbk.iplan.model;
 import java.util.Date;
 import java.util.List;
 
+import android.content.ContentValues;
+
 import com.bbk.iplan.data.HomeworkInfo;
 import com.bbk.iplan.interfaces.HomeworkInterface;
 import com.bbk.iplan.interfaces.ManagerInterface;
@@ -33,8 +35,8 @@ public class HomeworkManager implements ManagerInterface{
 		return mInterface.DeleteHomeworkInfo(id);
 	}
 	@Override
-	public void ModifyInfo(int id, String column, Object value, int mode) {
+	public void ModifyInfo(int id, ContentValues contentValues) {
 		// TODO Auto-generated method stub
-		mInterface.modifyHomeworkInfo(id, column, value, mode);
+		mInterface.modifyHomeworkInfo(id, contentValues);
 	}
 }

@@ -2,7 +2,6 @@ package com.bbk.iplan.data;
 
 import java.util.Date;
 
-
 /**
  * 
  * @ClassName: EventInfo
@@ -22,8 +21,8 @@ public class EventInfo {
 	private Long remindTime; // 提醒时间
 	private TermInfo term; // 所在学期
 	private SubjectInfo subject; // 课程信息
-	private Long StartTime;  //事件开始时间
-	private Long EndTime;    //事件结束时间
+	private Long StartTime; // 事件开始时间
+	private Long EndTime; // 事件结束时间
 
 	public String getName() {
 		return name;
@@ -51,6 +50,10 @@ public class EventInfo {
 
 	public Long getRemindTime() {
 		return remindTime;
+	}
+
+	public void setRemindTime(long remindTime) {
+		this.remindTime = remindTime;
 	}
 
 	public void setRemindTime(Date remindTime) {
@@ -96,6 +99,5 @@ public class EventInfo {
 	public void setID(int iD) {
 		ID = iD;
 	}
-	
 
 }
