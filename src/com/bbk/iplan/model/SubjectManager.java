@@ -10,8 +10,8 @@ import com.bbk.iplan.interfaces.SubjectInterface;
 
 public class SubjectManager implements ManagerInterface{
 	private SubjectInterface mInterface;
-	public List<SubjectInfo> getAllSubjet() {
-		return mInterface.getAllSubject();
+	public List<SubjectInfo> getAllSubjet(int id) {
+		return mInterface.getAllSubject(id);
 
 	}
 
