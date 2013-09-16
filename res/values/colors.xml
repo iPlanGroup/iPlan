@@ -1,13 +1,15 @@
 <!-- Copyright 2012 Square, Inc. -->
 <resources>
-  
-  <color name="white">#ffffffff</color>
-  <color name="black">#00000000</color>
-  <color name="cray">#EBE9EA</color>
-  	<color name="transparentBlack">#6D000000</color>
-	<color name="darkgrey">#949494</color>
-	<color name="red">#FF0000</color>
-	<color name="green">#00FF00</color>
-	<color name="blue">#0000FF</color>
-  
+
+    <color name="white">#ffffffff</color>
+    <color name="black">#00000000</color>
+    <color name="cray">#EBE9EA</color>
+    <color name="transparentBlack">#6D000000</color>
+    <color name="darkgrey">#949494</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="light">#ff111111</color>
+    <color name="dark">#ffbbbbbb</color>
+
 </resources>

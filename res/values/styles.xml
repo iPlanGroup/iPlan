@@ -1,0 +1,45 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="android:Theme.Light"></style>
+
+    <style name="MyCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/check</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="MySettingText">
+        <item name="android:textColor">#ff111111</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">17</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="MySettingLittleText">
+        <item name="android:textColor">#ff111111</item>
+        <item name="android:layout_margin">1dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="SettingItemTop">
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/setting_list_top</item>
+    </style>
+
+    <style name="SettingItemMiddle">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/setting_list_middle</item>
+    </style>
+
+    <style name="SettingItemBottom">
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/setting_list_bottom</item>
+    </style>
+
+</resources>
