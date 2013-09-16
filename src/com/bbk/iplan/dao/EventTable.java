@@ -92,7 +92,7 @@ public class EventTable implements TableCreateInterface, EventInterface {
 			subjectId = subjectCursor.getInt(subjectCursor.getColumnIndexOrThrow(ExamSingleSubjectTable.SUBJECT_ID));
 			eventInfo.setSubject(SubjectTable.getSubjectInfoById(subjectId));
 			vocationId = subjectCursor.getInt(subjectCursor.getColumnIndexOrThrow(SubjectTable.VOCATION_ID));
-			eventInfo.setTerm(VocationTable.getTermInfoById(vocationId));
+			eventInfo.setTerm(VacationTable.getTermInfoById(vocationId));
 			allEvents.add(eventInfo);
 		}
 

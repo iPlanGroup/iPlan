@@ -52,7 +52,6 @@ public class HomeWorkSubjectTable implements TableCreateInterface{
 		values.put(SUBJECT_ID, subjectId);
 		db.insert(TABLE_NAME, null, values);
 		values = new ContentValues(); 
-		db.close();
 	}
 	
 	public static void remove(int homeworkId)
@@ -61,12 +60,22 @@ public class HomeWorkSubjectTable implements TableCreateInterface{
 		db.delete(TABLE_NAME, HOMEWORK_ID + "=?", new String[] {String.valueOf(homeworkId)});
 	}
 	
+	/**
+	 * 哎
+	 * @param homeworkId
+	 * @return
+	 */
 	public static String getSubjectNameForHomework(int homeworkId)
 	{
 		int subjectId = getSubjectId(homeworkId);
 		return SubjectTable.getSubjectName(subjectId);
 	}
 	
+	/**
+	 * 
+	 * @param homeworkId
+	 * @return
+	 */
 	public static int getSubjectId(int homeworkId)
 	{
 		
@@ -86,7 +95,6 @@ public class HomeWorkSubjectTable implements TableCreateInterface{
 		if(cursor != null)
 		{
 			cursor.close();
-			db.close();
 		}
 		
 		return subjectId;
@@ -111,7 +119,6 @@ public class HomeWorkSubjectTable implements TableCreateInterface{
 		if(cursor != null)
 		{
 			cursor.close();
-			db.close();
 		}
 		
 		return temp;

@@ -28,7 +28,7 @@ public class IPlanDataBaseHelper extends SQLiteOpenHelper {
 		EventTable.getInstance().onCreate(db);
 		HomeWorkSubjectTable.getInstance().onCreate(db);
 		SubjectTable.getInstance().onCreate(db);
-		VocationTable.getInstance().onCreate(db);
+		VacationTable.getInstance().onCreate(db);
 		HomeWorkTable.getInstance().onCreate(db);
 		WeekTimeTable.getInstance().onCreate(db);
 		SubjectWeekTimeTable.getInstance().onCreate(db);
@@ -43,7 +43,7 @@ public class IPlanDataBaseHelper extends SQLiteOpenHelper {
 				.onUpgrade(db, oldVersion, newVersion);
 		HomeWorkTable.getInstance().onUpgrade(db, oldVersion, newVersion);
 		SubjectTable.getInstance().onUpgrade(db, oldVersion, newVersion);
-		VocationTable.getInstance().onUpgrade(db, oldVersion, newVersion);
+		VacationTable.getInstance().onUpgrade(db, oldVersion, newVersion);
 		SubjectWeekTimeTable.getInstance()
 				.onUpgrade(db, oldVersion, newVersion);
 	}

@@ -5,12 +5,13 @@ import java.util.List;
 
 import android.content.ContentValues;
 
+import com.bbk.iplan.dao.HomeWorkTable;
 import com.bbk.iplan.data.HomeworkInfo;
 import com.bbk.iplan.interfaces.HomeworkInterface;
 import com.bbk.iplan.interfaces.ManagerInterface;
 
 public class HomeworkManager implements ManagerInterface{
-	private HomeworkInterface mInterface;
+	private HomeworkInterface mInterface=HomeWorkTable.getInstance();
 	public List<HomeworkInfo> getUnFinished() {
 		return mInterface.getUnFinished();
 	}

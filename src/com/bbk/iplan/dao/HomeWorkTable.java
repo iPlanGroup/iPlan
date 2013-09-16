@@ -92,6 +92,11 @@ public class HomeWorkTable implements TableCreateInterface, HomeworkInterface {
 
 	}
 	
+	/**
+	 * 获得指定优先级的作业
+	 * @param level
+	 * @return
+	 */
 	public static List<HomeworkInfo> getHomeWorkByLevel(int level)
 	{
 		List<HomeworkInfo> listHomework = new ArrayList<HomeworkInfo>();

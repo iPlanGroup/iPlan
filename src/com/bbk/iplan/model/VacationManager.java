@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.ContentValues;
 
+import com.bbk.iplan.dao.VacationTable;
 import com.bbk.iplan.data.TermInfo;
 import com.bbk.iplan.interfaces.ManagerInterface;
 import com.bbk.iplan.interfaces.VacationInterface;
@@ -12,7 +13,7 @@ import com.bbk.iplan.interfaces.VacationInterface;
 
 public class VacationManager implements ManagerInterface{
 
-	private VacationInterface mInterface;
+	private VacationInterface mInterface=VacationTable.getInstance();
 	public List<TermInfo> getAllVacation()
 	{
 		

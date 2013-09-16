@@ -28,6 +28,11 @@ public class SubjectWeekTimeTable implements TableCreateInterface
 		return mWeekPlanTable;
 	}
 
+	/**
+	 * 插入一条数据
+	 * @param weekTimeId
+	 * @param subjectId
+	 */
 	public static void insert(int weekTimeId, int subjectId)
 	{
 		SQLiteDatabase db = IPlanApplication.getDataBaseHelper().getWritableDatabase();
@@ -37,6 +42,10 @@ public class SubjectWeekTimeTable implements TableCreateInterface
 		db.insert(TABLE_NAME, null, values);
 	} 
 	
+	/**
+	 * 移除指定subjectID的数据
+	 * @param subjectId
+	 */
 	public static void remove(int subjectId)
 	{
 		SQLiteDatabase db = IPlanApplication.getDataBaseHelper().getReadableDatabase();

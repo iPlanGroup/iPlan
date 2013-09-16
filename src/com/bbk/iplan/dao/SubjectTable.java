@@ -85,7 +85,7 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 			subjectInfo.setTeacher(cursor.getString(cursor.getColumnIndexOrThrow(SubjectTable.TEACHER)));
 			subjectInfo.setNotifyTime(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(SubjectTable.END_TIME))));
 			subjectInfo.setTime(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(SubjectTable.START_TIME))));
-			subjectInfo.setTermInfo(VocationTable.getTermInfoById(vocationId));
+			subjectInfo.setTermInfo(VacationTable.getTermInfoById(vocationId));
 			
 			list.add(subjectInfo);
 			
@@ -175,7 +175,7 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 		}
 		
 		int vocationId = cursor.getInt(cursor.getColumnIndexOrThrow(VOCATION_ID));
-		TermInfo termInfo = VocationTable.getTermInfoById(vocationId);
+		TermInfo termInfo = VacationTable.getTermInfoById(vocationId);
 		subjectInfo.setTermInfo(termInfo);
 		
 		if(cursor != null)
@@ -299,15 +299,15 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 		long vocationStartTime = termInfo.getStartTime();
 		long vocationEndTime = termInfo.getEndTime();
 		
-		String sql = "select * from " + VocationTable.TABLE_NAME + " where "
-				+ VocationTable.START_TIME +" <= " + String.valueOf(vocationStartTime) 
-				+" and " + VocationTable.END_TIME + " >= " + String.valueOf(vocationEndTime);
+		String sql = "select * from " + VacationTable.TABLE_NAME + " where "
+				+ VacationTable.START_TIME +" <= " + String.valueOf(vocationStartTime) 
+				+" and " + VacationTable.END_TIME + " >= " + String.valueOf(vocationEndTime);
 		
 		Cursor cursor  = db.rawQuery(sql, null);
 		int vocationId = 0;
 		if(cursor.moveToNext())
 		{
-			vocationId = cursor.getInt(cursor.getColumnIndexOrThrow(VocationTable.VACATION_ID));
+			vocationId = cursor.getInt(cursor.getColumnIndexOrThrow(VacationTable.VACATION_ID));
 		}
 		
 		if(cursor != null)

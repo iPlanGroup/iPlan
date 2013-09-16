@@ -41,7 +41,7 @@ public class ExamSingleSubjectTable implements TableCreateInterface
 				+ ExamSingleSubjectTable.EVENT_ID + " int not null, " 
 				+ ExamSingleSubjectTable.SUBJECT_ID + " int not null, " 
 				+ ExamSingleSubjectTable.START_TIME + " long not null, "
-				+ ExamSingleSubjectTable.END_TIME + "long not null, "
+				+ ExamSingleSubjectTable.END_TIME + " long not null, "
 				+ ExamSingleSubjectTable.REMIND_TIME + " long, "
 				+ ExamSingleSubjectTable.MARK+ " varchar(1024) "
 				+ " );";

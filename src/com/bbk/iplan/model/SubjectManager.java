@@ -5,13 +5,14 @@ import java.util.List;
 
 import android.content.ContentValues;
 
+import com.bbk.iplan.dao.SubjectTable;
 import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
 import com.bbk.iplan.interfaces.ManagerInterface;
 import com.bbk.iplan.interfaces.SubjectInterface;
 
 public class SubjectManager implements ManagerInterface{
-	private SubjectInterface mInterface;
+	private SubjectInterface mInterface=SubjectTable.getInstance();
 	public List<SubjectInfo> getAllSubjet(int id) {
 		return mInterface.getAllSubject(id);
 

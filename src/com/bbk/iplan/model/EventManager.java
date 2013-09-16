@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.ContentValues;
 
+import com.bbk.iplan.dao.EventTable;
 import com.bbk.iplan.data.EventInfo;
 import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
@@ -12,7 +13,7 @@ import com.bbk.iplan.interfaces.EventInterface;
 import com.bbk.iplan.interfaces.ManagerInterface;
 
 public  class EventManager implements ManagerInterface{
-	private EventInterface mInterface;
+	private EventInterface mInterface=EventTable.getInstance();
 	public  List<EventInfo> getAllEventInfo() {
 		
 		return mInterface.getAllEventInfo();
