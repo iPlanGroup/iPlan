@@ -99,11 +99,11 @@ public class FacadePlan extends AbstractFacadePlan {
 			object = mDayPlan.CreateExam(name, remindTime, subject, mark,
 					StartTime, EndTime);
 			break;
-		case MODE_SINGLESUBJECT:
+		case MODE_LONGSUBJECT:
 			object = mDayPlan.CreateLongSubject(name, StartTime, week_time,
 					remindTime, place, teacher, mark, termInfo);
 			break;
-		case MODE_LONGSUBJECT:
+		case MODE_SINGLESUBJECT:
 			object = mDayPlan.CreateSingleSubject(name, remindTime, StartTime,
 					EndTime, mark, term, subject);
 			break;
@@ -163,6 +163,86 @@ public class FacadePlan extends AbstractFacadePlan {
 
 	public void setWeek_time(int[] week_time) {
 		this.week_time = week_time;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getStartTime() {
+		return StartTime;
+	}
+
+	public void setStartTime(Date startTime) {
+		StartTime = startTime;
+	}
+
+	public Date getEndTime() {
+		return EndTime;
+	}
+
+	public void setEndTime(Date endTime) {
+		EndTime = endTime;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public String getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
+	}
+
+	public int getLevel() {
+		return Level;
+	}
+
+	public void setLevel(int level) {
+		Level = level;
+	}
+
+	public String getMark() {
+		return mark;
+	}
+
+	public void setMark(String mark) {
+		this.mark = mark;
+	}
+
+	public Date getRemindTime() {
+		return remindTime;
+	}
+
+	public void setRemindTime(Date remindTime) {
+		this.remindTime = remindTime;
+	}
+
+	public TermInfo getTerm() {
+		return term;
+	}
+
+	public void setTerm(TermInfo term) {
+		this.term = term;
+	}
+
+	public SubjectInfo getSubject() {
+		return subject;
+	}
+
+	public void setSubject(SubjectInfo subject) {
+		this.subject = subject;
 	}
 
 }
