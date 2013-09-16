@@ -40,8 +40,6 @@ public class GridViewAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		TitleView result = new TitleView(context);
-//		TextView result = new TextView(context);
-//		result.setText("Item " + position);
 		result.setTextColor(Color.BLACK);
 		result.setTextSize(23);
 		result.setMinimumHeight(46);
@@ -49,7 +47,7 @@ public class GridViewAdapter extends BaseAdapter {
 				new LayoutParams(LayoutParams.FILL_PARENT,
 						LayoutParams.WRAP_CONTENT)));
 		result.setGravity(Gravity.CENTER);
-//		result.setBackgroundColor(R.color.white);
+		result.setBackgroundColor(0xEBE9EA);
 		
 		return result;
 	

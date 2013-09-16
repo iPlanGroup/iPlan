@@ -2,10 +2,15 @@ package com.bbk.iplan.ui ;
 
 
 
+import java.util.Date;
+
 import com.bbk.iplan.R;
+import com.bbk.iplan.model.FacadePlan;
+import com.bbk.iplan.model.WeekPlan;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.provider.ContactsContract.Contacts.Data;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +30,11 @@ public class WeekPlanActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.plan_week);
 
+		
+		FacadePlan mweekFacadePlan = new FacadePlan();
+		Date time = new Date(System.currentTimeMillis());
+		WeekPlan mWeekPlan=mweekFacadePlan.getCurWeekPlan(time);
+		
 		grid = (GridView) findViewById(R.id.main_GridView);
 		grid.setAdapter(new GridViewAdapter(this));
 		grid.setOnItemClickListener(new ItemClickListener());

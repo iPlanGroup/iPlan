@@ -40,21 +40,21 @@ public class DayPlanActivity extends Activity {
 
 	public PopUtils pop = null;
 	public BookUtils bookUtils = null;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.plan_dayplan);
-		
+
 		pop = new PopUtils(this);
 		bookUtils = new BookUtils();
-		
+
 		init();
 		bookDataList = bookUtils.getBookDataList();
 		bookDataAdapter = getBookDataAdapter(bookDataList);
-		
+
 		flipView = (FlipViewController) findViewById(R.id.flip_view);
 		flipView.setAdapter(new TravelAdapter(this, bookDataAdapter));
 		flipView.setOnViewFlipListener(new FlipViewController.ViewFlipListener() {
@@ -80,7 +80,7 @@ public class DayPlanActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				viewMove(dateView, 0f, -300f, 0f, 0f, 1500);
-				
+
 				scrollLayout(mCustomView, 0, 0, 320, 0, 1500);
 
 				viewMove(calendarView, 0f, 0f, 0f, -150f, 1500);
