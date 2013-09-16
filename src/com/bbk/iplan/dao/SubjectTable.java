@@ -44,6 +44,12 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 		return mSubjectTable;
 	}
 
+	/**
+	 * 获得课程的名字
+	 * 
+	 * @param subjectId
+	 * @return
+	 */
 	public static String getSubjectName(int subjectId)
 	{
 
@@ -68,6 +74,11 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 
 	}
 
+	/**
+	 * 通过获得指定学期的全部课程
+	 * @param vocationId
+	 * @return
+	 */
 	public static List<SubjectInfo> getSubjectInfoByVocaitonId(int vocationId)
 	{
 		List<SubjectInfo> list = new ArrayList<SubjectInfo>();
@@ -100,10 +111,15 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 		
 	}
 	
+	/**
+	 * 通过课程的名字获得课程的ID
+	 * @param subjectName
+	 * @return
+	 */
 	public static int getSubjectId(String subjectName)
 	{
 
-		int id = -1;
+		int id = 0;
 		SQLiteDatabase db = IPlanApplication.getDataBaseHelper()
 				.getReadableDatabase();
 
@@ -113,8 +129,7 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 
 		if (cursor.moveToNext())
 		{
-			id = cursor.getInt(cursor
-					.getColumnIndexOrThrow(SubjectTable.SUBJECT_ID));
+			id = cursor.getInt(cursor.getColumnIndexOrThrow(SubjectTable.SUBJECT_ID));
 		}
 
 		if (cursor != null)
@@ -157,12 +172,17 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 
 	}
 
+	/**
+	 * 获得一条课程记录
+	 * @param subjectId
+	 * @return
+	 */
 	public static SubjectInfo getSubjectInfoById(int subjectId)
 	{
 		SubjectInfo subjectInfo = new SubjectInfo();
 		SQLiteDatabase db = IPlanApplication.getDataBaseHelper().getReadableDatabase();
 		Cursor cursor = db.query(TABLE_NAME, null, "_id=?", new String[] {String.valueOf(subjectId)}, null, null, null);
-		
+		int vocationId = 0;
 		if(cursor.moveToNext())
 		{
 			subjectInfo.setID(cursor.getInt(cursor.getColumnIndexOrThrow(SUBJECT_ID)));
@@ -172,11 +192,10 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 			subjectInfo.setTeacher(cursor.getString(cursor.getColumnIndexOrThrow(SubjectTable.TEACHER)));
 			subjectInfo.setNotifyTime(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(SubjectTable.END_TIME))));
 			subjectInfo.setTime(new Date(cursor.getLong(cursor.getColumnIndexOrThrow(SubjectTable.START_TIME))));
+			vocationId = cursor.getInt(cursor.getColumnIndexOrThrow(VOCATION_ID));
+			TermInfo termInfo = VacationTable.getTermInfoById(vocationId);
+			subjectInfo.setTermInfo(termInfo);
 		}
-		
-		int vocationId = cursor.getInt(cursor.getColumnIndexOrThrow(VOCATION_ID));
-		TermInfo termInfo = VacationTable.getTermInfoById(vocationId);
-		subjectInfo.setTermInfo(termInfo);
 		
 		if(cursor != null)
 		{
@@ -186,6 +205,10 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 		return subjectInfo;
 	}
 	
+	/**
+	 * 获得全部课程
+	 * @return
+	 */
 	public List<SubjectInfo> getAllSubject() {
 	
 		List<SubjectInfo> list = new ArrayList<SubjectInfo>();
@@ -293,28 +316,7 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 		values.put(PLACE, place);
 		values.put(TEACHER, teacher);
 		
-		/* 
-		 * 选择合适的学期
-		 */
-		long vocationStartTime = termInfo.getStartTime();
-		long vocationEndTime = termInfo.getEndTime();
-		
-		String sql = "select * from " + VacationTable.TABLE_NAME + " where "
-				+ VacationTable.START_TIME +" <= " + String.valueOf(vocationStartTime) 
-				+" and " + VacationTable.END_TIME + " >= " + String.valueOf(vocationEndTime);
-		
-		Cursor cursor  = db.rawQuery(sql, null);
-		int vocationId = 0;
-		if(cursor.moveToNext())
-		{
-			vocationId = cursor.getInt(cursor.getColumnIndexOrThrow(VacationTable.VACATION_ID));
-		}
-		
-		if(cursor != null)
-		{
-			cursor.close();
-		}
-		values.put(VOCATION_ID, vocationId);
+		values.put(VOCATION_ID, termInfo.getID());
 		
 		/*
 		 * 添加event_id,长期课为1，单次课为2，考试是3

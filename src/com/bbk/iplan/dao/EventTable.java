@@ -72,9 +72,9 @@ public class EventTable implements TableCreateInterface, EventInterface {
 				null, null, null, null, null, null);
 
 		EventInfo eventInfo = null;
-		int eventId = -1;
-		int subjectId = -1;
-		int vocationId = -1;
+		int eventId = 0;
+		int subjectId = 0;
+		int vocationId = 0;
 
 		while (subjectCursor.moveToNext()) {
 			
@@ -127,7 +127,7 @@ public class EventTable implements TableCreateInterface, EventInterface {
 		values.put(ExamSingleSubjectTable.MARK, mark);
 		values.put(ExamSingleSubjectTable.NAME, name);
 		
-		db.insert(TABLE_NAME, null, values);
+		db.insert(ExamSingleSubjectTable.TABLE_NAME, null, values);
 		
 		return eventInfo;
 	}
@@ -154,7 +154,7 @@ public class EventTable implements TableCreateInterface, EventInterface {
 		values.put(ExamSingleSubjectTable.MARK, mark);
 		values.put(ExamSingleSubjectTable.NAME, name);
 		
-		db.insert(TABLE_NAME, null, values);
+		db.insert(ExamSingleSubjectTable.TABLE_NAME, null, values);
 		
 		return eventInfo;
 	}
@@ -164,7 +164,7 @@ public class EventTable implements TableCreateInterface, EventInterface {
 
 		SQLiteDatabase db = IPlanApplication.getDataBaseHelper().getWritableDatabase();
 		try {
-			db.delete(TABLE_NAME, "_id=?", new String[] {String.valueOf(id)});
+			db.delete(ExamSingleSubjectTable.TABLE_NAME, "_id=?", new String[] {String.valueOf(id)});
 		} catch (Exception e) {
 			return false;
 		}
@@ -175,7 +175,7 @@ public class EventTable implements TableCreateInterface, EventInterface {
 	@Override
 	public void ModifyEventInfo(int id, ContentValues contentValues) {
 		SQLiteDatabase db = IPlanApplication.getDataBaseHelper().getWritableDatabase();
-		db.update(TABLE_NAME, contentValues, "_id=?", new String[] {String.valueOf(id)});
+		db.update(ExamSingleSubjectTable.TABLE_NAME, contentValues, "_id=?", new String[] {String.valueOf(id)});
 	}
 
 }
