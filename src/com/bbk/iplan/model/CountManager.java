@@ -11,7 +11,7 @@ import com.bbk.iplan.interfaces.CountInterface;
 public  class CountManager {
 	private CountInterface mInterface=CountInterfaceImpl.getInstance();
 	public  List<HomeworkInfo> getCountHomewokeInfo(){
-		return mInterface.getCountHomeworkInfo();
+		return mInterface.getCountHomeworkInfo(); 
 	}
 	public  List<EventInfo> getCountEventInfo(){
 		return mInterface.getCountEventInfo();
