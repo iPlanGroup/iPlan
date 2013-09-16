@@ -59,6 +59,9 @@ public class FacadePlan extends AbstractFacadePlan {
 		term.setEndTime(endTime);
 		term.setIsTerm(false);
 	}
+	public TermInfo getCurTerm(){
+		return term;
+	}
 
 	public void setSubject(String name, Date StartTime, Date notifyTime,
 			String teacher, String place, String mark) {
@@ -154,13 +157,6 @@ public class FacadePlan extends AbstractFacadePlan {
 		mDayPlan.ModifyInfo(mode, id, contentValues);
 	}
 
-	public TermInfo getTermInfo() {
-		return termInfo;
-	}
-
-	public void setTermInfo(TermInfo termInfo) {
-		this.termInfo = termInfo;
-	}
 
 	@Override
 	public void DeleteDayPlan(int mode, int id) {
