@@ -17,6 +17,8 @@ public class DayPlan {
 	private HomeworkManager mHomeworkManager;
 	private SubjectManager mSubjectManager;
 	private EventManager mEventManager;
+	private CountManager mCountManager;
+	private VacationManager mVacationManager;
 	private List<HomeworkInfo> mListHomeworkInfos;
 	private List<SubjectInfo> mListSubjectInfos;
 	private List<EventInfo> mListEventInfos;
@@ -41,7 +43,6 @@ public class DayPlan {
 		return mListSubjectInfos;
 	}
 
-
 	public void setListSubjectInfos(List<SubjectInfo> mListSubjectInfos) {
 		this.mListSubjectInfos = mListSubjectInfos;
 	}
@@ -54,6 +55,9 @@ public class DayPlan {
 				.getSystemManager(SystemManager.MODE_SUBJECT);
 		mEventManager = (EventManager) SystemManager.getInstance()
 				.getSystemManager(SystemManager.MODE_EVENT);
+		mCountManager = (CountManager) SystemManager.getInstance()
+				.getSystemManager(SystemManager.MODE_COUNT);
+		mVacationManager= (VacationManager)SystemManager.getInstance().getSystemManager(SystemManager.MODE_VACATION);
 	}
 
 	public List<HomeworkInfo> getDayHomework() {
@@ -65,30 +69,36 @@ public class DayPlan {
 		return mListSubjectInfos = mSubjectManager.getLocalSubject(LocalTime);
 	}
 
-	public HomeworkInfo CreateHomework(String name, String subjectName,Date EndTime, int Level,
-			String Mark) {
-		HomeworkInfo info = mHomeworkManager.CreateHomework(name, subjectName,LocalTime,
-				EndTime, Level, Mark);
+	public HomeworkInfo CreateHomework(String name, String subjectName,
+			Date EndTime, int Level, String Mark) {
+		HomeworkInfo info = mHomeworkManager.CreateHomework(name, subjectName,
+				LocalTime, EndTime, Level, Mark);
 		mListHomeworkInfos.add(info);
 		return info;
 	}
 
-	public SubjectInfo CreateLongSubject(String name, Date time,int []week_time,
-			Date remindTime, String place, String teacher, String mark,TermInfo termInfo) {
-		SubjectInfo info = mSubjectManager.CreateLongSubject(name, time,week_time,
-				remindTime, place, teacher, mark, termInfo);
+	public SubjectInfo CreateLongSubject(String name, Date time,
+			int[] week_time, Date remindTime, String place, String teacher,
+			String mark, TermInfo termInfo) {
+		SubjectInfo info = mSubjectManager.CreateLongSubject(name, time,
+				week_time, remindTime, place, teacher, mark, termInfo);
 		mListSubjectInfos.add(info);
 		return info;
 	}
 
-	public EventInfo CreateExam(String name, Date remindTime,SubjectInfo subject,
-			String mark, Date StartTime, Date EndTime) {
-		EventInfo info = mEventManager.CreateExam(EventInfo.MODE_EXAM, name, remindTime, subject, mark, StartTime, EndTime);
+	public EventInfo CreateExam(String name, Date remindTime,
+			SubjectInfo subject, String mark, Date StartTime, Date EndTime) {
+		EventInfo info = mEventManager.CreateExam(EventInfo.MODE_EXAM, name,
+				remindTime, subject, mark, StartTime, EndTime);
 		return info;
 	}
 
-	public EventInfo CreateSingleSubject(String name,Date remindTime,Date StartTime,Date EndTime,String mark,TermInfo term,SubjectInfo subject){
-		EventInfo info =mEventManager.CreateSingleSubject(EventInfo.MODE_SINGLE, name, remindTime, StartTime,EndTime,mark, term, subject);
+	public EventInfo CreateSingleSubject(String name, Date remindTime,
+			Date StartTime, Date EndTime, String mark, TermInfo term,
+			SubjectInfo subject) {
+		EventInfo info = mEventManager.CreateSingleSubject(
+				EventInfo.MODE_SINGLE, name, remindTime, StartTime, EndTime,
+				mark, term, subject);
 		return info;
 	}
 
@@ -99,38 +109,40 @@ public class DayPlan {
 	public void setLocalTime(Date localTime) {
 		LocalTime = localTime;
 	}
-	public void DeleteInfo(int mode,int id){
+
+	public void DeleteInfo(int mode, int id) {
 		ManagerInterface mInterface = null;
-		switch(mode){
+		switch (mode) {
 		case SystemManager.MODE_EVENT:
-			mInterface=mEventManager;
+			mInterface = mEventManager;
 			break;
 		case SystemManager.MODE_HOMEWORK:
-			mInterface=mHomeworkManager;
+			mInterface = mHomeworkManager;
 			break;
 		case SystemManager.MODE_SUBJECT:
-			mInterface=mSubjectManager;
+			mInterface = mSubjectManager;
 			break;
 		case SystemManager.MODE_VACATION:
-			mInterface=new VacationManager();
+			mInterface = new VacationManager();
 			break;
 		}
 		mInterface.DeleteInfo(id);
 	}
-	public void ModifyInfo(int mode,int id,ContentValues contentValues){
+
+	public void ModifyInfo(int mode, int id, ContentValues contentValues) {
 		ManagerInterface mInterface = null;
-		switch(mode){
+		switch (mode) {
 		case SystemManager.MODE_EVENT:
-			mInterface=mEventManager;
+			mInterface = mEventManager;
 			break;
 		case SystemManager.MODE_HOMEWORK:
-			mInterface=mHomeworkManager;
+			mInterface = mHomeworkManager;
 			break;
 		case SystemManager.MODE_SUBJECT:
-			mInterface=mSubjectManager;
+			mInterface = mSubjectManager;
 			break;
 		case SystemManager.MODE_VACATION:
-			mInterface=new VacationManager();
+			mInterface = new VacationManager();
 			break;
 		}
 		mInterface.ModifyInfo(id, contentValues);

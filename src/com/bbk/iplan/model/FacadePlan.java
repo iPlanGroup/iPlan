@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import android.content.ContentValues;
 
@@ -31,6 +32,8 @@ public class FacadePlan extends AbstractFacadePlan {
 	private SubjectInfo subject;
 	private TermInfo termInfo;
 	private int[] week_time = new int[7];
+	private CountManager mCountManager=new CountManager();
+	private VacationManager mVacationManager=new VacationManager();
 
 	public FacadePlan() {
 		String datestr = mFormat.format(Calendar.getInstance().getTime());
@@ -137,7 +140,14 @@ public class FacadePlan extends AbstractFacadePlan {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-
+	public List<SubjectInfo> getAllSubjectInfo()
+	{
+		return mCountManager.getAllSubjectInfos();
+	}
+	public List<TermInfo> getAllVacation()
+	{
+		return mVacationManager.getAllVacation();
+	}
 	@Override
 	public void ModifyDayPlan(int mode, int id, ContentValues contentValues) {
 		// TODO Auto-generated method stub
