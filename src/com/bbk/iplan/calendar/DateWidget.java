@@ -14,8 +14,9 @@ import android.widget.TextView;
 
 import com.bbk.iplan.R;
 import com.bbk.iplan.ui.DayPlanActivity;
+import com.bbk.iplan.ui.WeekPlanActivity;
 
-public class DateWidget{
+public class DateWidget {
 	private ArrayList<DateWidgetDayCell> days = new ArrayList<DateWidgetDayCell>();
 	// private SimpleDateFormat dateMonth = new SimpleDateFormat("MMMM yyyy");
 	private Calendar calStartDate = Calendar.getInstance();
@@ -25,106 +26,114 @@ public class DateWidget{
 	LinearLayout layContent = null;
 	Button btnPrev = null;
 	Button btnToday = null;
-	TextView textToday= null;
+	TextView textToday = null;
 	Button btnNext = null;
 	private int iFirstDayOfWeek = Calendar.MONDAY;
 	private int iMonthViewCurrentMonth = 0;
 	private int iMonthViewCurrentYear = 0;
 	public static final int SELECT_DATE_REQUEST = 111;
 	private static final int iDayCellSize = 40;
-	private static final int iDayHeaderHeight = 28;
+	private static final int iDayHeaderHeight = 40;
 	private static final int iTotalWidth = (iDayCellSize * 7);
 	private TextView tv;
 	private int mYear;
 	private int mMonth;
 	private int mDay;
+	private int flag_plan = 0;
 	Context mActivity;
-	DayPlanActivity mm;
+	DayPlanActivity mDayPlan = null;
+	WeekPlanActivity mWeekPlan = null;
 
 	public View init(Context context) {
-		
+
 		mActivity = context;
 		iFirstDayOfWeek = Calendar.MONDAY;
 		mYear = calSelected.get(Calendar.YEAR);
 		mMonth = calSelected.get(Calendar.MONTH);
 		mDay = calSelected.get(Calendar.DAY_OF_MONTH);
-		//generateContentView();
+		// generateContentView();
 
 		return generateContentView();
 	}
-	public void init2(){
+
+	public void init2() {
 		calStartDate = getCalendarStartDate();
 		DateWidgetDayCell daySelected = updateCalendar();
 		updateControlsState();
 		if (daySelected != null)
 			daySelected.requestFocus();
+
 	}
 
+	public void setFlag(int flag) {
+		this.flag_plan = flag;
+		if (flag_plan == 1) {
+			mWeekPlan = (WeekPlanActivity) mActivity;
+		} else {
+			mDayPlan = (DayPlanActivity) mActivity;
+		}
+
+	}
 
 	private LinearLayout createLayout(int iOrientation) {
 		LinearLayout lay = new LinearLayout(mActivity);
 		lay.setLayoutParams(new LayoutParams(
-				android.view.ViewGroup.LayoutParams.FILL_PARENT,
+				android.view.ViewGroup.LayoutParams.MATCH_PARENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 		lay.setOrientation(iOrientation);
 		return lay;
 	}
 
-//	private Button createButton(String sText, int iWidth, int iHeight) {
-//		Button btn = new Button(mActivity);
-//		btn.setText(sText);
-//		btn.setLayoutParams(new LayoutParams(iWidth, iHeight));
-//		return btn;
-//	}
-/**
- * 获取日历头button
- * @param layTopControls
- */
+	/**
+	 * 获取日历头button
+	 * 
+	 * @param layTopControls
+	 */
 	private void generateTopButtons(LinearLayout layTopControls) {
 		final int iHorPadding = 24;
-		textToday=new TextView(mActivity);
-		textToday.setLayoutParams(new LayoutParams(200,
+		textToday = new TextView(mActivity);
+		textToday.setLayoutParams(new LayoutParams(218,
 				android.view.ViewGroup.LayoutParams.MATCH_PARENT));
 		textToday.setTextColor(0xffffffff);
-		textToday.setPadding(iHorPadding, textToday.getPaddingTop(), iHorPadding,
-				textToday.getPaddingBottom());
+		textToday.setPadding(iHorPadding, textToday.getPaddingTop(),
+				iHorPadding, textToday.getPaddingBottom());
 		textToday.setGravity(Gravity.CENTER);
 		textToday.setTextSize(28);
 		textToday.setTextColor(0xffffffff);
-		
+
 		textToday.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				setTodayViewItem();
+				// setTodayViewItem();
 			}
 		});
-		
+
 		ImageButton btnPrev = new ImageButton(mActivity);
-		btnPrev.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+		btnPrev.setLayoutParams(new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 		btnPrev.setBackgroundColor(0x00000000);
 		btnPrev.setImageResource(R.drawable.button_left);
-		btnPrev.setPadding(0, 4, 0,
-				4);
-		
+		btnPrev.setPadding(0, 4, 0, 4);
+
 		ImageButton btnNext = new ImageButton(mActivity);
 
-		btnNext.setLayoutParams(new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
+		btnNext.setLayoutParams(new LayoutParams(
+				android.view.ViewGroup.LayoutParams.WRAP_CONTENT,
 				android.view.ViewGroup.LayoutParams.WRAP_CONTENT));
 		btnNext.setBackgroundColor(0x00000000);
 		btnNext.setImageResource(R.drawable.button_right);
-		btnNext.setPadding(0, 4, 0,
-				4);
+		btnNext.setPadding(0, 4, 0, 4);
 		// set events
 		btnPrev.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View arg0) {
-				
+
 				setPrevViewItem();
 			}
 		});
-		
+
 		btnNext.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View arg0) {
 				setNextViewItem();
@@ -136,21 +145,23 @@ public class DateWidget{
 		layTopControls.addView(textToday);
 		layTopControls.addView(btnNext);
 
-
 	}
-/**
- * 获取日历View
- * @return
- */
+
+	/**
+	 * 获取日历View
+	 * 
+	 * @return
+	 */
 	private View generateContentView() {
 		LinearLayout layMain = createLayout(LinearLayout.VERTICAL);
 		layMain.setGravity(Gravity.CENTER);
 		layMain.setPadding(0, 0, 0, 0);
-		layMain.setBackgroundColor(0xff1D2228);
+		layMain.setBackgroundResource(R.drawable.calendar_bg);
+		//layMain.setBackgroundColor(0xff1D2228);
 		LinearLayout layTopControls = createLayout(LinearLayout.HORIZONTAL);
 		layTopControls.setGravity(Gravity.CENTER);
-		layTopControls.setBackgroundColor(0xff272a31);
-		//layTopControls.setPadding(0, 0, 100, 0);
+		//layTopControls.setBackgroundColor(0xff272a31);
+		layTopControls.setPadding(0, 10, 0, 10);
 
 		layContent = createLayout(LinearLayout.VERTICAL);
 		layContent.setPadding(1, 0, 1, 0);
@@ -163,40 +174,46 @@ public class DateWidget{
 		layMain.addView(tv);
 		return layMain;
 	}
-/**
- * 日历的水平单元
- * @return
- */
+
+	/**
+	 * 日历的水平单元
+	 * 
+	 * @return
+	 */
 	private View generateCalendarRow() {
 		LinearLayout layRow = createLayout(LinearLayout.HORIZONTAL);
 		for (int iDay = 0; iDay < 7; iDay++) {
 			DateWidgetDayCell dayCell = new DateWidgetDayCell(mActivity,
-					iDayCellSize, iDayCellSize+2);
+					iDayCellSize+2, iDayCellSize + 2);
 			dayCell.setItemClick(mOnDayCellClick);
 			days.add(dayCell);
 			layRow.addView(dayCell);
 		}
 		return layRow;
 	}
-/**
- * 周一到周日
- * @return
- */
+
+	/**
+	 * 周一到周日
+	 * 
+	 * @return
+	 */
 	private View generateCalendarHeader() {
 		LinearLayout layRow = createLayout(LinearLayout.HORIZONTAL);
 		for (int iDay = 0; iDay < 7; iDay++) {
 			DateWidgetDayHeader day = new DateWidgetDayHeader(mActivity,
-					iDayCellSize, iDayHeaderHeight);
+					iDayCellSize+2, iDayHeaderHeight);
 			final int iWeekDay = DayStyle.getWeekDay(iDay, iFirstDayOfWeek);
 			day.setData(iWeekDay);
 			layRow.addView(day);
 		}
 		return layRow;
 	}
-/**
- * 绘制日历方格
- * @param layContent
- */
+
+	/**
+	 * 绘制日历方格
+	 * 
+	 * @param layContent
+	 */
 	private void generateCalendar(LinearLayout layContent) {
 		layContent.addView(generateCalendarHeader());
 		days.clear();
@@ -204,8 +221,10 @@ public class DateWidget{
 			layContent.addView(generateCalendarRow());
 		}
 	}
+
 	/**
 	 * 获取日历时间
+	 * 
 	 * @return
 	 */
 	private Calendar getCalendarStartDate() {
@@ -228,12 +247,37 @@ public class DateWidget{
 	private DateWidgetDayCell updateCalendar() {
 		DateWidgetDayCell daySelected = null;
 		boolean bSelected = false;
+		int iDaySelected = 0;
+		int iStartDay = iFirstDayOfWeek;
 		final boolean bIsSelection = (calSelected.getTimeInMillis() != 0);
-		final int iSelectedYear = calSelected.get(Calendar.YEAR);
-		final int iSelectedMonth = calSelected.get(Calendar.MONTH);
-		final int iSelectedDay = calSelected.get(Calendar.DAY_OF_MONTH);
+		int iSelectedYear = 0;
+		int iSelectedMonth = 0;
+		int iSelectedDay = 0;
+		if (flag_plan == 1) {
+			/**
+			 * 判断筛选每一周的信息
+			 */
+			if (iStartDay == Calendar.MONDAY) {
+				iDaySelected = calSelected.get(Calendar.DAY_OF_WEEK)
+						- Calendar.MONDAY;
+				if (iDaySelected < 0)
+					iDaySelected = 6;
+			}
+			if (iStartDay == Calendar.SUNDAY) {
+				iDaySelected = calSelected.get(Calendar.DAY_OF_WEEK)
+						- Calendar.SUNDAY;
+				if (iDaySelected < 0)
+					iDaySelected = 6;
+			}
+			calSelected.add(Calendar.DAY_OF_WEEK, -iDaySelected);
+
+		}
+		int j = 0;
 		calCalendar.setTimeInMillis(calStartDate.getTimeInMillis());
 		for (int i = 0; i < days.size(); i++) {
+			iSelectedYear = calSelected.get(Calendar.YEAR);
+			iSelectedMonth = calSelected.get(Calendar.MONTH);
+			iSelectedDay = calSelected.get(Calendar.DAY_OF_MONTH);
 			final int iYear = calCalendar.get(Calendar.YEAR);
 			final int iMonth = calCalendar.get(Calendar.MONTH);
 			final int iDay = calCalendar.get(Calendar.DAY_OF_MONTH);
@@ -256,10 +300,22 @@ public class DateWidget{
 			dayCell.setData(iYear, iMonth, iDay, bToday, bHoliday,
 					iMonthViewCurrentMonth);
 			bSelected = false;
+
 			if (bIsSelection)
 				if ((iSelectedDay == iDay) && (iSelectedMonth == iMonth)
 						&& (iSelectedYear == iYear)) {
 					bSelected = true;
+					if (flag_plan == 1) {
+						j++;
+						if (j < 7) {
+
+							calSelected.add(Calendar.DAY_OF_WEEK, 1);
+							// dayCell.setSelected(bSelected);
+						}
+					} else {
+
+					}
+
 				}
 			dayCell.setSelected(bSelected);
 			if (bSelected)
@@ -270,9 +326,10 @@ public class DateWidget{
 
 		return daySelected;
 	}
-/**
- * 设置月和周的起止日期
- */
+
+	/**
+	 * 设置月和周的起止日期
+	 */
 	private void UpdateStartDateForMonth() {
 		iMonthViewCurrentMonth = calStartDate.get(Calendar.MONTH);
 		iMonthViewCurrentYear = calStartDate.get(Calendar.YEAR);
@@ -294,16 +351,19 @@ public class DateWidget{
 		calStartDate.add(Calendar.DAY_OF_WEEK, -iDay);
 
 	}
-/**
- * 当前时间
- */
-	private void UpdateCurrentMonthDisplay() { 
-		textToday.setText(new StringBuilder().append(calStartDate.get(Calendar.YEAR)).append("/").append(
-				format(calStartDate.get(Calendar.MONTH) + 1)));
-		//String s = calCalendar.get(Calendar.YEAR) + "/"
-				//+ (calCalendar.get(format(mMonth + 1)));// dateMonth.format(calCalendar.getTime());
-		//mYear = calCalendar.get(Calendar.YEAR);
-		//textToday.setText(s);
+
+	/**
+	 * 当前时间
+	 */
+	private void UpdateCurrentMonthDisplay() {
+		textToday.setText(new StringBuilder()
+				.append(calStartDate.get(Calendar.YEAR)).append("/")
+				.append(format(calStartDate.get(Calendar.MONTH) + 1)));
+		// String s = calCalendar.get(Calendar.YEAR) + "/"
+		// + (calCalendar.get(format(mMonth + 1)));//
+		// dateMonth.format(calCalendar.getTime());
+		// mYear = calCalendar.get(Calendar.YEAR);
+		// textToday.setText(s);
 	}
 
 	private void setPrevViewItem() {
@@ -326,7 +386,7 @@ public class DateWidget{
 		calStartDate.setTimeInMillis(calToday.getTimeInMillis());
 		calStartDate.setFirstDayOfWeek(iFirstDayOfWeek);
 		calSelected.setTimeInMillis(calToday.getTimeInMillis());
-		
+
 		UpdateStartDateForMonth();
 		updateCalendar();
 	}
@@ -347,24 +407,32 @@ public class DateWidget{
 	private DateWidgetDayCell.OnItemClick mOnDayCellClick = new DateWidgetDayCell.OnItemClick() {
 		public void OnClick(DateWidgetDayCell item) {
 			calSelected.setTimeInMillis(item.getDate().getTimeInMillis());
-			item.setSelected(true);
+
+			// 点击单元调用主界面函数
+			if (flag_plan == 1) {
+
+				System.out.println("点击-----22222222222--------------------事件");
+				mWeekPlan.setDate(calSelected);
+			} else {
+				item.setSelected(true);
+				System.out.println("点击-----22222222222--------------------事件");
+				item.setSelected(true);
+				mDayPlan.setDate(calSelected);
+			}
+
 			updateCalendar();
 			updateControlsState();
-			//点击单元调用主界面函数
-			mm = (DayPlanActivity)mActivity;
-			System.out.println("点击-----22222222222--------------------事件");
-			mm.setDate(calSelected);
-			
+
 		}
 	};
 
 	private void updateControlsState() {
-		//SimpleDateFormat dateFull = new SimpleDateFormat("d MMMM yyyy");
+		// SimpleDateFormat dateFull = new SimpleDateFormat("d MMMM yyyy");
 		mYear = calSelected.get(Calendar.YEAR);
 		mMonth = calSelected.get(Calendar.MONTH);
 		mDay = calSelected.get(Calendar.DAY_OF_MONTH);
-		textToday.setText(new StringBuilder().append(mYear).append("/").append(
-				format(mMonth + 1)));
+		textToday.setText(new StringBuilder().append(mYear).append("/")
+				.append(format(mMonth + 1)));
 
 	}
 
@@ -374,14 +442,14 @@ public class DateWidget{
 			s = "0" + s;
 		return s;
 	}
+
 	/**
 	 * 主界面点击回到今天内部接口
 	 */
-	public void backToday(){
+	public void backToday() {
 		setTodayViewItem();
 		String s = calToday.get(Calendar.YEAR) + "/"
 				+ (calToday.get(Calendar.MONTH) + 1);
 	}
-	
 
 }

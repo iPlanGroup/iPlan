@@ -11,125 +11,126 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.bbk.flipview.library.baseutils.AphidLog;
 import com.bbk.iplan.R;
 import com.bbk.iplan.ui.DayPlanActivity;
+import com.bbk.iplan.ui.HwListDate;
+import com.bbk.iplan.ui.ListViewAdapter;
+import com.bbk.iplan.utils.BookUtils;
 
-public class TravelAdapter extends BaseAdapter
-{
+public class TravelAdapter extends BaseAdapter {
 
 	private LayoutInflater inflater;
 
 	private int repeatCount = 1;
 
 	private List<Travels.Data> travelData;
-	
-    private SimpleAdapter sa = null;
-//    private MainActivity mainActivity = null;
-    private DayPlanActivity dayPlanAc = null;
-    
-	public TravelAdapter(DayPlanActivity context)
-	{
+
+	private BookUtils bookUtils;
+	public static ListViewAdapter planAdapter;
+	public static ListViewAdapter hwAdapter;
+
+	public static ArrayList<HwListDate> listItem = new ArrayList<HwListDate>();
+	private ListView planLV;
+	private ListView hwLV;
+	HwListDate date;
+	private boolean isList = false;
+	private DayPlanActivity dayPlanAc = null;
+
+	public TravelAdapter(DayPlanActivity context) {
+		inflater = LayoutInflater.from(context);
+		this.dayPlanAc = context;
+		// travelData = new ArrayList<Travels.Data>(Travels.IMG_DESCRIPTIONS);
+
+	}
+
+	public TravelAdapter(DayPlanActivity context, SimpleAdapter sa) {
 		inflater = LayoutInflater.from(context);
 		this.dayPlanAc = context;
 		travelData = new ArrayList<Travels.Data>(Travels.IMG_DESCRIPTIONS);
-	}
-	
-	public TravelAdapter(DayPlanActivity context, SimpleAdapter sa)
-	{
-		inflater = LayoutInflater.from(context);   
-		this.sa = sa;
-		this.dayPlanAc = context;
-		travelData = new ArrayList<Travels.Data>(Travels.IMG_DESCRIPTIONS);
+		for (int i = 0; i < 5; i++) {
+			date = new HwListDate();
+			date.setImg(R.drawable.btn_browser);
+			date.setContent("123");
+			date.setTitile("textView");
+			listItem.add(date);
+		}
+		// mAdapter = new ListViewAdapter(dayPlanAc);
+		hwAdapter = new ListViewAdapter(dayPlanAc);
 	}
 
 	@Override
-	public int getCount()
-	{
+	public int getCount() {
 		return travelData.size() * repeatCount;
 	}
 
-	public int getRepeatCount()
-	{
+	public int getRepeatCount() {
 		return repeatCount;
 	}
 
-	public void setRepeatCount(int repeatCount)
-	{
+	public void setRepeatCount(int repeatCount) {
 		this.repeatCount = repeatCount;
 	}
 
 	@Override
-	public Object getItem(int position)
-	{
+	public Object getItem(int position) {
 		return position;
 	}
 
 	@Override
-	public long getItemId(int position)
-	{
+	public long getItemId(int position) {
 		return position;
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent)
-	{
+	public View getView(int position, View convertView, ViewGroup parent) {
 		View layout = convertView;
-		if (convertView == null)
-		{
+
+		if (convertView == null) {
 			layout = inflater.inflate(R.layout.book_display, null);
-			AphidLog.d("created new view from adapter: %d", position);
-			
-			ListView planLV = (ListView)layout.findViewById(R.id.planlistView);
-			ListView hwLV = (ListView)layout.findViewById(R.id.hwlistView);
-			
-			planLV.setAdapter(sa);
-			hwLV.setAdapter(sa);
+			planLV = (ListView) layout.findViewById(R.id.planlistView);
+			hwLV = (ListView) layout.findViewById(R.id.hwlistView);
+			hwAdapter = new ListViewAdapter(dayPlanAc);
+			planAdapter = new ListViewAdapter(dayPlanAc);
+
+			planLV.setAdapter(planAdapter);
+			hwLV.setAdapter(hwAdapter);
+
+			planAdapter.notifyDataSetChanged();
+			hwAdapter.notifyDataSetChanged();
+
+			hwLV.setOnItemClickListener(dayPlanAc);
+			hwLV.setOnItemLongClickListener(dayPlanAc);
+
 		}
-		
-		final ImageView addPlanBtn = (ImageView)layout.findViewById(R.id.add_plan_btn);
-		final ImageView addHWBtn = (ImageView)layout.findViewById(R.id.add_hw_btn);
-		
-		addHWBtn.setOnClickListener(new OnClickListener()
-		{
+		final ImageView addPlanBtn = (ImageView) layout
+				.findViewById(R.id.add_plan_btn);
+		final ImageView addHWBtn = (ImageView) layout
+				.findViewById(R.id.add_hw_btn);
+
+		addHWBtn.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v)
-			{
-				System.out.println("show add homework");
-//                mainActivity.pop.showAddHWPop(addHWBtn);
-//				mainActivity.pop.showAddClassPop(addHWBtn);
-//				mainActivity.pop.showAddExamPop(addHWBtn);
-//				dayPlanAc.pop.showAddHolidayPop(addHWBtn);
+			public void onClick(View v) {
 				dayPlanAc.pop.showAddHolidayPop(addHWBtn);
 			}
 		});
-		
-		addPlanBtn.setOnClickListener(new OnClickListener()
-		{
+
+		addPlanBtn.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v)
-			{
-				System.out.println("show add plan");
-//				mainActivity.showAddPlanPop();
+			public void onClick(View v) {
 				dayPlanAc.pop.showAddPlanPop(addPlanBtn);
 			}
 		});
 
-		final Travels.Data data = travelData.get(position % travelData.size());
-
-//		UI.<TextView> findViewById(layout, R.id.planlistView).setText(
-//				Html.fromHtml(data.description));
-//		UI.<TextView> findViewById(layout, R.id.hwlistView).setText(
-//				Html.fromHtml(data.description));
 		return layout;
 	}
 
-	public void removeData(int index)
-	{
-		if (travelData.size() > 1)
-		{
+	public void removeData(int index) {
+		if (travelData.size() > 1) {
 			travelData.remove(index);
 		}
 	}
+
 }

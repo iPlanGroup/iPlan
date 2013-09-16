@@ -2,17 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="#34353A" >
 
     <com.bbk.iplan.ui.CustomView
         android:id="@+id/custom_viewgroup"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="18dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="28dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="28dp"
+        android:background="#34353A"
         android:orientation="horizontal"
         android:visibility="visible" >
 
@@ -40,44 +42,43 @@
                 android:id="@+id/custom_dategroup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="20dp"
                 android:orientation="horizontal" >
 
                 <TextView
                     android:id="@+id/calendar_day"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="760dp"
+                    android:layout_marginLeft="750dp"
                     android:text="13"
-                    android:paddingRight="5dp"
                     android:textColor="#FFA01B"
-                    android:textSize="100sp" />
+                    android:textSize="120dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:paddingLeft="5dp"
                     android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/calendar_week"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="周三"
-                        android:textColor="#dddddd"
-                        android:textSize="35dp" />
 
                     <TextView
                         android:id="@+id/calendar_month"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
                         android:layout_toRightOf="@id/calendar_day"
-                        android:text="11月"
-                        android:textColor="#dddddd"
-                        android:textSize="35dp" />
+                        android:text="8月"
+                        android:textColor="#77787B"
+                        android:textSize="40dp" />
+
+                    <TextView
+                        android:id="@+id/calendar_week"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/calendar_month"
+                        android:layout_toRightOf="@id/calendar_day"
+                        android:text="周三"
+                        android:textColor="#77787B"
+                        android:textSize="40dp" />
                 </LinearLayout>
             </com.bbk.iplan.ui.CustomView>
 
@@ -86,14 +87,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="850dp"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp" >
+                android:layout_centerVertical="true" >
 
                 <RelativeLayout
                     android:id="@+id/calendarview"
-                    android:layout_width="294dp"
-                    android:layout_height="350dp"
-                    android:layout_marginTop="80dp" >
+                    android:layout_marginTop="150dp"
+                    android:layout_width="290dp"
+                    android:layout_height="320dp" >
                 </RelativeLayout>
             </com.bbk.iplan.ui.CustomView>
 
