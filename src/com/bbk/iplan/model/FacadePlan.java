@@ -53,7 +53,14 @@ public class FacadePlan extends AbstractFacadePlan {
 		return info;
 
 	}
-
+	public TermInfo CreateVacation(String name, Date StartTime, Date EndTime)
+	{
+		TermInfo info;
+		VacationManager manager = (VacationManager) SystemManager.getInstance()
+				.getSystemManager(SystemManager.MODE_VACATION);
+		info = manager.CreateVacation(name, StartTime, EndTime, true);
+		return info;
+	}
 	public void setCurTerm(Date startTime, Date endTime) {
 		term.setStartTime(startTime);
 		term.setEndTime(endTime);

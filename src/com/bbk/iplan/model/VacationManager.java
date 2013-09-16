@@ -1,5 +1,6 @@
 package com.bbk.iplan.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,10 +15,22 @@ import com.bbk.iplan.interfaces.VacationInterface;
 public class VacationManager implements ManagerInterface{
 
 	private VacationInterface mInterface=VacationTable.getInstance();
+	private List<TermInfo> termInfo=new ArrayList<TermInfo>();
 	public List<TermInfo> getAllVacation()
 	{
 		
 		return mInterface.getAllVacation();
+	}
+	public List<TermInfo> getAllTermInfo()
+	{
+		for (TermInfo i:mInterface.getAllVacation())
+		{
+			if (i.getIsTerm())
+			{
+				termInfo.add(i);
+			}
+		}
+		return termInfo;
 	}
 	/**
 	 * 
