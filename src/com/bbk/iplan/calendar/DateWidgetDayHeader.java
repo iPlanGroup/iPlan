@@ -2,10 +2,13 @@ package com.bbk.iplan.calendar;
 
 import java.util.Calendar;
 
+import com.bbk.iplan.R;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 
@@ -23,6 +26,7 @@ public class DateWidgetDayHeader extends View {
 	public DateWidgetDayHeader(Context context, int iWidth, int iHeight) {
 		super(context);
 		setLayoutParams(new LayoutParams(iWidth, iHeight));
+		setBackgroundResource(R.drawable.calendar_week_bg);
 	}
 
 	public void setData(int iWeekDay) {
@@ -37,23 +41,21 @@ public class DateWidgetDayHeader extends View {
 			// background
 			pt.setColor(DayStyle.getColorFrameHeader(bHoliday));
 			canvas.drawRect(rect, pt);
-
 			// text
-			pt.setTypeface(null);
+			pt.setTypeface(Typeface.SERIF);
 			pt.setTextSize(iDayHeaderFontSize);
 			pt.setAntiAlias(true);
-			pt.setFakeBoldText(true);
+			pt.setFakeBoldText(false);
 			pt.setColor(DayStyle.getColorTextHeader(bHoliday));
 
-			final int iTextPosY = getTextHeight();
+			final int iTextPosY = getHeight()/2 + getTextHeight()/2 - 2;
 			final String sDayName = DayStyle.getWeekDayName(iWeekDay);
 
 			// draw day name
 			final int iDayNamePosX = (int) rect.left
 					+ ((int) rect.width() >> 1)
 					- ((int) pt.measureText(sDayName) >> 1);
-			canvas.drawText(sDayName, iDayNamePosX+1, rect.top + iTextPosY + 2,
-					pt);
+			canvas.drawText(sDayName, iDayNamePosX, iTextPosY, pt);
 		}
 	}
 
@@ -65,11 +67,7 @@ public class DateWidgetDayHeader extends View {
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
-		// init rectangles
 		rect.set(0, 0, this.getWidth(), this.getHeight());
-		rect.inset(1, 1);
-
-		// drawing
 		drawDayHeader(canvas);
 	}
 

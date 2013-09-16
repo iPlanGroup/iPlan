@@ -27,24 +27,24 @@ public class DayStyle {
 	private final static String[] vecStrWeekDayNames = getWeekDayNames();
 
 	// fields
-	public final static int iColorFrameHeader = 0xff1d99f9;
-	public final static int iColorFrameHeaderHoliday = 0xff1d99f9;
+	public final static int iColorFrameHeader = 0x001d99f9;
+	public final static int iColorFrameHeaderHoliday = 0x001d99f9;
 	public final static int iColorTextHeader = 0xffffffff;
 	public final static int iColorTextHeaderHoliday = 0xffffffff;
 
-	public final static int iColorText = 0xffffffff;
-	public final static int iColorBkg = 0xff272a31;
-	public final static int iColorTextHoliday = 0xffffffff;
-	public final static int iColorBkgHoliday = 0xff272a31;
+	public final static int iColorText = 0xffdddddd;
+	public final static int iColorBkg = 0x00272a31;
+	public final static int iColorTextHoliday = 0xffdddddd;
+	public final static int iColorBkgHoliday = 0x00272a31;
 
 	public final static int iColorTextToday = 0xffa9abab;
 	public final static int iColorBkgToday = 0xff1d99f9;
 
-	public final static int iColorTextSelected = 0xffa9abab;
+	public final static int iColorTextSelected = 0xffffffff;
 	public final static int iColorBkgSelectedLight = 0xff1d99f9;
 	public final static int iColorBkgSelectedDark = 0xff1d99f9;
 
-	public final static int iColorTextFocused = 0xffa9abab;
+	public final static int iColorTextFocused = 0xffffffff;
 	public final static int iColorBkgFocusLight = 0xff1d99f9;
 	public final static int iColorBkgFocusDark = 0xff1d99f9;
 

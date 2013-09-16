@@ -2,6 +2,8 @@ package com.bbk.iplan.calendar;
 
 import java.util.Calendar;
 
+import com.bbk.iplan.R;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
@@ -9,6 +11,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Shader;
+import android.graphics.Typeface;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -50,6 +53,7 @@ public class DateWidgetDayCell extends View {
 		super(context);
 		setFocusable(true);
 		setLayoutParams(new LayoutParams(iWidth, iHeight));
+		setBackgroundResource(R.drawable.calendar_unit_bg);
 	}
 
 	public boolean getSelected() {
@@ -127,7 +131,7 @@ public class DateWidgetDayCell extends View {
 
 		// init rectangles
 		rect.set(0, 0, this.getWidth(), this.getHeight());
-		rect.inset(1, 1);
+		//rect.inset(0.5f, 0.5f);
 
 		// drawing
 		final boolean bFocused = IsViewFocused();
@@ -162,23 +166,23 @@ public class DateWidgetDayCell extends View {
 		} else {
 
 			pt.setColor(DayStyle.getColorBkg(bHoliday, false));
-			if (!bIsActiveMonth)
-				pt.setAlpha(iAlphaInactiveMonth);
+//			if (!bIsActiveMonth)
+//				pt.setAlpha(iAlphaInactiveMonth);
 			canvas.drawRect(rect, pt);
 		}
 	}
 
 	public void drawDayNumber(Canvas canvas, boolean bFocused) {
 		// draw day number
-		pt.setTypeface(null);
+		pt.setTypeface(Typeface.SERIF);
 		pt.setAntiAlias(true);
 		pt.setShader(null);
-		pt.setFakeBoldText(true);
+		pt.setFakeBoldText(false);
 		pt.setTextSize(fTextSize);
 
 		pt.setUnderlineText(false);
-		if (bToday)
-			pt.setUnderlineText(true);
+//		if (bToday)
+//			pt.setUnderlineText(true);
 
 		int iTextPosX = (int) rect.right - (int) pt.measureText(sDate);
 		int iTextPosY = (int) rect.bottom + (int) (-pt.ascent())
@@ -203,7 +207,6 @@ public class DateWidgetDayCell extends View {
 
 		canvas.drawText(sDate, iTextPosX, iTextPosY + iMargin, pt);
 
-		pt.setUnderlineText(false);
 	}
 
 	public boolean IsViewFocused() {
