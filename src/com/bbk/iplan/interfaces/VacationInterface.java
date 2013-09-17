@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.content.ContentValues;
 
+import com.bbk.iplan.data.SubjectInfo;
 import com.bbk.iplan.data.TermInfo;
 
 public interface VacationInterface {
@@ -43,4 +44,5 @@ public interface VacationInterface {
 	 * @throws
 	 */
 	public void modifyVacationInfo(int id,ContentValues contentValues);
+
 }

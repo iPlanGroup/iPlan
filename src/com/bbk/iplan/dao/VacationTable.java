@@ -178,4 +178,5 @@ public class VacationTable implements TableCreateInterface, VacationInterface{
 		db.update(TABLE_NAME, contentValues, "_id=?", new String[] {String.valueOf(id)});
 	}
 
+
 }

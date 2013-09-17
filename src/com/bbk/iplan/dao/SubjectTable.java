@@ -353,4 +353,10 @@ public class SubjectTable implements TableCreateInterface,SubjectInterface
 		db.update(TABLE_NAME, contentValues, "_id=?", new String[] {String.valueOf(id)});
 	}
 
+	@Override
+	public List<SubjectInfo> getSubjectInfosByVacationID(int id) {
+		// TODO Auto-generated method stub
+		return getSubjectInfoByVocaitonId(id);
+	}
+
 }

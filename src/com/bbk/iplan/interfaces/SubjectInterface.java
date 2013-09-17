@@ -56,4 +56,15 @@ public interface SubjectInterface {
 	 * @throws
 	 */
 	public void modifySubjectInfo(int id,ContentValues contentValues);
+	
+	/**
+	 * 
+	 * @Title: getSubjectInfosByID 
+	 * @Description: 通过学期的ID查找相关的课程信息 
+	 * @param @param id
+	 * @param @return    设定文件 
+	 * @return List<SubjectInfo>    返回类型 
+	 * @throws
+	 */
+	public List<SubjectInfo> getSubjectInfosByVacationID(int id);
 }
