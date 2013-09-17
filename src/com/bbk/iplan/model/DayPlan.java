@@ -57,7 +57,8 @@ public class DayPlan {
 				.getSystemManager(SystemManager.MODE_EVENT);
 		mCountManager = (CountManager) SystemManager.getInstance()
 				.getSystemManager(SystemManager.MODE_COUNT);
-		mVacationManager= (VacationManager)SystemManager.getInstance().getSystemManager(SystemManager.MODE_VACATION);
+		mVacationManager = (VacationManager) SystemManager.getInstance()
+				.getSystemManager(SystemManager.MODE_VACATION);
 	}
 
 	public List<HomeworkInfo> getDayHomework() {

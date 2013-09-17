@@ -158,6 +158,12 @@ public class FacadePlan extends AbstractFacadePlan {
 	{
 		return mVacationManager.getAllVacation();
 	}
+	public List<SubjectInfo> getSubjectInfoByVacationID(int id)
+	{
+		return ((SubjectManager)SystemManager.getInstance().
+				getSystemManager(SystemManager.MODE_VACATION)).
+				getSubjectInfoByVacationID(id);
+	}
 	@Override
 	public void ModifyDayPlan(int mode, int id, ContentValues contentValues) {
 		// TODO Auto-generated method stub

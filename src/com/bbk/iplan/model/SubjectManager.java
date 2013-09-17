@@ -47,4 +47,9 @@ public class SubjectManager implements ManagerInterface{
 		// TODO Auto-generated method stub
 		mInterface.modifySubjectInfo(id, contentValues);
 	}
+	public List<SubjectInfo> getSubjectInfoByVacationID(int id)
+	{
+		return mInterface.getSubjectInfosByVacationID(id);
+	}
+	
 }

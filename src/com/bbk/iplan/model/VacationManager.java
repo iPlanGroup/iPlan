@@ -21,6 +21,7 @@ public class VacationManager implements ManagerInterface{
 		
 		return mInterface.getAllVacation();
 	}
+	
 	public List<TermInfo> getAllTermInfo()
 	{
 		for (TermInfo i:mInterface.getAllVacation())
